@@ -91,27 +91,34 @@ section>*{min-width:0}
 .about p{max-width:36em;margin:0 0 1em}
 .about img{width:100%;max-width:100%;aspect-ratio:1;object-fit:cover;display:block;filter:grayscale(.25)}
 
-.fields{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
-.field{padding:6px 24px 0 0;min-width:0}
-.field+.field{padding-left:24px;border-left:1px solid var(--line)}
-.field h3{font-size:17px;font-weight:600;margin:4px 0 12px}
-.field ul{list-style:none;margin:0;padding:0;font-size:15px}
-.field li{padding:7px 0;border-bottom:1px solid var(--line)}
+.fields{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-bottom:1px solid var(--line)}
+.field{padding:18px 24px 22px 0;min-width:0;border-top:1px solid var(--line)}
+.field:nth-child(-n+2){border-top:0;padding-top:4px}
+.field:nth-child(2n){padding-left:24px;padding-right:0;border-left:1px solid var(--line)}
+.field h3{font-size:17px;font-weight:600;margin:4px 0 6px}
+.field p{margin:0;color:var(--muted);font-size:15px;max-width:34em}
+.field.wide{grid-column:1/-1;border-left:0!important;padding-left:0!important}
 
-.proj{display:grid;grid-template-columns:1fr auto;gap:12px 32px;padding:4px 0 28px;margin-bottom:28px;border-bottom:1px solid var(--line)}
-.proj:last-of-type{margin-bottom:0}
-.proj>*{min-width:0}
-.proj .meta{grid-column:1/-1}
-.proj h3{font-size:22px;margin:0 0 8px;font-weight:600;letter-spacing:-.01em}
-.proj p{margin:0;color:var(--muted);max-width:42em}
-.proj .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
-.proj .tags span{font-family:var(--mono);font-size:11.5px;padding:3px 8px;background:var(--sheet);border:1px solid var(--line)}
-.proj .links{display:flex;flex-direction:column;gap:6px;font-family:var(--mono);font-size:13px;white-space:nowrap}
-.proj .links a{text-decoration:none;color:var(--sea)}
-.proj .links a:hover{text-decoration:underline}
-.more{display:flex;flex-wrap:wrap;gap:8px 22px;padding-top:20px;font-family:var(--mono);font-size:13px}
-.more a{text-decoration:none;color:var(--muted)}
-.more a:hover{color:var(--sea)}
+.stack{display:grid;gap:0}
+.srow{display:grid;grid-template-columns:180px 1fr;gap:12px 24px;padding:16px 0;border-bottom:1px solid var(--line)}
+.srow:first-child{padding-top:4px}
+.srow>*{min-width:0}
+.srow h3{font-size:15px;font-weight:600;margin:2px 0 0}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips span{font-family:var(--mono);font-size:12.5px;padding:4px 10px;background:var(--sheet);border:1px solid var(--line)}
+.chips span.main{border-color:var(--ink);font-weight:500}
+.chips span.main::after{content:" ●";color:var(--sea);font-size:9px;vertical-align:2px}
+.legend{margin:14px 0 0;font-family:var(--mono);font-size:11.5px;color:var(--muted)}
+.legend b{color:var(--sea);font-weight:400}
+
+.flow{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:0;counter-reset:s;border:1.5px solid var(--ink);background:var(--sheet)}
+.flow li{flex:1 1 110px;padding:14px 14px 16px;border-right:1px solid var(--line);counter-increment:s;min-width:0}
+.flow li:last-child{border-right:0}
+.flow li::before{content:counter(s,decimal-leading-zero);display:block;font-family:var(--mono);font-size:11px;color:var(--muted);margin-bottom:4px}
+.flow li span{font-size:14.5px;font-weight:500}
+.more{display:flex;flex-wrap:wrap;align-items:center;gap:8px 22px;padding-top:24px;font-family:var(--mono);font-size:13px}
+.more a{text-decoration:none;color:var(--sea)}
+.more a:hover{text-decoration:underline}
 
 .contact{display:grid;grid-template-columns:1fr 1fr;border:1.5px solid var(--ink);background:var(--sheet)}
 .contact>div{padding:24px;min-width:0}
@@ -136,9 +143,10 @@ footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin
   .tblock div:nth-child(2n){border-right:0}
   .tblock div:last-child{grid-column:1/-1;border-bottom:0}
   .fields{grid-template-columns:1fr}
-  .field,.field+.field{padding:0 0 16px;border-left:0}
-  .proj{grid-template-columns:1fr}
-  .proj .links{flex-direction:row;gap:18px}
+  .field,.field:nth-child(2n){padding:16px 0 18px;border-left:0;border-top:1px solid var(--line)}
+  .field:first-child{border-top:0}
+  .srow{grid-template-columns:1fr;gap:8px}
+  .flow li{flex-basis:50%;border-bottom:1px solid var(--line)}
   .contact{grid-template-columns:1fr}
   .contact>div+div{border-left:0;border-top:1px solid var(--ink)}
 }
@@ -157,7 +165,7 @@ footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin
     <span class="id">BUGEON PARK</span>
     <div class="right">
       <nav class="mono" aria-label="Sections">
-        <a href="#about">About</a><a href="#expertise">Expertise</a><a href="#work">Work</a><a href="#contact">Contact</a>
+        <a href="#about">About</a><a href="#focus">Focus</a><a href="#stack">Stack</a><a href="#contact">Contact</a>
       </nav>
       <div class="lang" role="group" aria-label="Language">
         <button type="button" id="lang-ko" data-set="ko" aria-pressed="true">KO</button>
@@ -170,13 +178,13 @@ footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin
     <div>
       <span class="mono"><span lang="ko">AI 시스템 엔지니어 · 대한민국</span><span lang="en">AI Systems Engineer · South Korea</span></span>
       <h1>Bugeon<br><em>Park</em></h1>
-      <p class="lede" lang="ko">AI, 기계공학, 알고리즘을 바탕으로 <b>지능형 시스템</b>을 연구하고 설계합니다. 모델의 성능을 실제 하드웨어 위에서 측정하고, 데이터로 현실의 문제를 정량화하는 일을 합니다.</p>
-      <p class="lede" lang="en">I research and build <b>intelligent systems</b> at the intersection of AI, mechanical engineering and algorithms, measuring how models perform on real hardware and using data to quantify real-world problems.</p>
+      <p class="lede" lang="ko">AI, 기계공학, 알고리즘을 바탕으로 <b>지능형 시스템</b>을 연구하고 설계합니다. 로컬 LLM 에이전트, 컴퓨터 비전, 보안 런타임, 퀀트 ML, 임베디드·로봇 시스템까지 설계부터 검증까지 직접 만듭니다.</p>
+      <p class="lede" lang="en">I research and build <b>intelligent systems</b> at the intersection of AI, mechanical engineering and algorithms, building local-first agents, computer vision, secure runtimes, quantitative ML and embedded robotics from design through verification.</p>
       <ul class="roles">
         <li>AI Researcher</li><li>Mechanical Engineer</li><li>CTO, Team PJ</li>
       </ul>
       <div class="cta">
-        <a class="btn" href="#work"><span lang="ko">프로젝트 보기</span><span lang="en">View work</span></a>
+        <a class="btn" href="#stack"><span lang="ko">기술 스택 보기</span><span lang="en">View stack</span></a>
         <a class="btn ghost" href="https://github.com/Bugeon151" target="_blank" rel="noopener">GitHub ↗</a>
       </div>
     </div>
@@ -187,7 +195,7 @@ footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin
 
   <dl class="tblock" aria-label="Profile summary">
     <div><dt lang="ko">직책</dt><dt lang="en">Position</dt><dd>CTO · Team PJ</dd></div>
-    <div><dt lang="ko">분야</dt><dt lang="en">Focus</dt><dd>AI Systems</dd></div>
+    <div><dt lang="ko">분야</dt><dt lang="en">Focus</dt><dd>Local-first AI</dd></div>
     <div class="hl"><dt lang="ko">백준 최고 랭크</dt><dt lang="en">BOJ peak rank</dt><dd>#67</dd></div>
     <div class="hl"><dt lang="ko">백분위</dt><dt lang="en">Percentile</dt><dd>Top 0.11%</dd></div>
     <div><dt lang="ko">위치</dt><dt lang="en">Based in</dt><dd><span lang="ko">대한민국</span><span lang="en">South Korea</span></dd></div>
@@ -201,73 +209,87 @@ footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin
         <p class="big" lang="en">I define and solve problems where <em>software, mathematics and engineering</em> meet.</p>
         <div lang="ko">
           <p>박부건입니다. 인공지능 시스템, 기계공학, 알고리즘을 연구하고 있습니다. 경쟁 프로그래밍에서는 백준(BOJ) 최고 랭크 67위, 상위 0.11%를 기록했습니다.</p>
-          <p>현재 관심사는 로컬 환경에서의 LLM 추론 효율화와 공공데이터 기반 분석입니다. Team PJ에서는 CTO로서 기술 방향을 정하고 시스템 설계를 이끌고 있습니다.</p>
+          <p>지금은 외부 서버에 의존하지 않는 로컬 우선(local-first) AI에 집중하고 있습니다. 데이터는 기기 안에서 처리하고, 에이전트의 모든 실행은 승인·감사·롤백이 가능하도록 설계합니다. Team PJ에서는 CTO로서 기술 방향을 정하고 시스템 설계를 이끌고 있습니다.</p>
         </div>
         <div lang="en">
           <p>I'm Bugeon Park, working across AI systems, mechanical engineering and algorithms. In competitive programming I reached a peak rank of #67 on Baekjoon Online Judge, in the top 0.11%.</p>
-          <p>My current focus is efficient LLM inference on local hardware and analysis built on public data. As CTO of Team PJ, I set the technical direction and lead system design.</p>
+          <p>My focus now is local-first AI that does not depend on outside servers: data stays on the device, and every action an agent takes can be approved, audited and rolled back. As CTO of Team PJ, I set the technical direction and lead system design.</p>
         </div>
       </div>
       <figure><img src="img/winter.jpg" alt="Bugeon Park in front of a stone wall in winter"></figure>
     </div>
   </section>
 
-  <section id="expertise">
-    <div class="label"><span class="mono">02</span><h2>Expertise</h2></div>
-    <div class="body fields">
-      <div class="field"><span class="mono">AI</span><h3>Artificial Intelligence</h3>
-        <ul><li>AI Systems</li><li>AI Agents</li><li>Machine Learning</li><li>Local AI</li></ul></div>
-      <div class="field"><span class="mono">ME</span><h3>Engineering</h3>
-        <ul><li>Mechanical Engineering</li><li>System Design</li><li>Optimization</li></ul></div>
-      <div class="field"><span class="mono">CS</span><h3>Computer Science</h3>
-        <ul><li>Algorithms</li><li>Data Structures</li><li>Systems</li><li>Competitive Programming</li></ul></div>
+  <section id="focus">
+    <div class="label"><span class="mono">02</span><h2>Focus</h2></div>
+    <div class="body">
+      <div class="fields">
+        <div class="field"><span class="mono">AI × Systems</span>
+          <h3 lang="ko">API 호출을 넘어선 AI 시스템</h3><h3 lang="en">AI beyond the API call</h3>
+          <p lang="ko">로컬 모델, 에이전트, 도구 실행, 검증까지 시스템 전체를 직접 설계하고 통합합니다.</p>
+          <p lang="en">Local models, agents, tool execution and verification, designed and integrated as one system.</p></div>
+        <div class="field"><span class="mono">Build × Verify</span>
+          <h3 lang="ko">검증까지 이어지는 개발</h3><h3 lang="en">Development that ends in evidence</h3>
+          <p lang="ko">단위·통합·E2E 테스트, 벤치마크, 클린 클론 재현성까지 하나의 흐름으로 묶습니다.</p>
+          <p lang="en">Unit, integration and E2E tests, benchmarks and clean-clone reproducibility in one workflow.</p></div>
+        <div class="field"><span class="mono">AI × Security</span>
+          <h3 lang="ko">안전하게 동작하는 에이전트</h3><h3 lang="en">Agents that run safely</h3>
+          <p lang="ko">승인 기반 실행, 위변조 방지 감사 로그, 서명 검증, 롤백을 에이전트 런타임에 결합합니다.</p>
+          <p lang="en">Approval-gated execution, tamper-evident audit logs, signature checks and rollback built into the agent runtime.</p></div>
+        <div class="field"><span class="mono">Software × Infra</span>
+          <h3 lang="ko">직접 운영하는 인프라</h3><h3 lang="en">Self-hosted infrastructure</h3>
+          <p lang="ko">Windows, macOS, Linux, Raspberry Pi, 서버를 함께 운용하며 로컬 AI와 원격 시스템을 구성합니다.</p>
+          <p lang="en">Windows, macOS, Linux, Raspberry Pi and rack servers run together for local AI and remote systems.</p></div>
+        <div class="field wide"><span class="mono">AI × Quant · Vision · Robotics</span>
+          <h3 lang="ko">여러 도메인으로 확장되는 AI</h3><h3 lang="en">AI across domains</h3>
+          <p lang="ko">금융 시계열 예측, 위성 영상 세그멘테이션, 로봇 팔 제어까지 AI를 실제 문제에 적용합니다.</p>
+          <p lang="en">Financial time-series forecasting, satellite-image segmentation and robotic-arm control.</p></div>
+      </div>
     </div>
   </section>
 
-  <section id="work">
-    <div class="label"><span class="mono">03</span><h2><span lang="ko">Work</span><span lang="en">Work</span></h2></div>
+  <section id="stack">
+    <div class="label"><span class="mono">03</span><h2>Stack</h2></div>
     <div class="body">
-      <article class="proj">
-        <span class="mono meta"><span lang="ko">2026 · 국민체육진흥공단 공공데이터 활용 경진대회</span><span lang="en">2026 · KSPO Public Data Competition</span></span>
-        <div>
-          <h3>SPORT-GAP</h3>
-          <p lang="ko">전국 250개 시군구의 생활체육 접근성 격차를 측정하는 웹서비스입니다. 시설 공급, 이용권 접근성, 종목 다양성, 공간 접근성의 네 가지 지표로 격차의 원인을 보여주며, What-if 시뮬레이터와 가중치 민감도 분석을 제공합니다.</p>
-          <p lang="en">A web service that measures gaps in access to community sports across 250 Korean municipalities. It breaks each gap into four indicators (facility supply, voucher access, sport diversity and spatial access) and includes a what-if simulator and weight-sensitivity analysis.</p>
-          <div class="tags"><span>Python</span><span>Public data</span><span>Geospatial</span><span>GitHub Pages</span></div>
-        </div>
-        <div class="links"><a href="https://bugeon151.github.io/SPORT-GAP/" target="_blank" rel="noopener">Live ↗</a><a href="https://github.com/Bugeon151/SPORT-GAP" target="_blank" rel="noopener">Code ↗</a></div>
-      </article>
-      <article class="proj">
-        <span class="mono meta"><span lang="ko">LLM 벤치마크</span><span lang="en">LLM benchmark</span></span>
-        <div>
-          <h3>Q-Bench</h3>
-          <p lang="ko">Qwen2.5-7B-Instruct를 F16부터 Q2_K까지 7단계 GGUF 양자화로 변환해, Apple M5(Metal)에서 모델 크기, 메모리, 처리량, 레이턴시를 측정한 로컬 LLM 추론 벤치마크입니다.</p>
-          <p lang="en">A local LLM inference benchmark that quantizes Qwen2.5-7B-Instruct to seven GGUF levels, from F16 to Q2_K, and measures model size, memory, throughput and latency on Apple M5 (Metal).</p>
-          <div class="tags"><span>llama.cpp</span><span>GGUF</span><span>Apple M5 · 24 GB</span><span>Python</span></div>
-        </div>
-        <div class="links"><a href="https://github.com/Bugeon151/Q-BENCH" target="_blank" rel="noopener">Code ↗</a></div>
-      </article>
-      <article class="proj">
-        <span class="mono meta"><span lang="ko">연구</span><span lang="en">Research</span></span>
-        <div>
-          <h3>AI Inference Optimization Lab</h3>
-          <p lang="ko">AI 모델의 추론 속도와 효율을 높이는 기법을 실험하는 저장소입니다.</p>
-          <p lang="en">Experiments on techniques for faster, more efficient AI model inference.</p>
-          <div class="tags"><span>Inference</span><span>Optimization</span></div>
-        </div>
-        <div class="links"><a href="https://github.com/Bugeon151/AI-Inference-Optimization-Lab" target="_blank" rel="noopener">Code ↗</a></div>
-      </article>
+      <div class="stack">
+        <div class="srow"><h3>Languages</h3><div class="chips"><span class="main">Python</span><span>Rust</span><span>Dart</span><span>TypeScript / JavaScript</span><span>Swift</span><span>Bash</span><span>PowerShell</span></div></div>
+        <div class="srow"><h3>AI · LLM</h3><div class="chips"><span class="main">Local LLM</span><span class="main">Agent Systems</span><span>Ollama</span><span>llama.cpp · GGUF</span><span>Qwen</span><span>DeepSeek-R1</span><span>Gemma</span><span>Whisper</span><span>ONNX</span></div></div>
+        <div class="srow"><h3>Vision · ML</h3><div class="chips"><span class="main">Semantic Segmentation</span><span>Geospatial Imagery</span><span>Annotation Processing</span><span>Model Evaluation</span><span>Walk-forward Validation</span><span>Quantitative ML</span></div></div>
+        <div class="srow"><h3>Mobile</h3><div class="chips"><span class="main">Flutter</span><span>Android · APK / AAB</span><span>iOS Integration</span><span>FCM · APNs</span></div></div>
+        <div class="srow"><h3>Backend · Data</h3><div class="chips"><span>PostgreSQL</span><span>SQLite</span><span>REST APIs</span><span>OIDC</span><span>Garnet</span></div></div>
+        <div class="srow"><h3>Testing · Release</h3><div class="chips"><span class="main">pytest</span><span>Vitest</span><span>Playwright</span><span>E2E · Device E2E</span><span>CI Matrix</span><span>Reproducible Builds</span></div></div>
+        <div class="srow"><h3>Security</h3><div class="chips"><span>Tamper-evident Audit Chains</span><span>Signature Verification</span><span>Token Validation</span><span>Secret Scanning</span><span>ED25519</span><span>ufw · fail2ban</span></div></div>
+        <div class="srow"><h3>Infra · OS</h3><div class="chips"><span>Linux · Ubuntu</span><span>Docker</span><span>SSH</span><span>Samba</span><span>Raspberry Pi 4 / 5</span><span>CUDA</span><span>Apple Silicon</span></div></div>
+        <div class="srow"><h3>Embedded · Robotics</h3><div class="chips"><span>Arduino Mega</span><span>TTL Servo</span><span>SBC + MCU Control</span><span>Power Budgeting</span></div></div>
+        <div class="srow"><h3>Tools</h3><div class="chips"><span>Git · GitHub</span><span>uv</span><span>npm</span><span>CMake · Ninja</span><span>VS Code</span><span>Claude Code</span><span>Aider</span></div></div>
+      </div>
+      <p class="legend"><b>●</b> <span lang="ko">주력으로 쓰는 기술</span><span lang="en">Primary tools</span></p>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="label"><span class="mono">04</span><h2>Process</h2></div>
+    <div class="body">
+      <p style="margin:0 0 20px;max-width:40em"><span lang="ko">대회와 개인 프로젝트에서 반복해 온 작업 방식입니다. 아이디어에서 끝나지 않고, 검증된 릴리스까지 직접 가져갑니다.</span><span lang="en">The cycle I run on competition and personal projects, taking an idea all the way to a verified release.</span></p>
+      <ol class="flow">
+        <li><span lang="ko">문제 정의</span><span lang="en">Define</span></li>
+        <li><span lang="ko">시스템 설계</span><span lang="en">Design</span></li>
+        <li><span lang="ko">구현</span><span lang="en">Build</span></li>
+        <li><span lang="ko">테스트·검증</span><span lang="en">Validate</span></li>
+        <li><span lang="ko">벤치마크</span><span lang="en">Benchmark</span></li>
+        <li><span lang="ko">보안 점검</span><span lang="en">Secure</span></li>
+        <li><span lang="ko">문서화</span><span lang="en">Document</span></li>
+        <li><span lang="ko">릴리스</span><span lang="en">Release</span></li>
+      </ol>
       <div class="more">
-        <span class="mono"><span lang="ko">기타</span><span lang="en">Also</span></span>
-        <a href="https://github.com/Bugeon151/fintech-ledger-core" target="_blank" rel="noopener">fintech-ledger-core ↗</a>
-        <a href="https://github.com/Bugeon151/codegate-AI-startup-hackathon" target="_blank" rel="noopener">codegate-AI-startup-hackathon ↗</a>
-        <a href="https://github.com/Bugeon151/TEAM_KPB" target="_blank" rel="noopener">TEAM_KPB ↗</a>
+        <span class="mono"><span lang="ko">작업물</span><span lang="en">Work</span></span>
+        <a href="https://github.com/Bugeon151" target="_blank" rel="noopener"><span lang="ko">GitHub에서 보기 ↗</span><span lang="en">See it on GitHub ↗</span></a>
       </div>
     </div>
   </section>
 
   <section id="contact">
-    <div class="label"><span class="mono">04</span><h2>Contact</h2></div>
+    <div class="label"><span class="mono">05</span><h2>Contact</h2></div>
     <div class="body" style="border-top:0;padding-top:0">
       <p style="margin:0 0 20px;max-width:36em"><span lang="ko">협업, 프로젝트, 연구 관련 문의는 이메일로 연락 주세요.</span><span lang="en">For collaboration, projects or research, please reach out by email.</span></p>
       <div class="contact">
