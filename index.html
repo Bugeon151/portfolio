@@ -101,7 +101,7 @@ main,header,footer{position:relative;z-index:2}
   background:linear-gradient(100deg,var(--accent),var(--accent-2));color:#04070c;will-change:transform}
 .btn::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.45) 50%,transparent 70%);transform:translateX(-120%);transition:transform .7s}
 .btn:hover::after{transform:translateX(120%)}
-.btn.ghost{color:var(--ink);border-color:var(--line)}
+.btn.ghost{background:var(--glass);color:var(--ink);border-color:var(--line)}
 .btn.ghost:hover{border-color:var(--accent)}
 .hud{position:absolute;right:clamp(16px,5vw,64px);bottom:32px;z-index:2;text-align:right;font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--muted);line-height:1.9}
 .hud b{color:var(--accent-2);font-weight:500}
@@ -441,7 +441,7 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;paddin
     lbtns.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.set === l)));
     try { localStorage.setItem('lang', l); } catch {}
     if (root.classList.contains('motion')) gsap.set('[data-r]', { opacity: 1, y: 0 });
-    if (hasGsap) ScrollTrigger.refresh();
+    if (hasGsap) { ScrollTrigger.sort(); ScrollTrigger.refresh(); }
   }
   let saved = null; try { saved = localStorage.getItem('lang'); } catch {}
   setLang(saved || ((navigator.language || 'ko').toLowerCase().startsWith('ko') ? 'ko' : 'en'));
@@ -636,7 +636,7 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;paddin
        .to(loader, { yPercent: -100, duration: 1, ease: 'expo.inOut' }, '+=.1')
        .to('#name .c', { yPercent: 0, duration: 1.1, ease: 'power4.out', stagger: .04 }, '-=.45')
        .to(['.pill', '.rot', '.hero .sub', '.cta', '.hud', '.scroll-cue'], { opacity: 1, y: 0, duration: .9, ease: 'power3.out', stagger: .08 }, '-=.8')
-       .add(() => { loader.remove(); if (lenis) lenis.start(); ScrollTrigger.refresh(); });
+       .add(() => { loader.remove(); if (lenis) lenis.start(); ScrollTrigger.sort(); ScrollTrigger.refresh(); });
 
   /* ---------- section → particle shape, nav state ---------- */
   const navLinks = [...document.querySelectorAll('.nav nav a')];
@@ -711,7 +711,8 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;paddin
     scrollTrigger: { trigger: '.contact', start: 'top 70%' } }));
   gsap.from('.lk', { y: 30, opacity: 0, duration: .8, stagger: .1, ease: 'power3.out', scrollTrigger: { trigger: '.links', start: 'top 92%' } });
 
-  addEventListener('load', () => ScrollTrigger.refresh());
+  ScrollTrigger.sort();
+  addEventListener('load', () => { ScrollTrigger.sort(); ScrollTrigger.refresh(); });
 })();
 </script>
 </body>
