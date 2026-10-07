@@ -102,6 +102,30 @@ section+section{margin-top:clamp(72px,10vw,120px)}
 .more span{transition:transform .2s}
 .more:hover{color:var(--accent)}.more:hover span{transform:translateX(4px)}
 
+.arch-lede{margin:0 0 18px;max-width:36em}
+.years{display:flex;flex-wrap:wrap;gap:8px}
+.yr{display:inline-flex;align-items:center;gap:10px;font:600 15px var(--sans);letter-spacing:-.01em;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 16px;cursor:pointer;transition:border-color .2s,background .2s,color .2s}
+.yr:hover{border-color:var(--accent)}
+.yr .cnt{font:500 11.5px var(--mono);color:var(--accent);background:var(--chip-bg);border-radius:999px;padding:1px 8px}
+.yr[aria-selected="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.yr[aria-selected="true"] .cnt{background:color-mix(in srgb,var(--bg) 18%,transparent);color:var(--bg)}
+.panel{margin-top:28px;animation:open .35s cubic-bezier(.2,.7,.2,1)}
+@keyframes open{from{transform:translateY(8px)}to{transform:none}}
+.grp{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);font-weight:500;margin:0 0 4px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.grp:not(:first-child){margin-top:40px}
+.alist{list-style:none;margin:0;padding:0}
+.alist>li{display:grid;grid-template-columns:72px 1fr;gap:4px 20px;padding:18px 0;border-bottom:1px solid var(--line)}
+.alist>li>*{min-width:0}
+.alist .m{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;color:var(--muted);padding-top:3px}
+.alist h4{color:var(--ink);font-size:16px;font-weight:600;letter-spacing:-.01em;margin:0;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px}
+.alist .ext{font:500 12.5px var(--mono);color:var(--accent)}
+.alist .ext:hover{text-decoration:underline}
+.alist .ctx{margin:2px 0 0;font-size:14px;color:var(--ink-2)}
+.alist p{margin:6px 0 0;font-size:15px;line-height:1.6}
+.alist .ctx+p{margin-top:6px}
+@media (max-width:560px){.alist>li{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.panel{animation:none}}
+
 .stack{display:grid;gap:0;border-top:1px solid var(--line)}
 .srow{display:grid;grid-template-columns:120px 1fr;gap:6px 24px;padding:14px 0;border-bottom:1px solid var(--line)}
 .srow>*{min-width:0}
@@ -142,6 +166,7 @@ section+section{margin-top:clamp(72px,10vw,120px)}
         <li><a href="#about" data-sec="about">About</a></li>
         <li><a href="#experience" data-sec="experience">Experience</a></li>
         <li><a href="#projects" data-sec="projects">Projects</a></li>
+        <li><a href="#archive" data-sec="archive">Archive</a></li>
         <li><a href="#stack" data-sec="stack">Stack</a></li>
       </ul>
     </div>
@@ -236,6 +261,75 @@ section+section{margin-top:clamp(72px,10vw,120px)}
       <a class="more" href="https://github.com/Bugeon151" target="_blank" rel="noopener"><span lang="ko">GitHub에서 전체 보기</span><span lang="en">View all on GitHub</span> <span aria-hidden="true">→</span></a>
     </section>
 
+    <section id="archive" aria-label="Archive">
+      <h2 class="sec-title">Archive</h2>
+      <p class="arch-lede" lang="ko">참가한 대회와 만든 서비스를 연도별로 정리했습니다. 연도를 선택하면 목록이 열립니다.</p>
+      <p class="arch-lede" lang="en">Competitions I've entered and services I've built, by year. Pick a year to open the list.</p>
+      <div class="years" role="tablist" aria-label="Year">
+        <button type="button" role="tab" id="yr-2026" class="yr" data-year="2026" aria-selected="false" aria-controls="panel-2026">2026 <span class="cnt">12</span></button>
+      </div>
+
+      <div class="panel" id="panel-2026" role="tabpanel" aria-labelledby="yr-2026" hidden>
+        <h3 class="grp"><span lang="ko">대회 · 해커톤</span><span lang="en">Competitions &amp; hackathons</span></h3>
+        <ul class="alist">
+          <li><span class="m">SEP</span><div>
+            <h4>SPORT-GAP <a class="ext" href="https://bugeon151.github.io/SPORT-GAP/" target="_blank" rel="noopener">Live ↗</a></h4>
+            <p class="ctx"><span lang="ko">국민체육진흥공단 공공데이터 활용 경진대회 · 서비스 개발 부문</span><span lang="en">KSPO Public Data Competition · Service track</span></p>
+            <p lang="ko">공공데이터 4종을 결합해 전국 250개 시군구의 생활체육 접근성 격차를 측정하는 웹서비스.</p>
+            <p lang="en">A web service measuring community-sports access gaps across 250 municipalities from four public datasets.</p></div></li>
+          <li><span class="m">SEP</span><div>
+            <h4>ScopeGuard</h4>
+            <p class="ctx">Luma Hackathon</p>
+            <p lang="ko">PRD와 GitHub 이슈·커밋을 비교해 범위 이탈(추가·누락·변경·과잉 구현)을 근거와 함께 찾아내고, 일정·비용 영향을 추정하는 도구.</p>
+            <p lang="en">Compares a PRD with GitHub issues and commits to flag scope drift (added, missing, changed, gold-plated) with evidence, and estimates schedule and cost impact.</p>
+            <ul class="tags"><li>Next.js</li><li>TypeScript</li></ul></div></li>
+          <li><span class="m">JUN</span><div>
+            <h4>JB ComplianceOS</h4>
+            <p class="ctx"><span lang="ko">Dacon · JB금융그룹 AI 챌린지 지정주제 2</span><span lang="en">Dacon · JB Financial Group AI Challenge, Track 2</span></p>
+            <p lang="ko">규칙 기반 판단과 AI를 결합해 금융광고 문구의 준법 여부를 자동 심사하고, 준법감시인의 검토·승인 흐름을 지원하는 시스템.</p>
+            <p lang="en">Combines rule-based checks with AI to review financial-ad copy for compliance and support the compliance officer's review and approval flow.</p></div></li>
+          <li><span class="m">JUN</span><div>
+            <h4><span lang="ko">코드게이트 AI 스타트업 해커톤</span><span lang="en">CodeGate AI Startup Hackathon</span></h4>
+            <p class="ctx"><span lang="ko">참가</span><span lang="en">Participant</span></p></div></li>
+        </ul>
+
+        <h3 class="grp"><span lang="ko">서비스 · 프로덕트</span><span lang="en">Services &amp; products</span></h3>
+        <ul class="alist">
+          <li><span class="m">APP</span><div><h4>Bium</h4>
+            <p lang="ko">사진이 기기 밖으로 나가지 않는 로컬 우선 사진 정리 앱. 중복·유사·흐린 사진과 스크린샷을 찾아 정리합니다.</p>
+            <p lang="en">A local-first photo cleaner: finds duplicates, similar and blurry shots, and screenshots without any photo leaving the phone.</p>
+            <ul class="tags"><li>Flutter</li><li>Android</li><li>iOS</li></ul></div></li>
+          <li><span class="m">APP</span><div><h4>NEXUS</h4>
+            <p lang="ko">실제 대중교통 이동을 게임 진행도로 바꾸는 현실 탐험 게임. 서버 없이 동작하는 로컬 우선 MVP.</p>
+            <p lang="en">A real-world exploration game that turns public-transit trips into game progress. Local-first MVP with no server.</p>
+            <ul class="tags"><li>Flutter</li></ul></div></li>
+          <li><span class="m">AI</span><div><h4>ANABADA</h4>
+            <p lang="ko">모델, 배터리 상태, 외관, 수리 이력 등을 반영해 중고 전자기기의 적정 시세를 불확실성과 함께 추정하는 서비스. Team PJ.</p>
+            <p lang="en">Estimates fair resale value for used electronics from model, battery health, condition and repair history, with uncertainty. Team PJ.</p>
+            <ul class="tags"><li>Flutter</li><li>ML</li><li>Walk-forward Validation</li></ul></div></li>
+          <li><span class="m">AI</span><div><h4>REUP</h4>
+            <p lang="ko">제품을 식별하고 시장 데이터를 연결해 현재 가치와 그 근거를 설명하는 Product Intelligence AI.</p>
+            <p lang="en">Product-intelligence AI that identifies a product, links market data and explains its current value with evidence.</p>
+            <ul class="tags"><li>Next.js</li><li>FastAPI</li></ul></div></li>
+          <li><span class="m">AI</span><div><h4>Synapsis</h4>
+            <p lang="ko">회사 데이터를 Company Brain으로 구조화하고, 분석·전략·시뮬레이션·리스크 검토를 거쳐 사람이 최종 결정하도록 돕는 의사결정 AI.</p>
+            <p lang="en">Decision-support AI that structures company data into a Company Brain, then runs analysis, strategy, simulation and risk review before a human decides.</p></div></li>
+          <li><span class="m">PLAT</span><div><h4>HAZLINK</h4>
+            <p lang="ko">위험물 운송 건을 자격·차량 조건이 맞는 기사에게만 연결하는 위험물 전용 화물 매칭 플랫폼.</p>
+            <p lang="en">A freight-matching platform for hazardous materials that shows each job only to drivers with matching licences and vehicles.</p>
+            <ul class="tags"><li>Flutter</li><li>Supabase</li><li>Next.js</li></ul></div></li>
+          <li><span class="m">QUANT</span><div><h4>Quant Forge X · TradeVision</h4>
+            <p lang="ko">연구·백테스트·페이퍼·실거래를 같은 전략과 리스크 코드로 잇는 검증 중심 퀀트 플랫폼과, 미국 주식 방향·수익률 예측 모델 연구.</p>
+            <p lang="en">A verification-first quant platform that runs research, backtest, paper and live trading on the same strategy and risk code, plus US-equity forecasting models.</p>
+            <ul class="tags"><li>Python</li><li>Quantitative ML</li></ul></div></li>
+          <li><span class="m">LAB</span><div><h4>Bugeon Lab · PAGO / EDITH / FRIDAY</h4>
+            <p lang="ko">개인용 AI 시스템 연구. 계획·실행·검증하는 로컬 우선 에이전트 PAGO, 보안 특화 EDITH, 퀀트 금융 FRIDAY.</p>
+            <p lang="en">Personal AI systems research: PAGO, a local-first agent that plans, acts and verifies; EDITH for security; FRIDAY for quant finance.</p>
+            <ul class="tags"><li>Local LLM</li><li>Agent Systems</li><li>Rust</li></ul></div></li>
+        </ul>
+      </div>
+    </section>
+
     <section id="stack" aria-label="Stack">
       <h2 class="sec-title">Stack</h2>
       <dl class="stack">
@@ -272,6 +366,14 @@ section+section{margin-top:clamp(72px,10vw,120px)}
   setLang(saved || ((navigator.language || 'ko').toLowerCase().startsWith('ko') ? 'ko' : 'en'));
   btns.forEach(b => b.addEventListener('click', () => setLang(b.dataset.set)));
 
+  // archive: year buttons reveal their panel
+  const yrs = [...document.querySelectorAll('.yr')];
+  yrs.forEach(b => b.addEventListener('click', () => {
+    const open = b.getAttribute('aria-selected') !== 'true';
+    yrs.forEach(o => { o.setAttribute('aria-selected', 'false'); document.getElementById('panel-' + o.dataset.year).hidden = true; });
+    if (open) { b.setAttribute('aria-selected', 'true'); document.getElementById('panel-' + b.dataset.year).hidden = false; }
+  }));
+
   // cursor spotlight
   if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
     addEventListener('pointermove', e => {
@@ -287,7 +389,7 @@ section+section{margin-top:clamp(72px,10vw,120px)}
       if (en.isIntersecting) links.forEach(a => a.classList.toggle('on', a.dataset.sec === en.target.id));
     });
   }, { rootMargin: '-30% 0px -60% 0px' });
-  ['about','experience','projects','stack'].forEach(id => { const el = document.getElementById(id); if (el) io.observe(el); });
+  ['about','experience','projects','archive','stack'].forEach(id => { const el = document.getElementById(id); if (el) io.observe(el); });
 })();
 </script>
 </body>
