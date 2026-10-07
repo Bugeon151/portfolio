@@ -257,6 +257,7 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;paddin
   .steps .n{position:absolute;left:-64px;top:0}
   .steps h4{margin-top:10px}
   .links{grid-template-columns:1fr}
+  #email{white-space:normal;overflow:visible;overflow-wrap:anywhere;font-size:15.5px}
 }
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important}
@@ -590,7 +591,7 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;paddin
     const look = { x: 0, y: 0 };
     const cfg = [ // per shape: x offset, tilt, scale
       { x: 2.3, rx: 0, s: 1, o: .95 }, { x: 0, rx: -.9, s: 1, o: .8 }, { x: 0, rx: .3, s: 1.05, o: .55 }, { x: 0, rx: .5, s: 1, o: .5 }, { x: 3.4, rx: 0, s: 1, o: .4 }, { x: 0, rx: -.45, s: 1.15, o: .9 } ];
-    const state = { x: cfg[0].x, rx: 0, s: 1, o: .95 };
+    const state = { x: cfg[0].x, y: 0, rx: 0, s: 1, o: .95 };
     function resize(){ const w = innerWidth, h = innerHeight; renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix(); }
     resize(); addEventListener('resize', resize);
 
@@ -606,11 +607,11 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;paddin
         pos[i*3] += (tx - pos[i*3]) * k; pos[i*3+1] += (ty - pos[i*3+1]) * k; pos[i*3+2] += (tz - pos[i*3+2]) * k;
       }
       geo.attributes.position.needsUpdate = true;
-      const c = cfg[shape], ox = innerWidth < 900 ? 0 : c.x;
-      state.x += (ox - state.x) * .05; state.rx += (c.rx - state.rx) * .05; state.s += (c.s - state.s) * .05; state.o += ((innerWidth < 900 ? c.o * .7 : c.o) - state.o) * .05; mat.opacity = state.o;
+      const c = cfg[shape], mob = innerWidth < 900, ox = mob ? 0 : c.x, oy = mob && shape === 0 ? -2.3 : 0, os = mob ? (shape === 0 ? .58 : .8) * c.s : c.s;
+      state.x += (ox - state.x) * .05; state.y += (oy - state.y) * .05; state.rx += (c.rx - state.rx) * .05; state.s += (os - state.s) * .05; state.o += ((innerWidth < 900 ? c.o * .7 : c.o) - state.o) * .05; mat.opacity = state.o;
       look.x += (mouse.ny * .25 - look.x) * .04; look.y += (mouse.nx * .35 - look.y) * .04;
       spin *= .92;
-      group.position.x = state.x; group.scale.setScalar(state.s);
+      group.position.x = state.x; group.position.y = state.y; group.scale.setScalar(state.s);
       group.rotation.x = state.rx + look.x;
       pts.rotation.y += reduce ? 0 : .0016 + spin;
       group.rotation.y = look.y;
