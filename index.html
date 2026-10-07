@@ -2,6 +2,8 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
+<meta name="theme-color" content="#05070b">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Cdefs%3E%3ClinearGradient id=%27g%27 x1=%270%27 x2=%271%27%3E%3Cstop offset=%270%27 stop-color=%27%235b8cff%27/%3E%3Cstop offset=%271%27 stop-color=%27%233fd0ff%27/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width=%2764%27 height=%2764%27 rx=%2716%27 fill=%27%2305070b%27/%3E%3Ctext x=%2732%27 y=%2743%27 text-anchor=%27middle%27 font-family=%27Arial%27 font-weight=%27700%27 font-size=%2730%27 fill=%27url(%23g)%27%3EBP%3C/text%3E%3C/svg%3E">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Bugeon Park — AI Systems Engineer, Mechanical Engineer, CTO of Team PJ.">
 <meta property="og:title" content="Bugeon Park">
@@ -67,7 +69,21 @@ main,header,footer{position:relative;z-index:2}
 
 /* progress + nav */
 .progress{position:fixed;left:0;right:0;top:0;height:2px;z-index:60;background:linear-gradient(90deg,var(--accent),var(--accent-2));transform-origin:left;transform:scaleX(0)}
-.nav{position:fixed;left:0;right:0;top:0;z-index:50;padding-top:calc(env(safe-area-inset-top,0px) + 14px)}
+.nav{position:fixed;left:0;right:0;top:0;z-index:50;padding-top:calc(env(safe-area-inset-top,0px) + 14px);transition:transform .5s cubic-bezier(.7,0,.2,1)}
+.nav.hide{transform:translateY(-130%)}
+::selection{background:rgba(91,140,255,.35);color:#fff}
+html{scrollbar-width:thin;scrollbar-color:#2a3446 transparent}
+.grain{position:fixed;inset:-50%;z-index:1;pointer-events:none;opacity:.06;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");animation:grain 1s steps(6) infinite}
+@keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-3%,2%)}40%{transform:translate(2%,-3%)}60%{transform:translate(-2%,-1%)}80%{transform:translate(3%,3%)}100%{transform:translate(0,0)}}
+.menu-btn{display:none;width:40px;height:36px;border:1px solid var(--line);border-radius:10px;background:rgba(0,0,0,.3);color:var(--ink);cursor:pointer;place-items:center;margin-left:6px}
+.menu-btn i,.menu-btn i::before{display:block;width:16px;height:1.5px;background:currentColor;position:relative;transition:transform .3s}
+.menu-btn i::before{content:"";position:absolute;top:5px}
+.menu-btn i{transform:translateY(-2.5px)}
+.mopen .menu-btn i{transform:rotate(45deg)}.mopen .menu-btn i::before{transform:translateY(-5px) rotate(-90deg)}
+.mmenu{position:fixed;inset:0;z-index:45;background:rgba(5,7,11,.92);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);display:flex;flex-direction:column;justify-content:center;gap:6px;padding:0 28px;opacity:0;pointer-events:none;transition:opacity .35s}
+.mopen .mmenu{opacity:1;pointer-events:auto}
+.mmenu a{display:flex;align-items:baseline;gap:16px;font-size:clamp(36px,11vw,56px);font-weight:700;letter-spacing:-.05em;color:var(--ink);line-height:1.15}
+.mmenu a small{font:500 12px var(--mono);color:var(--accent);letter-spacing:.1em}
 .nav .in{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:10px 10px 10px 16px;border-radius:14px}
 .brand{display:flex;align-items:center;gap:10px;color:var(--ink);font-weight:600;font-size:14.5px;letter-spacing:-.01em}
 .brand img{width:26px;height:26px;border-radius:50%;object-fit:cover;border:1px solid var(--line)}
@@ -209,11 +225,12 @@ main,header,footer{position:relative;z-index:2}
 .big .ln{display:block;overflow:hidden;padding-bottom:.06em}
 .big .ln>span{display:inline-block;will-change:transform}
 .contact .lede{max-width:32em;color:var(--muted);margin:0 0 40px}
-.links{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.links{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:12px}
 .lk{display:flex;flex-direction:column;gap:6px;padding:20px 22px;border-radius:16px;border:1px solid var(--line);background:rgba(5,7,11,.5);min-width:0;transition:border-color .2s,transform .2s}
 a.lk:hover{border-color:var(--accent);transform:translateY(-3px)}
 .lk .kk{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
 .lk .vv{color:var(--ink);font-size:16.5px;font-weight:500;overflow-wrap:anywhere}
+#email{white-space:nowrap;overflow-wrap:normal;min-width:0;overflow:hidden;text-overflow:ellipsis}
 .lk .row{display:flex;justify-content:space-between;align-items:center;gap:12px}
 .copy{font:500 12px var(--sans);color:var(--ink);background:transparent;border:1px solid var(--line);border-radius:8px;padding:5px 10px;cursor:pointer;flex-shrink:0}
 .copy:hover{border-color:var(--accent)}
@@ -223,6 +240,7 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;paddin
 
 @media (max-width:900px){
   .nav nav{display:none}
+  .menu-btn{display:grid}
   .hud{display:none}
   .sh{grid-template-columns:1fr}.sh p{justify-self:start}
   .about{grid-template-columns:1fr}.ph{max-width:420px}
@@ -249,6 +267,7 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;paddin
 <body>
 <canvas id="gl" aria-hidden="true"></canvas>
 <div class="vig" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
 <div class="progress" id="progress"></div>
 
 <header class="nav gut">
@@ -260,9 +279,13 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;paddin
         <button type="button" id="lang-ko" data-set="ko" aria-pressed="true">KO</button>
         <button type="button" id="lang-en" data-set="en" aria-pressed="false">EN</button>
       </div>
+      <button type="button" class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false" aria-controls="mmenu"><i></i></button>
     </div>
   </div>
 </header>
+<div class="mmenu" id="mmenu" aria-label="Menu">
+  <a href="#about"><small>01</small>About</a><a href="#focus"><small>02</small>Focus</a><a href="#stack"><small>03</small>Stack</a><a href="#process"><small>04</small>Process</a><a href="#contact"><small>05</small>Contact</a>
+</div>
 
 <main>
 <section class="hero" id="top" data-shape="0">
@@ -447,6 +470,12 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;paddin
   setLang(saved || ((navigator.language || 'ko').toLowerCase().startsWith('ko') ? 'ko' : 'en'));
   lbtns.forEach(b => b.addEventListener('click', () => setLang(b.dataset.set)));
 
+  /* ---------- mobile menu ---------- */
+  const mb = document.getElementById('menuBtn');
+  const setMenu = o => { root.classList.toggle('mopen', o); mb.setAttribute('aria-expanded', String(o)); };
+  mb.addEventListener('click', () => setMenu(!root.classList.contains('mopen')));
+  document.querySelectorAll('.mmenu a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+
   /* ---------- small UI ---------- */
   const copy = document.getElementById('copy');
   copy.addEventListener('click', async () => {
@@ -615,7 +644,7 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;paddin
   let lenis = null;
   if (window.Lenis) {
     lenis = new Lenis({ lerp: .09, smoothWheel: true });
-    lenis.on('scroll', ScrollTrigger.update);
+    lenis.on('scroll', ScrollTrigger.update); window.__lenis = lenis;
     gsap.ticker.add(t => lenis.raf(t * 1000)); gsap.ticker.lagSmoothing(0);
     document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
       const t = document.querySelector(a.getAttribute('href')); if (!t) return; e.preventDefault(); lenis.scrollTo(t, { offset: -20, duration: 1.6 });
@@ -623,6 +652,7 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;paddin
   }
 
   /* ---------- loader → intro ---------- */
+  let seen = false; try { seen = sessionStorage.getItem('seen') === '1'; sessionStorage.setItem('seen', '1'); } catch {}
   const loader = document.createElement('div'); loader.className = 'loader';
   loader.innerHTML = '<div class="top"><span>BUGEON PARK</span><span>LOCAL-FIRST AI</span></div><div><div class="cnt">000</div><div class="bar"><i></i></div></div>';
   document.body.appendChild(loader);
@@ -631,6 +661,7 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;paddin
   gsap.set(['.pill', '.rot', '.hero .sub', '.cta', '.hud', '.scroll-cue'], { opacity: 0, y: 24 });
   gsap.set('#name .c', { yPercent: 115 });
   const intro = gsap.timeline();
+  if (seen) intro.timeScale(2.2);
   intro.to(lo, { v: 100, duration: 1.5, ease: 'power2.inOut', onUpdate: () => { cnt.textContent = String(Math.round(lo.v)).padStart(3, '0'); } })
        .to(loader.querySelector('.bar i'), { scaleX: 1, duration: 1.5, ease: 'power2.inOut' }, 0)
        .to(loader, { yPercent: -100, duration: 1, ease: 'expo.inOut' }, '+=.1')
@@ -642,7 +673,8 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;paddin
   const navLinks = [...document.querySelectorAll('.nav nav a')];
   document.querySelectorAll('[data-shape]').forEach(s => ScrollTrigger.create({ trigger: s, start: 'top 55%', end: 'bottom 55%',
     onToggle: self => { if (self.isActive) { field && field.set(+s.dataset.shape); navLinks.forEach(a => a.classList.toggle('on', a.dataset.sec === s.id)); } } }));
-  ScrollTrigger.create({ onUpdate: s => { const v = Math.abs(s.getVelocity()); field && field.kick(Math.min(v / 60000, .02));
+  const navEl = document.querySelector('.nav');
+  ScrollTrigger.create({ onUpdate: s => { navEl.classList.toggle('hide', s.direction === 1 && s.scroll() > 240 && !root.classList.contains('mopen')); const v = Math.abs(s.getVelocity()); field && field.kick(Math.min(v / 60000, .02));
     const r = 1 + Math.min(v / 400, 4); document.querySelectorAll('.mtrack').forEach(t => t.getAnimations().forEach(a => { a.playbackRate = r; })); } });
 
   /* ---------- hero scroll-out ---------- */
