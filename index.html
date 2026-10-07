@@ -11,350 +11,587 @@
 <title>Bugeon Park</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Noto+Sans+KR:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Geist+Mono:wght@400;500&family=Noto+Sans+KR:wght@300;400;500;600;700;800&display=swap">
 <style>
-/* Layout: two columns. Left = sticky identity (avatar, name, role, one-liner, section nav, socials).
-   Right = scrolling evidence: About prose, Experience timeline, Projects, Stack, colophon.
-   One accent, a cursor spotlight as the only flourish. */
+/* Layout: dark, single column, one motion idea per section.
+   Hero = live neural-network canvas + split-letter name. About = clip-reveal photo + scroll-lit words.
+   Numbers = count-down to rank. Focus = pinned horizontal track. Stack = dual marquee + chip pop.
+   Process = pinned line that draws step by step. Contact = masked line reveal + magnetic buttons. */
 :root{
-  --bg:#f8f9fb;
-  --surface:#ffffff;
-  --ink:#0f172a;
-  --ink-2:#334155;
-  --muted:#64748b;
-  --line:#e2e8f0;
-  --accent:#2f62f0;
-  --accent-soft:rgba(47,98,240,.10);
-  --chip-bg:rgba(47,98,240,.08);
+  --bg:#07090d;
+  --bg-2:#0c1016;
+  --surface:#10151d;
+  --ink:#eef2f7;
+  --ink-2:#c3cad6;
+  --muted:#7d8797;
+  --line:#1b2230;
+  --accent:#5b8cff;
+  --accent-2:#3fd0ff;
   --sans:"Geist", "Noto Sans KR", "Apple SD Gothic Neo", system-ui, sans-serif;
   --mono:"Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  color-scheme:dark;
 }
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#0b1120;--surface:#111a2e;--ink:#e2e8f0;--ink-2:#cbd5e1;--muted:#8b9ab3;--line:#1e293b;
-  --accent:#7aa2ff;--accent-soft:rgba(122,162,255,.10);--chip-bg:rgba(122,162,255,.12);color-scheme:dark}}
-:root[data-theme="dark"]{
-  --bg:#0b1120;--surface:#111a2e;--ink:#e2e8f0;--ink-2:#cbd5e1;--muted:#8b9ab3;--line:#1e293b;
-  --accent:#7aa2ff;--accent-soft:rgba(122,162,255,.10);--chip-bg:rgba(122,162,255,.12);color-scheme:dark}
-
 :root:not([data-lang="en"]) [lang="en"]{display:none!important}
 :root[data-lang="en"] [lang="ko"]{display:none!important}
 
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--muted);font-family:var(--sans);font-size:16px;line-height:1.7;
-  padding-inline:clamp(16px,5vw,64px);padding-block:0;-webkit-font-smoothing:antialiased}
-body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
-  background:radial-gradient(600px circle at var(--mx,20%) var(--my,10%),var(--accent-soft),transparent 75%)}
+body{background:var(--bg);color:var(--ink-2);font-family:var(--sans);font-size:16px;line-height:1.65;margin:0;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
-a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
-b,strong{color:var(--ink);font-weight:500}
-p a{color:var(--ink);font-weight:500;background:linear-gradient(var(--accent),var(--accent)) 0 100%/0 1px no-repeat;transition:background-size .2s,color .2s}
-p a:hover{color:var(--accent);background-size:100% 1px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:8px}
+.gut{padding-inline:clamp(16px,5vw,64px)}
+.wrap{max-width:1200px;margin-inline:auto}
+.grad{background:linear-gradient(100deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.eyebrow{display:flex;align-items:center;gap:14px;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.eyebrow b{color:var(--accent);font-weight:500}
+.eyebrow i{flex:0 0 64px;height:1px;background:linear-gradient(90deg,var(--accent),transparent);transform-origin:left}
 
-.layout{position:relative;z-index:1;max-width:1180px;margin-inline:auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:clamp(32px,6vw,96px)}
+/* spotlight + grain */
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(500px circle at var(--mx,50%) var(--my,30%),rgba(91,140,255,.07),transparent 70%)}
 
-/* identity column */
-.side{position:sticky;top:0;height:100dvh;padding-block:clamp(56px,9vh,96px);display:flex;flex-direction:column;justify-content:space-between;gap:32px;min-width:0}
-.avatar{width:72px;height:72px;border-radius:50%;padding:2px;background:linear-gradient(140deg,var(--accent),transparent 70%);margin-bottom:22px}
-.avatar img{display:block;width:100%;height:100%;border-radius:50%;object-fit:cover;border:2px solid var(--bg)}
-.side h1{color:var(--ink);font-size:clamp(38px,4.6vw,52px);font-weight:700;letter-spacing:-.035em;line-height:1.05;margin:0}
-.side .role{color:var(--ink);font-size:clamp(17px,1.6vw,20px);font-weight:500;letter-spacing:-.01em;margin:12px 0 0}
-.side .tagline{margin:16px 0 0;max-width:22em}
-.toc{list-style:none;margin:48px 0 0;padding:0;display:flex;flex-direction:column;gap:2px}
-.toc a{display:inline-flex;align-items:center;gap:14px;padding:8px 0;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);transition:color .2s}
-.toc a::before{content:"";width:32px;height:1px;background:currentColor;transition:width .2s}
-.toc a:hover,.toc a.on{color:var(--ink)}
-.toc a:hover::before,.toc a.on::before{width:64px;background:var(--ink)}
-.side .foot{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
-.socials{display:flex;gap:18px;align-items:center}
-.socials a{color:var(--muted);display:inline-flex;transition:color .2s,transform .2s}
-.socials a:hover{color:var(--ink);transform:translateY(-1px)}
-.socials svg{width:22px;height:22px}
-.lang{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:2px;background:var(--surface)}
-.lang button{font:500 11.5px var(--mono);letter-spacing:.06em;background:transparent;color:var(--muted);border:0;padding:4px 10px;border-radius:999px;cursor:pointer}
+/* progress + nav */
+.progress{position:fixed;left:0;right:0;top:0;height:2px;z-index:50;background:linear-gradient(90deg,var(--accent),var(--accent-2));transform-origin:left;transform:scaleX(0)}
+.nav{position:fixed;left:0;right:0;top:0;z-index:40;padding-top:calc(env(safe-area-inset-top,0px) + 14px)}
+.nav .in{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:10px 10px 10px 18px;border:1px solid var(--line);border-radius:14px;
+  background:rgba(12,16,22,.6);backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4)}
+.brand{display:flex;align-items:center;gap:10px;color:var(--ink);font-weight:600;font-size:14.5px;letter-spacing:-.01em}
+.brand img{width:26px;height:26px;border-radius:50%;object-fit:cover;border:1px solid var(--line)}
+.nav nav{display:flex;gap:2px}
+.nav nav a{font-size:14px;color:var(--muted);padding:6px 12px;border-radius:8px;transition:color .2s,background .2s}
+.nav nav a:hover{color:var(--ink);background:var(--surface)}
+.right{display:flex;align-items:center;gap:6px}
+.lang{display:inline-flex;padding:3px;border-radius:10px;background:var(--bg-2);border:1px solid var(--line);margin-left:6px}
+.lang button{font:500 12px var(--mono);background:transparent;color:var(--muted);border:0;padding:5px 10px;border-radius:7px;cursor:pointer}
 .lang button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
 
-/* content column */
-main{padding-block:clamp(56px,9vh,96px);min-width:0}
-section{scroll-margin-top:32px}
-section+section{margin-top:clamp(72px,10vw,120px)}
-.sec-title{display:none;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);margin:0 0 20px}
-.about p{margin:0 0 1.1em;max-width:36em}
+/* hero */
+.hero{position:relative;min-height:min(100svh,920px);display:flex;align-items:center;overflow:hidden}
+#net{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero::after{content:"";position:absolute;inset:auto 0 0 0;height:40%;background:linear-gradient(transparent,var(--bg));pointer-events:none}
+.hero .wrap{position:relative;z-index:2;width:100%;padding-block:140px 96px}
+.hero-in{max-width:880px}
+.pill{display:inline-flex;align-items:center;gap:10px;font-size:13px;color:var(--ink-2);padding:7px 14px 7px 10px;border:1px solid var(--line);border-radius:999px;background:rgba(16,21,29,.7);backdrop-filter:blur(6px)}
+.pill .dot{width:8px;height:8px;border-radius:50%;background:var(--accent-2);box-shadow:0 0 0 0 rgba(63,208,255,.6);animation:ping 2s infinite}
+@keyframes ping{70%{box-shadow:0 0 0 10px rgba(63,208,255,0)}100%{box-shadow:0 0 0 0 rgba(63,208,255,0)}}
+.hero h1{color:var(--ink);font-size:clamp(60px,12vw,168px);font-weight:700;letter-spacing:-.06em;line-height:.9;margin:28px 0 28px}
+.hero h1 .w{display:inline-block;white-space:nowrap}
+.hero h1 .c{display:inline-block;will-change:transform}
+.hero h1 .w+.w{margin-left:.22em}
+.hero h1 .w:last-child .c{background:linear-gradient(100deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.rot{display:flex;flex-wrap:wrap;align-items:baseline;gap:.35em;font-size:clamp(20px,2.6vw,30px);font-weight:500;color:var(--ink);letter-spacing:-.02em;line-height:1.3}
+.rot .box{position:relative;display:inline-block;height:1.3em;overflow:hidden;vertical-align:bottom;min-width:9em}
+.rot .box span{position:absolute;left:0;top:0;white-space:nowrap;transform:translateY(110%);transition:transform .6s cubic-bezier(.7,0,.2,1)}
+.rot .box span.on{transform:none}
+.rot .box span.out{transform:translateY(-110%)}
+.hero .sub{margin:22px 0 0;max-width:34em;font-size:clamp(16px,1.5vw,18px);color:var(--muted)}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+.btn{position:relative;display:inline-flex;align-items:center;gap:10px;font:500 15px var(--sans);padding:13px 22px;border-radius:12px;border:1px solid transparent;cursor:pointer;
+  background:linear-gradient(100deg,var(--accent),var(--accent-2));color:#04070c;will-change:transform}
+.btn.ghost{background:rgba(16,21,29,.7);color:var(--ink);border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--accent)}
+.scroll-cue{position:absolute;left:50%;bottom:28px;z-index:2;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--muted)}
+.scroll-cue i{width:1px;height:44px;background:linear-gradient(var(--accent),transparent);animation:drip 1.8s ease-in-out infinite;transform-origin:top}
+@keyframes drip{0%{transform:scaleY(0)}50%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
 
-.list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
-.entry{position:relative;display:grid;grid-template-columns:120px 1fr;gap:6px 24px;padding:20px;margin-inline:-20px;border-radius:10px;border:1px solid transparent;transition:background .2s,border-color .2s,opacity .2s}
-.entry>*{min-width:0}
-.list:hover .entry:not(:hover){opacity:.55}
-.entry:hover{background:color-mix(in srgb,var(--surface) 70%,transparent);border-color:var(--line);box-shadow:inset 0 1px 0 color-mix(in srgb,var(--ink) 4%,transparent)}
-.when{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding-top:3px;font-variant-numeric:tabular-nums}
-.entry h3{color:var(--ink);font-size:16.5px;font-weight:600;letter-spacing:-.01em;line-height:1.4;margin:0}
-.entry h3 .sub{display:block;color:var(--muted);font-weight:400;font-size:15px;margin-top:2px}
-.entry h3 a{display:inline-flex;align-items:baseline;gap:6px}
-.entry h3 a::after{content:"↗";font-size:13px;color:var(--muted);transition:transform .2s,color .2s}
-.entry:hover h3 a,.entry h3 a:hover{color:var(--accent)}
-.entry:hover h3 a::after{transform:translate(2px,-2px);color:var(--accent)}
-.entry h3 a .stretch{position:absolute;inset:0;border-radius:10px}
-.entry p{margin:8px 0 0;font-size:15px;line-height:1.65}
-.tags{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0 0;padding:0;list-style:none}
-.tags li{font-family:var(--mono);font-size:12px;color:var(--accent);background:var(--chip-bg);padding:3px 10px;border-radius:999px}
-.metric{display:inline-block;color:var(--ink);font-weight:600}
-.more{display:inline-flex;align-items:center;gap:8px;margin-top:24px;color:var(--ink);font-weight:500;font-size:15px}
-.more span{transition:transform .2s}
-.more:hover{color:var(--accent)}.more:hover span{transform:translateX(4px)}
+/* marquee */
+.marquee{border-block:1px solid var(--line);overflow:hidden;padding-block:22px;background:var(--bg-2)}
+.mtrack{display:flex;width:max-content;animation:mq 38s linear infinite}
+.mtrack.rev{animation-direction:reverse;animation-duration:44s}
+.mtrack span{display:inline-flex;align-items:center;gap:28px;padding-right:28px;font-size:clamp(22px,3vw,36px);font-weight:600;letter-spacing:-.03em;color:var(--ink);white-space:nowrap}
+.mtrack span::after{content:"";width:10px;height:10px;border-radius:3px;background:linear-gradient(135deg,var(--accent),var(--accent-2));transform:rotate(45deg)}
+.mtrack span.o{color:transparent;-webkit-text-stroke:1px var(--muted)}
+@keyframes mq{to{transform:translateX(-50%)}}
 
-.arch-lede{margin:0 0 18px;max-width:36em}
-.years{display:flex;flex-wrap:wrap;gap:8px}
-.yr{display:inline-flex;align-items:center;gap:10px;font:600 15px var(--sans);letter-spacing:-.01em;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 16px;cursor:pointer;transition:border-color .2s,background .2s,color .2s}
-.yr:hover{border-color:var(--accent)}
-.yr .cnt{font:500 11.5px var(--mono);color:var(--accent);background:var(--chip-bg);border-radius:999px;padding:1px 8px}
-.yr[aria-selected="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.yr[aria-selected="true"] .cnt{background:color-mix(in srgb,var(--bg) 18%,transparent);color:var(--bg)}
-.panel{margin-top:28px;animation:open .35s cubic-bezier(.2,.7,.2,1)}
-@keyframes open{from{transform:translateY(8px)}to{transform:none}}
-.grp{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);font-weight:500;margin:0 0 4px;padding-bottom:10px;border-bottom:1px solid var(--line)}
-.grp:not(:first-child){margin-top:40px}
-.alist{list-style:none;margin:0;padding:0}
-.alist>li{display:grid;grid-template-columns:72px 1fr;gap:4px 20px;padding:18px 0;border-bottom:1px solid var(--line)}
-.alist>li>*{min-width:0}
-.alist .m{font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;color:var(--muted);padding-top:3px}
-.alist h4{color:var(--ink);font-size:16px;font-weight:600;letter-spacing:-.01em;margin:0;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px}
-.alist .ext{font:500 12.5px var(--mono);color:var(--accent)}
-.alist .ext:hover{text-decoration:underline}
-.alist .ctx{margin:2px 0 0;font-size:14px;color:var(--ink-2)}
-.alist p{margin:6px 0 0;font-size:15px;line-height:1.6}
-.alist .ctx+p{margin-top:6px}
-@media (max-width:560px){.alist>li{grid-template-columns:1fr}}
-@media (prefers-reduced-motion:reduce){.panel{animation:none}}
+/* sections */
+section{position:relative;z-index:1}
+.sec{padding-block:clamp(96px,14vw,180px) 0}
+.sh{display:grid;grid-template-columns:1fr 1fr;gap:20px 56px;align-items:end;margin-bottom:56px}
+.sh>*{min-width:0}
+.sh h2{color:var(--ink);font-size:clamp(36px,5.4vw,72px);font-weight:700;letter-spacing:-.05em;line-height:1;margin:18px 0 0;text-wrap:balance}
+.sh p{margin:0;max-width:30em;justify-self:end;color:var(--muted)}
 
-.stack{display:grid;gap:0;border-top:1px solid var(--line)}
-.srow{display:grid;grid-template-columns:120px 1fr;gap:6px 24px;padding:14px 0;border-bottom:1px solid var(--line)}
-.srow>*{min-width:0}
-.srow dt{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding-top:2px}
-.srow dd{margin:0;color:var(--ink-2);font-size:15px}
-.srow dd b{font-weight:600}
+/* about */
+.about{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(32px,6vw,96px);align-items:center}
+.about>*{min-width:0}
+.ph{position:relative;border-radius:24px;overflow:hidden;aspect-ratio:4/5;max-width:100%;background:var(--surface)}
+.ph img{width:100%;height:100%;object-fit:cover;display:block;will-change:transform}
+.ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(7,9,13,.7));pointer-events:none}
+.ph .tag{position:absolute;left:18px;bottom:16px;z-index:1;font-family:var(--mono);font-size:12px;color:#e6ecf5;letter-spacing:.06em}
+.lit{color:var(--ink);font-size:clamp(24px,2.9vw,38px);font-weight:600;letter-spacing:-.035em;line-height:1.3;margin:22px 0 0}
+.lit .wd{display:inline}
+.about .more{margin:28px 0 0;max-width:34em;color:var(--muted)}
 
-.colophon{margin-top:clamp(72px,10vw,120px);font-size:14px;max-width:32em}
-.colophon p{margin:0 0 6px}
+/* numbers */
+.nums{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);border-radius:20px;background:linear-gradient(180deg,var(--surface),var(--bg-2));overflow:hidden}
+.num{padding:32px 28px;border-right:1px solid var(--line);min-width:0;position:relative}
+.num:last-child{border-right:0}
+.num .v{display:block;color:var(--ink);font-size:clamp(36px,4.6vw,64px);font-weight:700;letter-spacing:-.05em;line-height:1;font-variant-numeric:tabular-nums}
+.num .v.g{background:linear-gradient(100deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.num .l{display:block;margin-top:12px;font-size:14px;color:var(--muted)}
+.num .bar{position:absolute;left:28px;right:28px;bottom:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent-2));transform:scaleX(0);transform-origin:left}
 
-@media (max-width:1000px){
-  .layout{grid-template-columns:1fr;gap:0}
-  .side{position:static;height:auto;padding-block:56px 8px}
-  .toc{display:none}
-  main{padding-block:48px 64px}
-  .sec-title{display:block;position:sticky;top:env(safe-area-inset-top,0px);z-index:2;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:14px 0;margin:0 0 8px}
+/* focus: horizontal track */
+.hpin{overflow:hidden}
+.htrack{display:flex;gap:20px;width:max-content;padding-inline:clamp(16px,5vw,64px);will-change:transform}
+.card{position:relative;flex:0 0 clamp(300px,34vw,440px);min-height:400px;padding:30px;border-radius:24px;border:1px solid var(--line);overflow:hidden;
+  background:linear-gradient(180deg,var(--surface),var(--bg-2));display:flex;flex-direction:column;transform-style:preserve-3d;transition:border-color .3s}
+.card:hover{border-color:rgba(91,140,255,.5)}
+.card::before{content:"";position:absolute;inset:0;background:radial-gradient(400px circle at var(--cx,50%) var(--cy,0%),rgba(91,140,255,.16),transparent 60%);opacity:0;transition:opacity .3s;pointer-events:none}
+.card:hover::before{opacity:1}
+.card .k{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--accent)}
+.card .ix{position:absolute;right:26px;top:22px;font-family:var(--mono);font-size:12px;color:var(--muted)}
+.card h3{color:var(--ink);font-size:clamp(22px,2.2vw,28px);font-weight:600;letter-spacing:-.03em;line-height:1.2;margin:auto 0 12px}
+.card p{margin:0;color:var(--muted);font-size:15.5px}
+.glyph{position:relative;height:120px;margin-top:28px}
+/* glyph 1: orbit */
+.g-orbit::before,.g-orbit::after{content:"";position:absolute;left:50%;top:50%;border:1px solid var(--line);border-radius:50%;transform:translate(-50%,-50%)}
+.g-orbit::before{width:110px;height:110px}.g-orbit::after{width:60px;height:60px;border-color:rgba(91,140,255,.4)}
+.g-orbit i{position:absolute;left:50%;top:50%;width:110px;height:110px;margin:-55px 0 0 -55px;animation:spin 6s linear infinite}
+.g-orbit i::after{content:"";position:absolute;top:-4px;left:50%;width:8px;height:8px;margin-left:-4px;border-radius:50%;background:var(--accent-2);box-shadow:0 0 14px var(--accent-2)}
+.g-orbit i+i{width:60px;height:60px;margin:-30px 0 0 -30px;animation-duration:3.5s;animation-direction:reverse}
+.g-orbit i+i::after{background:var(--accent);box-shadow:0 0 14px var(--accent)}
+@keyframes spin{to{transform:rotate(360deg)}}
+/* glyph 2: shield scan */
+.g-scan{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:repeating-linear-gradient(0deg,transparent 0 11px,var(--line) 11px 12px)}
+.g-scan::after{content:"";position:absolute;left:0;right:0;height:40%;background:linear-gradient(180deg,transparent,rgba(63,208,255,.25),transparent);animation:scan 2.6s ease-in-out infinite}
+@keyframes scan{0%{top:-40%}100%{top:100%}}
+/* glyph 3: bars */
+.g-bars{display:flex;align-items:flex-end;gap:8px}
+.g-bars i{flex:1;border-radius:6px 6px 2px 2px;background:linear-gradient(180deg,var(--accent),rgba(91,140,255,.15));animation:eq 1.6s ease-in-out infinite;transform-origin:bottom}
+.g-bars i:nth-child(2){animation-delay:.2s}.g-bars i:nth-child(3){animation-delay:.4s}.g-bars i:nth-child(4){animation-delay:.6s}.g-bars i:nth-child(5){animation-delay:.8s}.g-bars i:nth-child(6){animation-delay:1s}
+@keyframes eq{0%,100%{height:25%}50%{height:100%}}
+/* glyph 4: nodes */
+.g-grid{display:grid;grid-template-columns:repeat(8,1fr);gap:8px;align-content:center}
+.g-grid i{aspect-ratio:1;border-radius:4px;background:var(--line);animation:blink 3s infinite}
+@keyframes blink{0%,100%{background:var(--line)}50%{background:var(--accent)}}
+/* glyph 5: wave */
+.g-wave svg{width:100%;height:100%;overflow:visible}
+.g-wave path{fill:none;stroke:url(#wg);stroke-width:2;stroke-dasharray:600;animation:dash 4s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-1200}}
+
+/* stack */
+.stack-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.grp{padding:24px;border-radius:20px;border:1px solid var(--line);background:linear-gradient(180deg,var(--surface),var(--bg-2));min-width:0}
+.grp h3{margin:0 0 16px;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{font-size:14px;padding:6px 12px;border-radius:9px;border:1px solid var(--line);background:var(--bg);color:var(--ink-2);transition:border-color .2s,color .2s,transform .2s}
+.chips span:hover{border-color:var(--accent);color:var(--ink);transform:translateY(-2px)}
+.chips span.main{border-color:rgba(91,140,255,.45);color:var(--ink);background:rgba(91,140,255,.1)}
+.stack-mq{margin-top:56px}
+
+/* process */
+.proc{position:relative}
+.steps-wrap{position:relative}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(8,1fr);gap:0;position:relative}
+.rail{position:absolute;left:0;right:0;top:23px;height:2px;background:var(--line)}
+.rail i{position:absolute;inset:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));transform:scaleX(0);transform-origin:left;box-shadow:0 0 16px rgba(63,208,255,.5)}
+.steps li{position:relative;padding-right:12px;min-width:0}
+.steps .n{display:grid;place-items:center;width:48px;height:48px;border-radius:50%;border:1px solid var(--line);background:var(--bg);font-family:var(--mono);font-size:13px;color:var(--muted);position:relative;transition:all .4s}
+.steps li.on .n{border-color:var(--accent);color:#04070c;background:linear-gradient(135deg,var(--accent),var(--accent-2));box-shadow:0 0 0 6px rgba(91,140,255,.12)}
+.steps h4{margin:18px 0 6px;color:var(--muted);font-size:17px;font-weight:600;letter-spacing:-.02em;transition:color .4s}
+.steps li.on h4{color:var(--ink)}
+.steps p{margin:0;font-size:13.5px;color:var(--muted);line-height:1.5;opacity:.5;transition:opacity .4s}
+.steps li.on p{opacity:1}
+
+/* contact */
+.contact{position:relative;border-radius:32px;overflow:hidden;padding:clamp(36px,7vw,96px);border:1px solid var(--line);
+  background:radial-gradient(80% 120% at 100% 0%,rgba(91,140,255,.22),transparent 60%),radial-gradient(60% 90% at 0% 100%,rgba(63,208,255,.12),transparent 70%),var(--bg-2)}
+.big{color:var(--ink);font-size:clamp(44px,8vw,120px);font-weight:700;letter-spacing:-.06em;line-height:.95;margin:22px 0 28px}
+.big .ln{display:block;overflow:hidden;padding-bottom:.06em}
+.big .ln>span{display:inline-block;will-change:transform}
+.contact .lede{max-width:32em;color:var(--muted);margin:0 0 40px}
+.links{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.lk{display:flex;flex-direction:column;gap:6px;padding:20px 22px;border-radius:16px;border:1px solid var(--line);background:rgba(7,9,13,.5);min-width:0;transition:border-color .2s,transform .2s}
+a.lk:hover{border-color:var(--accent);transform:translateY(-3px)}
+.lk .kk{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.lk .vv{color:var(--ink);font-size:16.5px;font-weight:500;overflow-wrap:anywhere}
+.lk .row{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.copy{font:500 12px var(--sans);color:var(--ink);background:transparent;border:1px solid var(--line);border-radius:8px;padding:5px 10px;cursor:pointer;flex-shrink:0}
+.copy:hover{border-color:var(--accent)}
+footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;padding-block:40px 48px;font-size:13px;color:var(--muted)}
+
+/* reveal: only hidden once the motion engine is confirmed running */
+.motion [data-r]{opacity:0;transform:translateY(40px)}
+
+@media (max-width:900px){
+  .nav nav{display:none}
+  .sh{grid-template-columns:1fr}.sh p{justify-self:start}
+  .about{grid-template-columns:1fr}.ph{max-width:420px}
+  .nums{grid-template-columns:repeat(2,1fr)}
+  .num:nth-child(2){border-right:0}.num:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .htrack{flex-direction:column;width:auto}
+  .card{flex:none;min-height:0}
+  .card h3{margin-top:28px}
+  .stack-grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr;gap:26px;padding-left:64px}
+  .steps li{position:relative}
+  .rail{left:23px;right:auto;top:0;bottom:0;width:2px;height:auto}
+  .rail i{transform:scaleY(0);transform-origin:top}
+  .steps li{padding:0}
+  .steps .n{position:absolute;left:-64px;top:0}
+  .steps h4{margin-top:10px}
+  .links{grid-template-columns:1fr}
 }
-@media (max-width:560px){
-  .entry,.srow{grid-template-columns:1fr}
-  .entry{margin-inline:0;padding:16px 0}
-  .entry:hover{background:none;border-color:transparent}
-  .list:hover .entry:not(:hover){opacity:1}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .rot .box span.on{transform:none}
 }
-@media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
 </style>
 
 </head>
 <body>
-<div class="layout">
-  <header class="side">
-    <div>
-      <div class="avatar"><img src="img/avatar.jpg" alt="Bugeon Park"></div>
-      <h1>Bugeon Park</h1>
-      <p class="role"><span lang="ko">AI 시스템 엔지니어 · CTO, Team PJ</span><span lang="en">AI Systems Engineer · CTO, Team PJ</span></p>
-      <p class="tagline" lang="ko">로컬에서 동작하고, 검증할 수 있고, 안전하게 되돌릴 수 있는 AI 시스템을 만듭니다.</p>
-      <p class="tagline" lang="en">I build AI systems that run locally, can be verified, and can be safely rolled back.</p>
-      <ul class="toc" aria-label="Sections">
-        <li><a href="#about" data-sec="about">About</a></li>
-        <li><a href="#experience" data-sec="experience">Experience</a></li>
-        <li><a href="#projects" data-sec="projects">Projects</a></li>
-        <li><a href="#archive" data-sec="archive">Archive</a></li>
-        <li><a href="#stack" data-sec="stack">Stack</a></li>
-      </ul>
-    </div>
-    <div class="foot">
-      <div class="socials">
-        <a href="https://github.com/Bugeon151" target="_blank" rel="noopener" aria-label="GitHub">
-          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.29-1.69-1.29-1.69-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.82 1.19 3.08 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>
-        </a>
-        <a href="https://www.instagram.com/bugeon.dev/" target="_blank" rel="noopener" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-        </a>
-        <a href="#contact" aria-label="Email">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6"/></svg>
-        </a>
-      </div>
+<div class="progress" id="progress"></div>
+
+<header class="nav gut">
+  <div class="in wrap">
+    <a class="brand" href="#top"><img src="img/avatar.jpg" alt="">Bugeon Park</a>
+    <div class="right">
+      <nav aria-label="Sections"><a href="#about">About</a><a href="#focus">Focus</a><a href="#stack">Stack</a><a href="#process">Process</a><a href="#contact">Contact</a></nav>
       <div class="lang" role="group" aria-label="Language">
         <button type="button" id="lang-ko" data-set="ko" aria-pressed="true">KO</button>
         <button type="button" id="lang-en" data-set="en" aria-pressed="false">EN</button>
       </div>
     </div>
-  </header>
+  </div>
+</header>
 
-  <main>
-    <section id="about" class="about" aria-label="About">
-      <h2 class="sec-title">About</h2>
-      <div lang="ko">
-        <p>저는 <b>로컬에서 동작하는 AI 시스템</b>을 만드는 엔지니어입니다. 모델을 호출하는 데서 끝내지 않고, 에이전트가 도구를 실행하고, 그 결과를 검증하고, 문제가 생기면 되돌릴 수 있는 런타임까지 직접 설계합니다.</p>
-        <p>현재 <b>Team PJ</b>의 CTO로 기술 방향과 시스템 설계를 맡고 있습니다. 그 밖에도 위성 영상 세그멘테이션, 금융 시계열 모델, 보안 감사 체계, 로봇 팔 제어처럼 서로 다른 분야에 AI와 시스템 설계를 적용해 왔습니다.</p>
-        <p>알고리즘 문제 풀이를 꾸준히 해 왔고, 백준(BOJ)에서 최고 랭크 <span class="metric">#67</span>, 상위 <span class="metric">0.11%</span>를 기록했습니다. 기계공학을 함께 공부하며 하드웨어와 소프트웨어가 만나는 지점에도 관심이 많습니다.</p>
+<section class="hero" id="top">
+  <canvas id="net" aria-hidden="true"></canvas>
+  <div class="wrap gut">
+    <div class="hero-in" id="heroIn">
+      <span class="pill"><span class="dot"></span><span lang="ko">AI 시스템 엔지니어 · CTO, Team PJ</span><span lang="en">AI Systems Engineer · CTO, Team PJ</span></span>
+      <h1 id="name" aria-label="Bugeon Park"><span class="w">Bugeon</span><span class="w">Park</span></h1>
+      <div class="rot">
+        <span lang="ko">제가 만드는 것은</span><span lang="en">I build</span>
+        <span class="box" id="rot"><span class="on">Local-first AI</span><span>Agent Systems</span><span>Secure Runtimes</span><span>Computer Vision</span><span>Quant ML</span></span>
       </div>
-      <div lang="en">
-        <p>I'm an engineer who builds <b>AI systems that run locally</b>. I don't stop at calling a model: I design the runtime where agents execute tools, verify the results, and roll back when something goes wrong.</p>
-        <p>I'm currently CTO of <b>Team PJ</b>, where I lead technical direction and system design. I've also applied AI and systems work to very different problems, from satellite-image segmentation and financial time-series models to security audit chains and robotic-arm control.</p>
-        <p>I practice competitive programming regularly and reached a peak rank of <span class="metric">#67</span> on Baekjoon Online Judge, in the top <span class="metric">0.11%</span>. I also study mechanical engineering, so I care about where hardware and software meet.</p>
+      <p class="sub" lang="ko">로컬에서 동작하고, 검증할 수 있고, 안전하게 되돌릴 수 있는 AI 시스템을 설계부터 릴리스까지 직접 만듭니다.</p>
+      <p class="sub" lang="en">I design and ship AI systems that run locally, can be verified, and can be safely rolled back, from design to release.</p>
+      <div class="cta">
+        <a class="btn mag" href="#contact"><span lang="ko">함께 일하기</span><span lang="en">Work with me</span> →</a>
+        <a class="btn ghost mag" href="https://github.com/Bugeon151" target="_blank" rel="noopener">GitHub ↗</a>
       </div>
-    </section>
+    </div>
+  </div>
+  <div class="scroll-cue" aria-hidden="true"><i></i>SCROLL</div>
+</section>
 
-    <section id="experience" aria-label="Experience">
-      <h2 class="sec-title">Experience</h2>
-      <ol class="list">
-        <li class="entry">
-          <span class="when"><span lang="ko">현재</span><span lang="en">Present</span></span>
-          <div>
-            <h3>CTO · Team PJ</h3>
-            <p lang="ko">팀의 기술 방향을 정하고 시스템 아키텍처 설계를 이끌고 있습니다.</p>
-            <p lang="en">Set the team's technical direction and lead its system architecture.</p>
-          </div>
-        </li>
-        <li class="entry">
-          <span class="when">2026</span>
-          <div>
-            <h3><span lang="ko">국민체육진흥공단 공공데이터 활용 경진대회</span><span lang="en">KSPO Public Data Competition</span>
-              <span class="sub" lang="ko">서비스 개발 부문 · SPORT-GAP 출품</span><span class="sub" lang="en">Service development track · Entry: SPORT-GAP</span></h3>
-            <p lang="ko">공공데이터 4종을 결합해 전국 생활체육 접근성 격차를 측정하는 웹서비스를 설계·개발하고 배포했습니다.</p>
-            <p lang="en">Designed, built and shipped a web service that measures nationwide gaps in community-sports access by combining four public datasets.</p>
-          </div>
-        </li>
-        <li class="entry">
-          <span class="when">Peak</span>
-          <div>
-            <h3><span lang="ko">경쟁 프로그래밍</span><span lang="en">Competitive Programming</span>
-              <span class="sub">Baekjoon Online Judge · #67 · Top 0.11%</span></h3>
-            <p lang="ko">C/C++, Python, Java로 알고리즘과 자료구조 문제를 꾸준히 풀어 왔습니다.</p>
-            <p lang="en">Regular algorithms and data-structures practice in C/C++, Python and Java.</p>
-          </div>
-        </li>
-      </ol>
-    </section>
-
-    <section id="projects" aria-label="Projects">
-      <h2 class="sec-title">Projects</h2>
-      <ul class="list">
-        <li class="entry">
-          <span class="when">2026</span>
-          <div>
-            <h3><a href="https://bugeon151.github.io/SPORT-GAP/" target="_blank" rel="noopener"><span class="stretch" aria-hidden="true"></span>SPORT-GAP</a></h3>
-            <p lang="ko">전국 250개 시군구의 생활체육 접근성 격차를 시설 공급, 이용권 접근성, 종목 다양성, 공간 접근성 네 가지 지표로 측정합니다. 지역별 근거 데이터, What-if 시뮬레이터, 가중치 민감도 분석을 제공합니다.</p>
-            <p lang="en">Measures community-sports access gaps across 250 Korean municipalities with four indicators: facility supply, voucher access, sport diversity and spatial access. Includes per-region source data, a what-if simulator and weight-sensitivity analysis.</p>
-            <ul class="tags"><li>Python</li><li>Public Data</li><li>Geospatial</li><li>GitHub Actions</li></ul>
-          </div>
-        </li>
-        <li class="entry">
-          <span class="when">Bench</span>
-          <div>
-            <h3><a href="https://github.com/Bugeon151/Q-BENCH" target="_blank" rel="noopener"><span class="stretch" aria-hidden="true"></span>Q-Bench</a></h3>
-            <p lang="ko">Qwen2.5-7B-Instruct를 F16부터 Q2_K까지 7단계 GGUF 양자화로 변환해, Apple M5(Metal)에서 모델 크기·메모리·처리량·레이턴시를 측정한 로컬 LLM 추론 벤치마크입니다.</p>
-            <p lang="en">A local LLM inference benchmark: Qwen2.5-7B-Instruct quantized to seven GGUF levels (F16 to Q2_K), measured for size, memory, throughput and latency on Apple M5 (Metal).</p>
-            <ul class="tags"><li>llama.cpp</li><li>GGUF</li><li>Apple Silicon</li><li>Python</li></ul>
-          </div>
-        </li>
-      </ul>
-      <a class="more" href="https://github.com/Bugeon151" target="_blank" rel="noopener"><span lang="ko">GitHub에서 전체 보기</span><span lang="en">View all on GitHub</span> <span aria-hidden="true">→</span></a>
-    </section>
-
-    <section id="archive" aria-label="Archive">
-      <h2 class="sec-title">Archive</h2>
-      <p class="arch-lede" lang="ko">참가한 대회와 해커톤을 연도별로 정리했습니다. 연도를 선택하면 목록이 열립니다.</p>
-      <p class="arch-lede" lang="en">Competitions and hackathons I've entered, by year. Pick a year to open the list.</p>
-      <div class="years" role="tablist" aria-label="Year">
-        <button type="button" role="tab" id="yr-2026" class="yr" data-year="2026" aria-selected="false" aria-controls="panel-2026">2026 <span class="cnt">4</span></button>
-      </div>
-
-      <div class="panel" id="panel-2026" role="tabpanel" aria-labelledby="yr-2026" hidden>
-        <h3 class="grp"><span lang="ko">대회 · 해커톤</span><span lang="en">Competitions &amp; hackathons</span></h3>
-        <ul class="alist">
-          <li><span class="m">SEP</span><div>
-            <h4>SPORT-GAP <a class="ext" href="https://bugeon151.github.io/SPORT-GAP/" target="_blank" rel="noopener">Live ↗</a></h4>
-            <p class="ctx"><span lang="ko">국민체육진흥공단 공공데이터 활용 경진대회 · 서비스 개발 부문</span><span lang="en">KSPO Public Data Competition · Service track</span></p>
-            <p lang="ko">공공데이터 4종을 결합해 전국 250개 시군구의 생활체육 접근성 격차를 측정하는 웹서비스.</p>
-            <p lang="en">A web service measuring community-sports access gaps across 250 municipalities from four public datasets.</p></div></li>
-          <li><span class="m">SEP</span><div>
-            <h4>ScopeGuard</h4>
-            <p class="ctx">Luma Hackathon</p>
-            <p lang="ko">PRD와 GitHub 이슈·커밋을 비교해 범위 이탈(추가·누락·변경·과잉 구현)을 근거와 함께 찾아내고, 일정·비용 영향을 추정하는 도구.</p>
-            <p lang="en">Compares a PRD with GitHub issues and commits to flag scope drift (added, missing, changed, gold-plated) with evidence, and estimates schedule and cost impact.</p>
-            <ul class="tags"><li>Next.js</li><li>TypeScript</li></ul></div></li>
-          <li><span class="m">JUN</span><div>
-            <h4>JB ComplianceOS</h4>
-            <p class="ctx"><span lang="ko">Dacon · JB금융그룹 AI 챌린지 지정주제 2</span><span lang="en">Dacon · JB Financial Group AI Challenge, Track 2</span></p>
-            <p lang="ko">규칙 기반 판단과 AI를 결합해 금융광고 문구의 준법 여부를 자동 심사하고, 준법감시인의 검토·승인 흐름을 지원하는 시스템.</p>
-            <p lang="en">Combines rule-based checks with AI to review financial-ad copy for compliance and support the compliance officer's review and approval flow.</p></div></li>
-          <li><span class="m">JUN</span><div>
-            <h4><span lang="ko">코드게이트 AI 스타트업 해커톤</span><span lang="en">CodeGate AI Startup Hackathon</span></h4>
-            <p class="ctx"><span lang="ko">참가</span><span lang="en">Participant</span></p></div></li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="stack" aria-label="Stack">
-      <h2 class="sec-title">Stack</h2>
-      <dl class="stack">
-        <div class="srow"><dt>Languages</dt><dd><b>Python</b>, <b>C/C++</b>, <b>Java</b>, Rust, Dart, TypeScript, Swift, Bash</dd></div>
-        <div class="srow"><dt>AI · LLM</dt><dd><b>Local LLM</b>, <b>Agent Systems</b>, Ollama, llama.cpp, Whisper, ONNX</dd></div>
-        <div class="srow"><dt>Vision · ML</dt><dd>Semantic Segmentation, Geospatial Imagery, Model Evaluation, Quantitative ML</dd></div>
-        <div class="srow"><dt>App · Backend</dt><dd><b>Flutter</b>, Android, iOS, PostgreSQL, SQLite, OIDC</dd></div>
-        <div class="srow"><dt>Quality</dt><dd><b>pytest</b>, Vitest, Playwright, CI, Reproducible Builds</dd></div>
-        <div class="srow"><dt>Security</dt><dd>Tamper-evident Audit Chains, Signature Verification, Secret Scanning</dd></div>
-        <div class="srow"><dt>Infra · HW</dt><dd>Linux, Docker, SSH, Raspberry Pi, CUDA, Arduino</dd></div>
-      </dl>
-    </section>
-
-    <section id="contact" aria-label="Contact" class="colophon">
-      <h2 class="sec-title" style="display:block">Contact</h2>
-      <p lang="ko">협업이나 프로젝트 문의는 <a href="mailto:bagdoeon827@gmail.com" id="email">bagdoeon827@gmail.com</a> 으로 연락 주세요. <a href="https://github.com/Bugeon151" target="_blank" rel="noopener">GitHub</a>과 <a href="https://www.instagram.com/bugeon.dev/" target="_blank" rel="noopener">Instagram</a>에서도 소식을 볼 수 있습니다.</p>
-      <p lang="en">For collaboration or projects, email <a href="mailto:bagdoeon827@gmail.com">bagdoeon827@gmail.com</a>. You can also find me on <a href="https://github.com/Bugeon151" target="_blank" rel="noopener">GitHub</a> and <a href="https://www.instagram.com/bugeon.dev/" target="_blank" rel="noopener">Instagram</a>.</p>
-      <p style="margin-top:28px;font-size:13px"><span lang="ko">직접 작성한 HTML·CSS로 만들고 GitHub Pages에서 호스팅합니다. © 2026 Bugeon Park</span><span lang="en">Hand-written HTML and CSS, hosted on GitHub Pages. © 2026 Bugeon Park</span></p>
-    </section>
-  </main>
+<div class="marquee" aria-hidden="true">
+  <div class="mtrack">
+    <span>Local-first AI</span><span class="o">Agent Systems</span><span>Computer Vision</span><span class="o">Secure Runtimes</span><span>Quant ML</span><span class="o">Embedded &amp; Robotics</span>
+    <span>Local-first AI</span><span class="o">Agent Systems</span><span>Computer Vision</span><span class="o">Secure Runtimes</span><span>Quant ML</span><span class="o">Embedded &amp; Robotics</span>
+  </div>
 </div>
 
+<section class="sec gut" id="about">
+  <div class="wrap about">
+    <div class="ph" id="ph"><img src="img/sea.jpg" alt="Bugeon Park by the sea"><span class="tag">BUGEON PARK</span></div>
+    <div>
+      <div class="eyebrow" data-r><b>01</b><i></i>About</div>
+      <p class="lit" lang="ko">모델을 호출하는 데서 끝내지 않습니다. 에이전트가 도구를 실행하고, 결과를 검증하고, 문제가 생기면 되돌릴 수 있는 시스템 전체를 설계합니다.</p>
+      <p class="lit" lang="en">I don't stop at calling a model. I design the whole system where agents run tools, verify results, and roll back when something goes wrong.</p>
+      <p class="more" data-r lang="ko">박부건입니다. Team PJ의 CTO로 기술 방향과 시스템 설계를 맡고 있고, AI 시스템·기계공학·알고리즘을 함께 공부합니다. 데이터는 기기 안에서 처리하고, 모든 실행은 승인·감사·롤백할 수 있게 만드는 로컬 우선(local-first) AI에 집중하고 있습니다.</p>
+      <p class="more" data-r lang="en">I'm Bugeon Park, CTO of Team PJ, leading technical direction and system design while studying AI systems, mechanical engineering and algorithms. My focus is local-first AI: data stays on the device, and every action can be approved, audited and rolled back.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec gut" id="numbers" aria-label="Numbers">
+  <div class="wrap nums">
+    <div class="num"><span class="v" data-to="67" data-from="5000" data-pre="#">#67</span><span class="l" lang="ko">백준 최고 랭크</span><span class="l" lang="en">BOJ peak rank</span><i class="bar"></i></div>
+    <div class="num"><span class="v g" data-to="0.11" data-from="100" data-dec="2" data-suf="%">0.11%</span><span class="l" lang="ko">경쟁 프로그래밍 상위</span><span class="l" lang="en">Top in competitive programming</span><i class="bar"></i></div>
+    <div class="num"><span class="v" data-to="8" data-from="0">8</span><span class="l" lang="ko">사용하는 프로그래밍 언어</span><span class="l" lang="en">Programming languages</span><i class="bar"></i></div>
+    <div class="num"><span class="v g">CTO</span><span class="l">Team PJ</span><i class="bar"></i></div>
+  </div>
+</section>
+
+<section class="sec" id="focus">
+  <div class="wrap gut">
+    <div class="sh">
+      <div><div class="eyebrow" data-r><b>02</b><i></i>Focus</div>
+        <h2 data-r lang="ko">AI를 <span class="grad">시스템</span>으로 만듭니다</h2><h2 data-r lang="en">Turning AI into <span class="grad">systems</span></h2></div>
+      <p data-r lang="ko">모델 하나가 아니라, 실행하고 검증하고 운영할 수 있는 전체 시스템을 다룹니다.</p>
+      <p data-r lang="en">Not a single model, but the whole system around it: execution, verification and operation.</p>
+    </div>
+  </div>
+  <div class="hpin" id="hpin">
+    <div class="htrack" id="htrack">
+      <article class="card"><span class="k">AI × SYSTEMS</span><span class="ix">01 / 05</span>
+        <div class="glyph g-orbit" aria-hidden="true"><i></i><i></i></div>
+        <h3 lang="ko">API 호출을 넘어선 AI 시스템</h3><h3 lang="en">AI beyond the API call</h3>
+        <p lang="ko">로컬 모델, 에이전트, 도구 실행, 검증까지 시스템 전체를 설계하고 통합합니다.</p>
+        <p lang="en">Local models, agents, tool execution and verification, designed as one system.</p></article>
+      <article class="card"><span class="k">AI × SECURITY</span><span class="ix">02 / 05</span>
+        <div class="glyph g-scan" aria-hidden="true"></div>
+        <h3 lang="ko">안전하게 동작하는 에이전트</h3><h3 lang="en">Agents that run safely</h3>
+        <p lang="ko">승인 기반 실행, 위변조 방지 감사 로그, 서명 검증, 롤백을 런타임에 결합합니다.</p>
+        <p lang="en">Approval-gated execution, tamper-evident audit logs, signature checks and rollback in the runtime.</p></article>
+      <article class="card"><span class="k">BUILD × VERIFY</span><span class="ix">03 / 05</span>
+        <div class="glyph g-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <h3 lang="ko">검증까지 이어지는 개발</h3><h3 lang="en">Development that ends in evidence</h3>
+        <p lang="ko">단위·통합·E2E 테스트와 벤치마크, 재현성 검증을 하나의 흐름으로 묶습니다.</p>
+        <p lang="en">Unit, integration and E2E tests, benchmarks and reproducibility in one flow.</p></article>
+      <article class="card"><span class="k">SOFTWARE × INFRA</span><span class="ix">04 / 05</span>
+        <div class="glyph g-grid" aria-hidden="true"></div>
+        <h3 lang="ko">직접 운영하는 인프라</h3><h3 lang="en">Self-hosted infrastructure</h3>
+        <p lang="ko">Linux, Raspberry Pi, 서버를 함께 운용하며 로컬 AI 환경을 구성합니다.</p>
+        <p lang="en">Linux machines, Raspberry Pi and servers run together as a local AI environment.</p></article>
+      <article class="card"><span class="k">AI × DOMAINS</span><span class="ix">05 / 05</span>
+        <div class="glyph g-wave" aria-hidden="true"><svg viewBox="0 0 300 120" preserveAspectRatio="none"><defs><linearGradient id="wg" x1="0" x2="1"><stop offset="0" stop-color="#5b8cff"/><stop offset="1" stop-color="#3fd0ff"/></linearGradient></defs><path d="M0 60 C 40 10, 60 10, 100 60 S 160 110, 200 60 S 260 10, 300 60"/></svg></div>
+        <h3 lang="ko">여러 도메인으로 확장</h3><h3 lang="en">AI across domains</h3>
+        <p lang="ko">금융 시계열 예측, 위성 영상 분석, 로봇 팔 제어에 AI를 적용합니다.</p>
+        <p lang="en">Financial forecasting, satellite-image analysis and robotic-arm control.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="sec gut" id="stack">
+  <div class="wrap">
+    <div class="sh">
+      <div><div class="eyebrow" data-r><b>03</b><i></i>Stack</div>
+        <h2 data-r lang="ko">손에 익은 <span class="grad">도구들</span></h2><h2 data-r lang="en">Tools I <span class="grad">work with</span></h2></div>
+      <p data-r lang="ko">실제로 구현하고 테스트하고 운영해 본 기술만 정리했습니다. 강조된 항목이 주력입니다.</p>
+      <p data-r lang="en">Only tools I've implemented, tested and run. Highlighted ones are primary.</p>
+    </div>
+    <div class="stack-grid" id="stackGrid">
+      <div class="grp"><h3>Languages</h3><div class="chips"><span class="main">Python</span><span class="main">C / C++</span><span class="main">Java</span><span>Rust</span><span>Dart</span><span>TypeScript</span><span>Swift</span><span>Bash</span></div></div>
+      <div class="grp"><h3>AI · LLM</h3><div class="chips"><span class="main">Local LLM</span><span class="main">Agent Systems</span><span>Ollama</span><span>llama.cpp</span><span>Whisper</span><span>ONNX</span></div></div>
+      <div class="grp"><h3>Vision · ML</h3><div class="chips"><span class="main">Segmentation</span><span>Geospatial</span><span>Model Evaluation</span><span>Quant ML</span></div></div>
+      <div class="grp"><h3>App · Backend</h3><div class="chips"><span class="main">Flutter</span><span>Android</span><span>iOS</span><span>PostgreSQL</span><span>SQLite</span><span>OIDC</span></div></div>
+      <div class="grp"><h3>Quality · Security</h3><div class="chips"><span class="main">pytest</span><span>Vitest</span><span>Playwright</span><span>CI</span><span>Audit Chains</span><span>ED25519</span></div></div>
+      <div class="grp"><h3>Infra · Hardware</h3><div class="chips"><span>Linux</span><span>Docker</span><span>SSH</span><span>Raspberry Pi</span><span>CUDA</span><span>Arduino</span></div></div>
+    </div>
+  </div>
+  <div class="marquee stack-mq" aria-hidden="true" style="margin-inline:calc(-1 * clamp(16px,5vw,64px))">
+    <div class="mtrack rev">
+      <span class="o">Python</span><span>C++</span><span class="o">Java</span><span>Rust</span><span class="o">Flutter</span><span>Ollama</span><span class="o">llama.cpp</span><span>PostgreSQL</span><span class="o">Docker</span><span>Raspberry Pi</span>
+      <span class="o">Python</span><span>C++</span><span class="o">Java</span><span>Rust</span><span class="o">Flutter</span><span>Ollama</span><span class="o">llama.cpp</span><span>PostgreSQL</span><span class="o">Docker</span><span>Raspberry Pi</span>
+    </div>
+  </div>
+</section>
+
+<section class="sec gut" id="process">
+  <div class="wrap proc" id="proc">
+    <div class="sh">
+      <div><div class="eyebrow" data-r><b>04</b><i></i>Process</div>
+        <h2 data-r lang="ko">아이디어에서 <span class="grad">릴리스</span>까지</h2><h2 data-r lang="en">From idea to <span class="grad">release</span></h2></div>
+      <p data-r lang="ko">검증된 결과물이 나올 때까지 모든 단계를 직접 가져갑니다.</p>
+      <p data-r lang="en">I carry every step myself until there's a verified result.</p>
+    </div>
+    <div class="steps-wrap" id="steps">
+    <div class="rail" aria-hidden="true"><i id="railFill"></i></div>
+    <ol class="steps">
+      <li><span class="n">01</span><h4 lang="ko">문제 정의</h4><h4 lang="en">Define</h4><p lang="ko">무엇을 왜 푸는지</p><p lang="en">What and why</p></li>
+      <li><span class="n">02</span><h4 lang="ko">설계</h4><h4 lang="en">Design</h4><p lang="ko">시스템 구조와 경계</p><p lang="en">Structure and boundaries</p></li>
+      <li><span class="n">03</span><h4 lang="ko">구현</h4><h4 lang="en">Build</h4><p lang="ko">작게, 검증 가능하게</p><p lang="en">Small and verifiable</p></li>
+      <li><span class="n">04</span><h4 lang="ko">테스트</h4><h4 lang="en">Test</h4><p lang="ko">단위·통합·E2E</p><p lang="en">Unit, integration, E2E</p></li>
+      <li><span class="n">05</span><h4 lang="ko">벤치마크</h4><h4 lang="en">Benchmark</h4><p lang="ko">숫자로 확인</p><p lang="en">Proven in numbers</p></li>
+      <li><span class="n">06</span><h4 lang="ko">보안 점검</h4><h4 lang="en">Secure</h4><p lang="ko">실패해도 안전하게</p><p lang="en">Safe when it fails</p></li>
+      <li><span class="n">07</span><h4 lang="ko">문서화</h4><h4 lang="en">Document</h4><p lang="ko">근거와 재현 방법</p><p lang="en">Evidence and repro</p></li>
+      <li><span class="n">08</span><h4 lang="ko">릴리스</h4><h4 lang="en">Release</h4><p lang="ko">깨끗한 환경에서 재검증</p><p lang="en">Re-verified from clean</p></li>
+    </ol>
+    </div>
+  </div>
+</section>
+
+<section class="sec gut" id="contact">
+  <div class="wrap">
+    <div class="contact">
+      <div class="eyebrow"><b>05</b><i></i>Contact</div>
+      <h2 class="big" lang="ko"><span class="ln"><span>함께 만들</span></span><span class="ln"><span class="grad">무언가가</span></span><span class="ln"><span>있다면.</span></span></h2>
+      <h2 class="big" lang="en"><span class="ln"><span>Have something</span></span><span class="ln"><span class="grad">to build</span></span><span class="ln"><span>together?</span></span></h2>
+      <p class="lede" lang="ko">협업, 프로젝트, 연구 관련 문의 모두 환영합니다.</p>
+      <p class="lede" lang="en">Collaboration, projects and research inquiries are all welcome.</p>
+      <div class="links">
+        <div class="lk"><span class="kk">Email</span><div class="row"><span class="vv" id="email">bagdoeon827@gmail.com</span><button class="copy" id="copy" type="button"><span lang="ko">복사</span><span lang="en">Copy</span></button></div></div>
+        <a class="lk mag" href="https://github.com/Bugeon151" target="_blank" rel="noopener"><span class="kk">GitHub</span><div class="row"><span class="vv">Bugeon151</span><span>↗</span></div></a>
+        <a class="lk mag" href="https://www.instagram.com/bugeon.dev/" target="_blank" rel="noopener"><span class="kk">Instagram</span><div class="row"><span class="vv">@bugeon.dev</span><span>↗</span></div></a>
+      </div>
+    </div>
+    <footer><span>© 2026 Bugeon Park</span><span>Local-first AI · Systems · Algorithms</span></footer>
+  </div>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script>
 (() => {
   const root = document.documentElement;
-  const btns = document.querySelectorAll('.lang button');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* language */
+  const lbtns = document.querySelectorAll('.lang button');
   function setLang(l){
     root.dataset.lang = l;
-    btns.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.set === l)));
+    lbtns.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.set === l)));
     try { localStorage.setItem('lang', l); } catch {}
+    if (root.classList.contains('motion')) gsap.set('[data-r]', { opacity: 1, y: 0 });
+    if (window.ScrollTrigger) ScrollTrigger.refresh();
   }
-  let saved = null;
-  try { saved = localStorage.getItem('lang'); } catch {}
+  let saved = null; try { saved = localStorage.getItem('lang'); } catch {}
   setLang(saved || ((navigator.language || 'ko').toLowerCase().startsWith('ko') ? 'ko' : 'en'));
-  btns.forEach(b => b.addEventListener('click', () => setLang(b.dataset.set)));
+  lbtns.forEach(b => b.addEventListener('click', () => setLang(b.dataset.set)));
 
-  // archive: year buttons reveal their panel
-  const yrs = [...document.querySelectorAll('.yr')];
-  yrs.forEach(b => b.addEventListener('click', () => {
-    const open = b.getAttribute('aria-selected') !== 'true';
-    yrs.forEach(o => { o.setAttribute('aria-selected', 'false'); document.getElementById('panel-' + o.dataset.year).hidden = true; });
-    if (open) { b.setAttribute('aria-selected', 'true'); document.getElementById('panel-' + b.dataset.year).hidden = false; }
+  /* copy email */
+  const copy = document.getElementById('copy');
+  copy.addEventListener('click', async () => {
+    const el = document.getElementById('email'), en = root.dataset.lang === 'en', label = copy.innerHTML;
+    try { await navigator.clipboard.writeText(el.textContent); copy.textContent = en ? 'Copied' : '복사됨'; }
+    catch { const r = document.createRange(); r.selectNodeContents(el); const s = getSelection(); s.removeAllRanges(); s.addRange(r); copy.textContent = en ? 'Selected' : '선택됨'; }
+    setTimeout(() => copy.innerHTML = label, 2000);
+  });
+
+  /* split name into letters */
+  document.querySelectorAll('#name .w').forEach(w => { w.innerHTML = [...w.textContent].map(c => `<span class="c">${c}</span>`).join(''); });
+
+  /* rotating word */
+  const rs = [...document.querySelectorAll('#rot span')]; let ri = 0;
+  if (!reduce) setInterval(() => {
+    const cur = rs[ri]; ri = (ri + 1) % rs.length; const nx = rs[ri];
+    cur.classList.remove('on'); cur.classList.add('out'); nx.classList.remove('out'); nx.classList.add('on');
+    setTimeout(() => cur.classList.remove('out'), 650);
+  }, 2200);
+
+  /* infra glyph cells */
+  const gg = document.querySelector('.g-grid');
+  for (let i = 0; i < 24; i++) { const c = document.createElement('i'); c.style.animationDelay = (Math.random() * 3).toFixed(2) + 's'; gg.appendChild(c); }
+
+  /* pointer spotlight + card glow + magnetic buttons */
+  addEventListener('pointermove', e => { root.style.setProperty('--mx', e.clientX + 'px'); root.style.setProperty('--my', e.clientY + 'px'); }, { passive: true });
+  document.querySelectorAll('.card').forEach(c => c.addEventListener('pointermove', e => {
+    const r = c.getBoundingClientRect(); c.style.setProperty('--cx', (e.clientX - r.left) + 'px'); c.style.setProperty('--cy', (e.clientY - r.top) + 'px');
   }));
+  if (!reduce && matchMedia('(hover:hover)').matches) document.querySelectorAll('.mag').forEach(m => {
+    m.addEventListener('pointermove', e => { const r = m.getBoundingClientRect(); m.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * .18}px,${(e.clientY - r.top - r.height / 2) * .3}px)`; });
+    m.addEventListener('pointerleave', () => { m.style.transform = ''; });
+  });
 
-  // cursor spotlight
-  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    addEventListener('pointermove', e => {
-      root.style.setProperty('--mx', e.clientX + 'px');
-      root.style.setProperty('--my', e.clientY + 'px');
-    }, { passive: true });
+  /* scroll progress */
+  const pb = document.getElementById('progress');
+  const onScroll = () => { const h = document.documentElement.scrollHeight - innerHeight; pb.style.transform = `scaleX(${h > 0 ? scrollY / h : 0})`; };
+  addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+  /* hero neural network */
+  const cv = document.getElementById('net'), ctx = cv.getContext('2d');
+  let W, H, DPR, nodes = [], mouse = { x: -999, y: -999 }, heroVisible = true;
+  function size(){
+    DPR = Math.min(devicePixelRatio || 1, 2); W = cv.clientWidth; H = cv.clientHeight;
+    cv.width = W * DPR; cv.height = H * DPR; ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+    const n = Math.round(Math.min(110, W * H / 14000));
+    nodes = Array.from({ length: n }, () => ({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * .35, vy: (Math.random() - .5) * .35, r: Math.random() * 1.6 + .6 }));
   }
+  function draw(){
+    ctx.clearRect(0, 0, W, H);
+    const D = 140;
+    for (const p of nodes) {
+      if (!reduce) { p.x += p.vx; p.y += p.vy; if (p.x < 0 || p.x > W) p.vx *= -1; if (p.y < 0 || p.y > H) p.vy *= -1; }
+      const dx = mouse.x - p.x, dy = mouse.y - p.y, dm = Math.hypot(dx, dy);
+      if (dm < 180) { p.x += dx * .006; p.y += dy * .006; }
+    }
+    for (let i = 0; i < nodes.length; i++) for (let j = i + 1; j < nodes.length; j++) {
+      const a = nodes[i], b = nodes[j], d = Math.hypot(a.x - b.x, a.y - b.y);
+      if (d < D) { ctx.strokeStyle = `rgba(91,140,255,${(1 - d / D) * .35})`; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke(); }
+    }
+    for (const p of nodes) {
+      const near = Math.hypot(mouse.x - p.x, mouse.y - p.y) < 180;
+      ctx.fillStyle = near ? 'rgba(63,208,255,.95)' : 'rgba(170,190,230,.55)';
+      ctx.beginPath(); ctx.arc(p.x, p.y, near ? p.r + 1 : p.r, 0, Math.PI * 2); ctx.fill();
+    }
+  }
+  function loop(){ if (heroVisible) draw(); if (!reduce) requestAnimationFrame(loop); }
+  size(); addEventListener('resize', size);
+  cv.parentElement.addEventListener('pointermove', e => { const r = cv.getBoundingClientRect(); mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top; });
+  cv.parentElement.addEventListener('pointerleave', () => { mouse.x = mouse.y = -999; });
+  new IntersectionObserver(es => { heroVisible = es[0].isIntersecting; }).observe(cv);
+  loop();
 
-  // highlight the section in view
-  const links = [...document.querySelectorAll('.toc a')];
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(en => {
-      if (en.isIntersecting) links.forEach(a => a.classList.toggle('on', a.dataset.sec === en.target.id));
-    });
-  }, { rootMargin: '-30% 0px -60% 0px' });
-  ['about','experience','projects','archive','stack'].forEach(id => { const el = document.getElementById(id); if (el) io.observe(el); });
+  /* everything below needs GSAP; without it the page stays fully visible and static */
+  if (!window.gsap || !window.ScrollTrigger || reduce) {
+    document.querySelectorAll('.steps li').forEach(li => li.classList.add('on'));
+    document.getElementById('railFill').style.transform = 'none';
+    return;
+  }
+  gsap.registerPlugin(ScrollTrigger);
+  root.classList.add('motion');
+
+  /* hero intro */
+  gsap.from('#name .c', { yPercent: 110, rotate: 8, opacity: 0, duration: 1, ease: 'power4.out', stagger: .045, delay: .1 });
+  gsap.from(['.pill', '.rot', '.hero .sub', '.cta'], { y: 24, opacity: 0, duration: .9, ease: 'power3.out', stagger: .1, delay: .45 });
+  /* hero scroll-out */
+  gsap.to('#heroIn', { yPercent: -18, opacity: .15, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+  gsap.to('#net', { scale: 1.15, opacity: .3, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+
+  /* generic reveals */
+  ScrollTrigger.batch('[data-r]', { start: 'top 88%', once: true,
+    onEnter: els => gsap.to(els, { opacity: 1, y: 0, duration: .9, ease: 'power3.out', stagger: .08 }) });
+  gsap.utils.toArray('.eyebrow i').forEach(l => gsap.from(l, { scaleX: 0, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: l, start: 'top 90%' } }));
+
+  /* about: photo clip reveal + parallax, words light up with scroll */
+  gsap.fromTo('#ph', { clipPath: 'inset(18% 18% 18% 18% round 24px)' }, { clipPath: 'inset(0% 0% 0% 0% round 24px)', ease: 'none',
+    scrollTrigger: { trigger: '#about', start: 'top 85%', end: 'top 25%', scrub: true } });
+  gsap.fromTo('#ph img', { scale: 1.35, yPercent: -6 }, { scale: 1, yPercent: 6, ease: 'none', scrollTrigger: { trigger: '#about', start: 'top bottom', end: 'bottom top', scrub: true } });
+  document.querySelectorAll('.lit').forEach(p => {
+    p.innerHTML = p.textContent.split(' ').map(w => `<span class="wd">${w}</span>`).join(' ');
+    gsap.fromTo(p.querySelectorAll('.wd'), { opacity: .14 }, { opacity: 1, stagger: .1, ease: 'none',
+      scrollTrigger: { trigger: '#about', start: 'top 65%', end: 'center 40%', scrub: true } });
+  });
+
+  /* numbers: count toward the real figure */
+  gsap.utils.toArray('.num').forEach((n, i) => {
+    const v = n.querySelector('.v'), bar = n.querySelector('.bar');
+    gsap.from(n, { y: 40, opacity: 0, duration: .8, delay: i * .08, ease: 'power3.out', scrollTrigger: { trigger: '.nums', start: 'top 85%' } });
+    gsap.to(bar, { scaleX: 1, duration: 1.4, delay: .2 + i * .1, ease: 'power3.inOut', scrollTrigger: { trigger: '.nums', start: 'top 85%' } });
+    if (v.dataset.to) {
+      const o = { x: +v.dataset.from }, dec = +(v.dataset.dec || 0), pre = v.dataset.pre || '', suf = v.dataset.suf || '';
+      gsap.to(o, { x: +v.dataset.to, duration: 2, delay: .1 + i * .1, ease: 'expo.out', scrollTrigger: { trigger: '.nums', start: 'top 85%' },
+        onUpdate: () => { v.textContent = pre + o.x.toFixed(dec) + suf; } });
+    }
+  });
+
+  /* focus: pinned horizontal track on desktop, staggered cards on mobile */
+  const mm = gsap.matchMedia();
+  mm.add('(min-width: 901px)', () => {
+    const track = document.getElementById('htrack');
+    const dist = () => track.scrollWidth - innerWidth;
+    gsap.to(track, { x: () => -dist(), ease: 'none',
+      scrollTrigger: { trigger: '#hpin', start: 'center center', end: () => '+=' + dist(), pin: true, scrub: 1, invalidateOnRefresh: true, anticipatePin: 1 } });
+    gsap.from('.card', { y: 80, rotateX: 12, opacity: 0, duration: 1, stagger: .1, ease: 'power3.out', scrollTrigger: { trigger: '#hpin', start: 'top 85%' } });
+
+    /* process: pin and draw the rail across the steps */
+    const lis = gsap.utils.toArray('.steps li');
+    gsap.fromTo('#railFill', { scaleX: 0 }, { scaleX: 1, ease: 'none',
+      scrollTrigger: { trigger: '#proc', start: 'top 15%', end: '+=1200', pin: true, scrub: .6,
+        onUpdate: s => lis.forEach((li, k) => li.classList.toggle('on', s.progress >= k / lis.length + .01)) } });
+  });
+  mm.add('(max-width: 900px)', () => {
+    gsap.utils.toArray('.card').forEach(c => gsap.from(c, { y: 60, opacity: 0, duration: .9, ease: 'power3.out', scrollTrigger: { trigger: c, start: 'top 90%' } }));
+    const lis = gsap.utils.toArray('.steps li');
+    gsap.fromTo('#railFill', { scaleY: 0 }, { scaleY: 1, ease: 'none',
+      scrollTrigger: { trigger: '#steps', start: 'top 70%', end: 'bottom 60%', scrub: .5,
+        onUpdate: s => lis.forEach((li, k) => li.classList.toggle('on', s.progress >= k / lis.length + .01)) } });
+  });
+
+  /* stack: groups rise, chips pop in */
+  gsap.utils.toArray('.grp').forEach((g, i) => {
+    const tl = gsap.timeline({ scrollTrigger: { trigger: g, start: 'top 88%' } });
+    tl.from(g, { y: 50, opacity: 0, duration: .8, ease: 'power3.out', delay: (i % 3) * .08 })
+      .from(g.querySelectorAll('.chips span'), { scale: .6, opacity: 0, duration: .45, ease: 'back.out(2)', stagger: .04 }, '-=.4');
+  });
+
+  /* marquee speeds up with scroll velocity */
+  const tracks = document.querySelectorAll('.mtrack');
+  ScrollTrigger.create({ onUpdate: s => {
+    const v = Math.min(Math.abs(s.getVelocity()) / 400, 4);
+    tracks.forEach(t => t.getAnimations().forEach(a => { a.playbackRate = 1 + v; }));
+  }});
+
+  /* contact: masked lines + panel scale */
+  gsap.from('.contact', { scale: .94, borderRadius: 64, opacity: 0, duration: 1.1, ease: 'power3.out', scrollTrigger: { trigger: '.contact', start: 'top 85%' } });
+  gsap.utils.toArray('.big').forEach(b => gsap.from(b.querySelectorAll('.ln>span'), { yPercent: 110, duration: 1, ease: 'power4.out', stagger: .1,
+    scrollTrigger: { trigger: '.contact', start: 'top 70%' } }));
+  gsap.from('.lk', { y: 30, opacity: 0, duration: .8, stagger: .1, ease: 'power3.out', scrollTrigger: { trigger: '.links', start: 'top 92%' } });
+
+  addEventListener('load', () => ScrollTrigger.refresh());
 })();
 </script>
 </body>
