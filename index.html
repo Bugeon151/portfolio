@@ -184,8 +184,8 @@ main,header,footer{position:relative;z-index:2}
 .grp{padding:24px;border-radius:20px;min-width:0}
 .grp h3{margin:0 0 16px;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:500}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
-.chips span{font-size:14px;padding:6px 12px;border-radius:9px;border:1px solid var(--line);background:rgba(5,7,11,.5);color:var(--ink-2);transition:border-color .2s,color .2s,transform .2s}
-.chips span:hover{border-color:var(--accent);color:var(--ink);transform:translateY(-2px)}
+.chips span{font-size:14px;padding:6px 12px;border-radius:9px;border:1px solid var(--line);background:rgba(5,7,11,.5);color:var(--ink-2);transition:border-color .2s,color .2s,background .2s}
+.chips span:hover{border-color:var(--accent);color:var(--ink);background:rgba(91,140,255,.08)}
 .chips span.main{border-color:rgba(91,140,255,.5);color:var(--ink);background:rgba(91,140,255,.12)}
 .stack-mq{margin-top:56px}
 
@@ -702,7 +702,7 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;paddin
   gsap.utils.toArray('.grp').forEach((g, i) => {
     gsap.timeline({ scrollTrigger: { trigger: g, start: 'top 88%' } })
       .from(g, { y: 60, rotateX: 18, opacity: 0, duration: .9, ease: 'power3.out', delay: (i % 3) * .08 })
-      .from(g.querySelectorAll('.chips span'), { scale: .5, opacity: 0, duration: .45, ease: 'back.out(2.2)', stagger: .04 }, '-=.45');
+      .fromTo(g.querySelectorAll('.chips span'), { scale: .5, opacity: 0 }, { scale: 1, opacity: 1, duration: .45, ease: 'back.out(2.2)', stagger: .04, clearProps: 'transform' }, '-=.45');
   });
 
   /* ---------- contact ---------- */
