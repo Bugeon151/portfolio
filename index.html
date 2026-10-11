@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#05070b">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Cdefs%3E%3ClinearGradient id=%27g%27 x1=%270%27 x2=%271%27%3E%3Cstop offset=%270%27 stop-color=%27%235b8cff%27/%3E%3Cstop offset=%271%27 stop-color=%27%233fd0ff%27/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width=%2764%27 height=%2764%27 rx=%2716%27 fill=%27%2305070b%27/%3E%3Ctext x=%2732%27 y=%2743%27 text-anchor=%27middle%27 font-family=%27Arial%27 font-weight=%27700%27 font-size=%2730%27 fill=%27url(%23g)%27%3EBP%3C/text%3E%3C/svg%3E">
-<meta name="description" content="Bugeon Park(박부건) — AI Systems Engineer · CTO of Team PJ. Local-first AI, agent systems, secure runtimes. 로컬 우선 AI 시스템 엔지니어 박부건의 홈페이지.">
+<meta name="description" content="Bugeon Park(박부건) — AI Systems Engineer · CTO of PJ Group. Local-first AI, agent systems, secure runtimes. 로컬 우선 AI 시스템 엔지니어 박부건의 홈페이지.">
 <meta name="author" content="Bugeon Park">
 <link rel="canonical" href="https://bugeon151.github.io/portfolio/">
 <meta property="og:type" content="profile">
 <meta property="og:url" content="https://bugeon151.github.io/portfolio/">
 <meta property="og:title" content="Bugeon Park (박부건) · AI Systems Engineer">
-<meta property="og:description" content="Local-first AI, agent systems and secure runtimes. CTO of Team PJ.">
+<meta property="og:description" content="Local-first AI, agent systems and secure runtimes. CTO of PJ Group.">
 <meta property="og:image" content="https://bugeon151.github.io/portfolio/img/sea.jpg">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:locale:alternate" content="en_US">
@@ -29,7 +29,7 @@
   "url": "https://bugeon151.github.io/portfolio/",
   "image": "https://bugeon151.github.io/portfolio/img/avatar.jpg",
   "jobTitle": "AI Systems Engineer",
-  "worksFor": { "@type": "Organization", "name": "Team PJ" },
+  "worksFor": { "@type": "Organization", "name": "PJ Group", "alternateName": "PJ그룹", "url": "https://team-pj-lab.github.io/" },
   "nationality": { "@type": "Country", "name": "South Korea" },
   "knowsAbout": ["Local-first AI", "AI Agents", "Local LLM", "Computer Vision", "Secure Runtimes", "Quantitative ML", "Competitive Programming"],
   "sameAs": ["https://github.com/Bugeon151", "https://www.instagram.com/bugeon.dev/"]
@@ -174,6 +174,8 @@ html{scrollbar-width:thin;scrollbar-color:#2a3446 transparent}
 @keyframes sweep{0%{top:-30%}100%{top:100%}}
 .lit{color:var(--ink);font-size:clamp(24px,2.9vw,38px);font-weight:500;letter-spacing:-.035em;line-height:1.3;margin:22px 0 0}
 .about .more{margin:28px 0 0;max-width:34em;color:var(--muted)}
+.org{color:var(--ink);border-bottom:1px solid var(--line);transition:border-color .2s}
+.org:hover{border-color:var(--ink)}
 
 /* numbers */
 .nums{display:grid;grid-template-columns:repeat(2,1fr);border-radius:24px;overflow:hidden;max-width:900px}
@@ -311,7 +313,7 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;paddin
 <section class="hero" id="top" data-shape="0">
   <div class="wrap gut">
     <div class="hero-in" id="heroIn">
-      <span class="pill glass"><span class="dot"></span><span lang="ko">AI 시스템 엔지니어 · CTO, Team PJ</span><span lang="en">AI Systems Engineer · CTO, Team PJ</span></span>
+      <span class="pill glass"><span class="dot"></span><span lang="ko">AI 시스템 엔지니어 · CTO, PJ Group</span><span lang="en">AI Systems Engineer · CTO, PJ Group</span></span>
       <h1 id="name" aria-label="Bugeon Park"><span class="w">Bugeon</span><span class="w">Park</span></h1>
       <div class="rot">
         <span lang="ko">제가 만드는 것은</span><span lang="en">I build</span>
@@ -342,8 +344,8 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;paddin
       <div class="eyebrow" data-r><b>01</b><i></i><span class="scr">About</span></div>
       <p class="lit" lang="ko">모델을 호출하는 데서 끝내지 않습니다. 에이전트가 도구를 실행하고, 결과를 검증하고, 문제가 생기면 되돌릴 수 있는 시스템 전체를 설계합니다.</p>
       <p class="lit" lang="en">I don't stop at calling a model. I design the whole system where agents run tools, verify results, and roll back when something goes wrong.</p>
-      <p class="more" data-r lang="ko">박부건입니다. Team PJ의 CTO로 기술 방향과 시스템 설계를 맡고 있고, AI 시스템·기계공학·알고리즘을 함께 공부합니다. 데이터는 기기 안에서 처리하고, 모든 실행은 승인·감사·롤백할 수 있게 만드는 로컬 우선(local-first) AI에 집중하고 있습니다.</p>
-      <p class="more" data-r lang="en">I'm Bugeon Park, CTO of Team PJ, leading technical direction and system design while studying AI systems, mechanical engineering and algorithms. My focus is local-first AI: data stays on the device, and every action can be approved, audited and rolled back.</p>
+      <p class="more" data-r lang="ko">박부건입니다. <a class="org" href="https://team-pj-lab.github.io/" target="_blank" rel="noopener">PJ Group</a>의 CTO로 기술 방향과 시스템 설계를 맡고 있고, AI 시스템·기계공학·알고리즘을 함께 공부합니다. 데이터는 기기 안에서 처리하고, 모든 실행은 승인·감사·롤백할 수 있게 만드는 로컬 우선(local-first) AI에 집중하고 있습니다.</p>
+      <p class="more" data-r lang="en">I'm Bugeon Park, CTO of <a class="org" href="https://team-pj-lab.github.io/" target="_blank" rel="noopener">PJ Group</a>, leading technical direction and system design while studying AI systems, mechanical engineering and algorithms. My focus is local-first AI: data stays on the device, and every action can be approved, audited and rolled back.</p>
     </div>
   </div>
 </section>
