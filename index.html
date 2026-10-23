@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#fbfaf7">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Cdefs%3E%3ClinearGradient id=%27g%27 x1=%270%27 x2=%271%27%3E%3Cstop offset=%270%27 stop-color=%27%235b8cff%27/%3E%3Cstop offset=%271%27 stop-color=%27%233fd0ff%27/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width=%2764%27 height=%2764%27 rx=%2716%27 fill=%27%2305070b%27/%3E%3Ctext x=%2732%27 y=%2743%27 text-anchor=%27middle%27 font-family=%27Arial%27 font-weight=%27700%27 font-size=%2730%27 fill=%27url(%23g)%27%3EBP%3C/text%3E%3C/svg%3E">
-<meta name="description" content="Bugeon Park(박부건) — Co-CEO &amp; CTO of PJ Group · AI Systems Engineer. Local-first AI, agent systems, secure runtimes. 로컬 우선 AI 시스템 엔지니어 박부건의 홈페이지.">
+<meta name="description" content="Bugeon Park(박부건) — CTO of PJ Group · AI Systems Engineer. Local-first AI, agent systems, secure runtimes. 로컬 우선 AI 시스템 엔지니어 박부건의 홈페이지.">
 <meta name="author" content="Bugeon Park">
 <link rel="canonical" href="https://bugeon151.github.io/portfolio/">
 <meta property="og:type" content="profile">
 <meta property="og:url" content="https://bugeon151.github.io/portfolio/">
 <meta property="og:title" content="Bugeon Park (박부건) · AI Systems Engineer">
-<meta property="og:description" content="Local-first AI, agent systems and secure runtimes. Co-CEO &amp; CTO of PJ Group.">
+<meta property="og:description" content="Builder of Interlock, which coordinates parallel AI coding agents. CTO of PJ Group.">
 <meta property="og:image" content="https://bugeon151.github.io/portfolio/img/sea.jpg">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:locale:alternate" content="en_US">
@@ -28,7 +28,7 @@
   "alternateName": ["박부건", "Park Bugeon"],
   "url": "https://bugeon151.github.io/portfolio/",
   "image": "https://bugeon151.github.io/portfolio/img/avatar.jpg",
-  "jobTitle": ["Co-CEO & CTO", "AI Systems Engineer"],
+  "jobTitle": ["CTO", "AI Systems Engineer"],
   "worksFor": { "@type": "Organization", "name": "PJ Group", "alternateName": "PJ그룹", "url": "https://team-pj-lab.github.io/" },
   "nationality": { "@type": "Country", "name": "South Korea" },
   "knowsAbout": ["Local-first AI", "AI Agents", "Local LLM", "Computer Vision", "Secure Runtimes", "Quantitative ML", "Competitive Programming"],
@@ -97,7 +97,7 @@ p a:hover,.inl:hover{color:var(--accent)}
 .who .r{color:var(--muted);font-size:14.5px;line-height:1.3}
 .who .r a{color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line)}
 .who .r a:hover{color:var(--accent);border-color:var(--accent)}
-.hero h1{color:var(--ink);font-size:clamp(38px,6.4vw,66px);font-weight:600;letter-spacing:-.04em;line-height:1.08;margin:0;text-wrap:balance}
+.hero h1{color:var(--ink);font-size:clamp(30px,5.2vw,54px);font-weight:600;letter-spacing:-.04em;line-height:1.08;margin:0;text-wrap:balance}
 .hero h1 .u{position:relative;white-space:nowrap}
 .hero h1 .u::after{content:"";position:absolute;left:0;right:0;bottom:.02em;height:.09em;background:var(--accent);transform-origin:left;transform:scaleX(var(--u,1))}
 .hero .lede{margin:28px 0 0;font-size:clamp(18px,2vw,21px);color:var(--ink-2);max-width:34em}
@@ -106,6 +106,8 @@ p a:hover,.inl:hover{color:var(--accent)}
 .btn:hover{transform:translateY(-1px);filter:brightness(1.05)}
 .btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
 .btn.ghost:hover{border-color:var(--ink)}
+
+@media (max-width:640px){.hero h1 .u{white-space:normal}}
 
 /* metrics */
 .metrics{display:grid;grid-template-columns:repeat(3,1fr);border-block:1px solid var(--line)}
@@ -178,7 +180,7 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin
   <div class="col">
     <a class="brand" href="#"><i aria-hidden="true"></i>Bugeon Park</a>
     <nav aria-label="Sections">
-      <a href="#now">Now</a><a href="#work">Work</a><a href="#background">Background</a><a href="#contact">Contact</a>
+      <a href="#now">Now</a><a href="#projects">Projects</a><a href="#work">Work</a><a href="#background">Background</a><a href="#contact">Contact</a>
       <div class="lang" role="group" aria-label="Language">
         <button type="button" id="lang-ko" data-set="ko" aria-pressed="true">KO</button>
         <button type="button" id="lang-en" data-set="en" aria-pressed="false">EN</button>
@@ -192,14 +194,15 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin
     <div class="who rv">
       <img src="img/avatar.jpg" alt="Bugeon Park">
       <div><div class="n">Bugeon Park <span style="color:var(--muted);font-weight:400">· 박부건</span></div>
-        <div class="r">Co-CEO &amp; CTO, <a href="https://team-pj-lab.github.io/" target="_blank" rel="noopener">PJ Group</a></div></div>
+        <div class="r">CTO, <a href="https://team-pj-lab.github.io/" target="_blank" rel="noopener">PJ Group</a></div></div>
     </div>
-    <h1 class="rv" lang="ko">컴퓨터 안에서 돌아가고, <span class="u" id="u1">스스로 검증하는</span> AI 에이전트를 만듭니다.</h1>
-    <h1 class="rv" lang="en">I build AI agents that run on your machine and <span class="u" id="u2">check their own work</span>.</h1>
-    <p class="lede rv" lang="ko">대부분의 AI 제품은 API 호출에서 멈춥니다. 어려운 건 그다음, 실행하고 검증하고 안전하게 되돌리는 부분입니다. 저는 그 부분을 만듭니다.</p>
-    <p class="lede rv" lang="en">Most AI products stop at the API call. The hard part comes after it: executing, verifying, and safely rolling back. That's the part I build.</p>
+    <h1 class="rv" lang="ko">여러 AI 코딩 에이전트가 한 코드베이스에서 <span class="u" id="u1">서로의 작업을 망치지 않게</span> 만듭니다.</h1>
+    <h1 class="rv" lang="en">I build Interlock, so many AI coding agents can work on one codebase <span class="u" id="u2">without breaking each other's work.</span></h1>
+    <p class="lede rv" lang="ko">에이전트들은 서로를 보지 못해서, 각자 통과한 PR이 합쳐지면 서로를 깨뜨립니다. Interlock은 코드가 들어가기 전에 충돌을 막습니다. 실제 Claude Code 에이전트 180회 사전 등록 벤치마크(Haiku 5.5)에서 병합·테스트 통과율 100%(Shepherd 45%, 조정 도구 없음 43%).</p>
+    <p class="lede rv" lang="en">Agents can't see each other, so two green PRs can silently undo each other. Interlock coordinates them before code lands. In a 180-run pre-registered benchmark with real Claude Code agents (Haiku 5.5), 100% of tasks merged and passed hidden tests (Shepherd 45%, no tool 43%).</p>
     <div class="cta rv">
       <a class="btn" href="#contact"><span lang="ko">연락하기</span><span lang="en">Get in touch</span> →</a>
+      <a class="btn ghost" href="https://team-pj-lab.github.io/interlock/experiments/" target="_blank" rel="noopener"><span lang="ko">실험 데이터</span><span lang="en">Experiments</span> ↗</a>
       <a class="btn ghost" href="https://github.com/Bugeon151" target="_blank" rel="noopener">GitHub ↗</a>
     </div>
   </div>
@@ -207,44 +210,70 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin
   <div class="metrics rv" aria-label="Highlights">
     <div class="m"><span class="v"><span class="a">#</span><span class="cnt" data-to="67" data-from="999">67</span></span><span class="l" lang="ko">백준(BOJ) 최고 랭크</span><span class="l" lang="en">Baekjoon peak rank</span></div>
     <div class="m"><span class="v"><span class="cnt" data-to="0.11" data-from="10" data-dec="2">0.11</span><span class="a">%</span></span><span class="l" lang="ko">경쟁 프로그래밍 상위</span><span class="l" lang="en">Top in competitive programming</span></div>
-    <div class="m"><span class="v">Co-CEO</span><span class="l" lang="ko">CTO 겸임 · PJ Group</span><span class="l" lang="en">and CTO · PJ Group</span></div>
+    <div class="m"><span class="v">889</span><span class="l" lang="ko">Interlock 자동화 테스트</span><span class="l" lang="en">Interlock automated tests</span></div>
   </div>
 
   <section id="now">
     <div class="k rv">Now</div>
     <h2 class="rv" lang="ko">PJ Group을 만들고 있습니다.</h2>
     <h2 class="rv" lang="en">Building PJ Group.</h2>
-    <p class="big rv" lang="ko"><a href="https://team-pj-lab.github.io/" target="_blank" rel="noopener">PJ Group</a>은 소프트웨어로 여러 사업을 설계하고 운영하는 회사입니다. 슬로건은 <i>From code to companies.</i> 저는 공동대표이자 CTO로 회사 운영과 엔지니어링, 기술 방향을 맡고 있습니다.</p>
-    <p class="big rv" lang="en"><a href="https://team-pj-lab.github.io/" target="_blank" rel="noopener">PJ Group</a> is a software company that designs and runs businesses built on software. <i>From code to companies.</i> As Co-CEO and CTO, I run the company with my co-CEO and lead engineering and technical direction.</p>
+    <p class="big rv" lang="ko"><a href="https://team-pj-lab.github.io/" target="_blank" rel="noopener">PJ Group</a>은 소프트웨어로 여러 사업을 설계하고 운영하는 회사입니다. 슬로건은 <i>From code to companies.</i> 저는 CTO로 코드, 아키텍처, 보안 등 엔지니어링 전반을 맡고 있고, 공동창업자 정우진(CEO)과 Interlock을 만들고 있습니다.</p>
+    <p class="big rv" lang="en"><a href="https://team-pj-lab.github.io/" target="_blank" rel="noopener">PJ Group</a> is a software company that designs and runs businesses built on software. <i>From code to companies.</i> As CTO I lead engineering (code, architecture, security) and build Interlock with my co-founder Woojin Jung, our CEO.</p>
   </section>
 
   <section id="why">
     <div class="k rv">Why</div>
-    <h2 class="rv" lang="ko">AI가 실제로 일을 하려면, 믿을 수 있어야 합니다.</h2>
-    <h2 class="rv" lang="en">For AI to do real work, you have to be able to trust it.</h2>
-    <p class="rv" lang="ko">에이전트가 파일을 고치고, 코드를 실행하고, 서버를 다루기 시작하면 질문이 바뀝니다. "얼마나 똑똑한가"보다 "무엇을 했는지 확인할 수 있는가", "잘못되면 되돌릴 수 있는가"가 중요해집니다. 저는 그 질문에 답하는 시스템을 만듭니다. 데이터는 기기 안에 두고, 모든 실행은 승인·기록·롤백할 수 있게.</p>
-    <p class="rv" lang="en">Once agents start editing files, running code and touching servers, the question changes. It's less "how smart is it" and more "can I see what it did" and "can I undo it." I build systems that answer those questions: data stays on the device, and every action can be approved, logged and rolled back.</p>
+    <h2 class="rv" lang="ko">에이전트는 빠릅니다. 깨지는 건 여러 에이전트가 한곳에서 일할 때입니다.</h2>
+    <h2 class="rv" lang="en">Agents are fast. What breaks is several of them working in one place.</h2>
+    <p class="rv" lang="ko">한 에이전트가 함수 시그니처를 바꾸는 동안 다른 에이전트는 옛 시그니처로 호출 코드를 씁니다. 각 PR은 따로 통과하고, 충돌은 병합 뒤에야 나타납니다. 저희가 여러 에이전트로 개발하며 직접 겪은 문제이고, 그래서 코드를 파싱해 함수 단위로 막는 도구를 만들었습니다.</p>
+    <p class="rv" lang="en">While one agent changes a function's signature, another writes calls against the old one. Each PR passes alone, and the conflict shows up only after merging. We hit this ourselves building with several agents at once, so I built a tool that parses code and coordinates at the function level.</p>
+  </section>
+
+  <section id="projects">
+    <div class="k rv">Projects</div>
+    <div class="work">
+      <div class="w rv"><span class="t">2026 · Interlock</span><div>
+        <h3>Interlock</h3>
+        <p lang="ko">여러 AI 코딩 에이전트(Claude Code, Codex, Cursor)가 한 코드베이스에서 충돌 없이 일하게 하는 도구. 실제 커밋 쌍 5,352건 재현 실험에서 불필요한 차단 0건, 놓친 충돌 2/1,817건. <a href="https://team-pj-lab.github.io/interlock/experiments/" target="_blank" rel="noopener">방법과 데이터 ↗</a></p>
+        <p lang="en">Lets many AI coding agents (Claude Code, Codex, Cursor) work on one codebase without conflicts. In a replay of 5,352 real commit pairs: 0 needless blocks, 2 of 1,817 conflicts missed. <a href="https://team-pj-lab.github.io/interlock/experiments/" target="_blank" rel="noopener">Method and data ↗</a></p></div></div>
+      <div class="w rv"><span class="t">Speech · NLP</span><div>
+        <h3>jamo2hangul</h3>
+        <p lang="ko">한국어 음성인식용으로 직접 학습한 53M 파라미터 Transformer. 자모 나열을 띄어쓰기 있는 한국어로 복원하며, 평가 단어 8,000개에서 정확도 96.7%, 문자 오류율 1.36%.</p>
+        <p lang="en">A 53M-parameter Transformer trained from scratch for Korean speech recognition. Rebuilds spaced Korean text from jamo: 96.7% exact on 8,000 held-out words, 1.36% character error rate.</p></div></div>
+      <div class="w rv"><span class="t">Backend</span><div>
+        <h3>Fintech Ledger Core</h3>
+        <p lang="ko">Java, Spring Boot, PostgreSQL, Kafka 기반 복식부기 원장. 동시 거래, 멱등 API, 트랜잭셔널 아웃박스, 자동 대사를 실제 PostgreSQL·Kafka로 테스트. <a href="https://github.com/Bugeon151/fintech-ledger-core" target="_blank" rel="noopener">GitHub ↗</a></p>
+        <p lang="en">Double-entry ledger (Java, Spring Boot, PostgreSQL, Kafka) with concurrent transactions, idempotent APIs, a transactional outbox and automated reconciliation, tested against real PostgreSQL and Kafka. <a href="https://github.com/Bugeon151/fintech-ledger-core" target="_blank" rel="noopener">GitHub ↗</a></p></div></div>
+      <div class="w rv"><span class="t">Data · Web</span><div>
+        <h3>SPORT-GAP</h3>
+        <p lang="ko">전국 250개 시군구의 체육시설 접근 격차를 공공데이터로 계산하고 what-if 시뮬레이터를 제공하는 공개 웹 서비스. <a href="https://bugeon151.github.io/SPORT-GAP/" target="_blank" rel="noopener">라이브 ↗</a></p>
+        <p lang="en">A public web service that measures sports-facility access gaps across all 250 Korean municipalities from open data, with a what-if simulator. <a href="https://bugeon151.github.io/SPORT-GAP/" target="_blank" rel="noopener">Live ↗</a></p></div></div>
+      <div class="w rv"><span class="t">Benchmark</span><div>
+        <h3>Q-Bench</h3>
+        <p lang="ko">Apple M5에서 Qwen2.5-7B-Instruct를 GGUF 양자화 7단계(F16~Q2_K)로 돌려 크기, 메모리, 처리량, 지연을 잰 재현 가능한 벤치마크(llama.cpp 빌드 고정). <a href="https://github.com/Bugeon151/Q-BENCH" target="_blank" rel="noopener">GitHub ↗</a></p>
+        <p lang="en">A reproducible benchmark of Qwen2.5-7B-Instruct across seven GGUF quantization levels (F16 to Q2_K) on Apple M5: size, memory, throughput and latency, with a pinned llama.cpp build. <a href="https://github.com/Bugeon151/Q-BENCH" target="_blank" rel="noopener">GitHub ↗</a></p></div></div>
+    </div>
   </section>
 
   <section id="work">
     <div class="k rv">What I work on</div>
     <div class="work">
-      <div class="w rv"><span class="t">01 · Runtime</span><div>
-        <h3 lang="ko">에이전트 런타임</h3><h3 lang="en">Agent runtimes</h3>
-        <p lang="ko">계획 → 도구 실행 → 검증으로 이어지는 실행 구조. 여러 로컬 모델을 작업에 맞게 나눠 씁니다.</p>
-        <p lang="en">Plan → execute tools → verify. Local models routed to the task they're best at.</p></div></div>
-      <div class="w rv"><span class="t">02 · Safety</span><div>
-        <h3 lang="ko">안전장치</h3><h3 lang="en">Safety by default</h3>
-        <p lang="ko">승인 기반 실행, 위변조 방지 감사 로그, 서명 검증, 롤백.</p>
-        <p lang="en">Approval-gated execution, tamper-evident audit logs, signature checks and rollback.</p></div></div>
+      <div class="w rv"><span class="t">01 · Coordination</span><div>
+        <h3 lang="ko">에이전트 조정</h3><h3 lang="en">Agent coordination</h3>
+        <p lang="ko">서명 변경 선언, 줄 범위 충돌 검사, 명시적 클레임. 편집·커밋·병합 시점에 적용합니다. <a href="https://team-pj-lab.github.io/interlock/experiments/e1/" target="_blank" rel="noopener">실험 e1 ↗</a></p>
+        <p lang="en">Declared signature changes, line-range conflict checks and explicit claims, enforced at edit, commit and merge time. <a href="https://team-pj-lab.github.io/interlock/experiments/e1/" target="_blank" rel="noopener">Experiment e1 ↗</a></p></div></div>
+      <div class="w rv"><span class="t">02 · Deterministic</span><div>
+        <h3 lang="ko">LLM 없는 판정</h3><h3 lang="en">Decisions without an LLM</h3>
+        <p lang="ko">Interlock의 판정은 결정적이라 어떤 코딩 에이전트와도 동작하고, 거부에는 이유가 붙습니다. tree-sitter로 함수 단위까지 파싱합니다.</p>
+        <p lang="en">Interlock's decisions are deterministic, so it works with any coding agent, and every refusal comes with a reason. tree-sitter parsing down to the function.</p></div></div>
       <div class="w rv"><span class="t">03 · Proof</span><div>
         <h3 lang="ko">검증 가능한 개발</h3><h3 lang="en">Shipping with proof</h3>
-        <p lang="ko">단위·통합·E2E 테스트, 벤치마크, 깨끗한 환경에서의 재현까지 확인하고 내보냅니다.</p>
-        <p lang="en">Unit, integration and E2E tests, benchmarks, and clean-room reproduction before anything ships.</p></div></div>
-      <div class="w rv"><span class="t">04 · Infra</span><div>
-        <h3 lang="ko">직접 운영하는 인프라</h3><h3 lang="en">Self-hosted infrastructure</h3>
-        <p lang="ko">Linux 서버, Raspberry Pi, GPU 머신으로 로컬 AI 환경을 직접 구성하고 운영합니다.</p>
-        <p lang="en">Linux servers, Raspberry Pis and GPU machines, set up and run as a local AI environment.</p></div></div>
+        <p lang="ko">자동화 테스트 889개(동시성·퍼징 포함), 사전 등록 벤치마크, 에이전트 세션 실험 데이터를 공개합니다. <a href="https://team-pj-lab.github.io/interlock/experiments/e7/" target="_blank" rel="noopener">지연 시간 e7 ↗</a></p>
+        <p lang="en">889 automated tests (including concurrency and fuzz), a pre-registered benchmark and public data from agent-session experiments. <a href="https://team-pj-lab.github.io/interlock/experiments/e7/" target="_blank" rel="noopener">Latency e7 ↗</a></p></div></div>
+      <div class="w rv"><span class="t">04 · Self-hosting</span><div>
+        <h3 lang="ko">직접 운영하는 서버</h3><h3 lang="en">Self-hosted by design</h3>
+        <p lang="ko">로컬 데몬이나 자체 서버로 실행해 팀이 코드를 밖으로 내보내지 않게 합니다. Docker, Fly.io, Render 템플릿을 제공합니다.</p>
+        <p lang="en">Runs as a local daemon or on your own server so code stays in-house, with Docker, Fly.io and Render templates.</p></div></div>
     </div>
   </section>
 
@@ -253,6 +282,8 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin
     <ul class="bl">
       <li class="rv" lang="ko">경쟁 프로그래머. 백준 최고 랭크 <b>#67</b>, 상위 <b>0.11%</b>.</li>
       <li class="rv" lang="en">Competitive programmer. Baekjoon peak rank <b>#67</b>, top <b>0.11%</b>.</li>
+      <li class="rv" lang="ko">7살 때부터 프로그래밍을 해 왔습니다.</li>
+      <li class="rv" lang="en">Programming since I was 7.</li>
       <li class="rv" lang="ko">AI 시스템, 기계공학, 알고리즘을 함께 공부합니다.</li>
       <li class="rv" lang="en">Studying AI systems, mechanical engineering and algorithms.</li>
       <li class="rv" lang="ko">하드웨어부터 앱까지 다룹니다. 임베디드·로봇 제어, 모바일 앱, 백엔드, 보안.</li>
@@ -265,18 +296,18 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin
   <section id="stack">
     <div class="k rv">Stack</div>
     <dl class="stack rv">
-      <div class="st"><dt>Languages</dt><dd><b>Python</b>, <b>C/C++</b>, <b>Java</b>, Rust, Dart, TypeScript, Swift</dd></div>
-      <div class="st"><dt>AI</dt><dd><b>Local LLMs</b>, <b>agent runtimes</b>, Ollama, llama.cpp, Whisper, ONNX, computer vision</dd></div>
-      <div class="st"><dt>Product</dt><dd>Flutter, Android, iOS, PostgreSQL, SQLite, OIDC</dd></div>
-      <div class="st"><dt>Quality</dt><dd>pytest, Vitest, Playwright, CI, audit chains, ED25519</dd></div>
-      <div class="st"><dt>Infra</dt><dd>Linux, Docker, SSH, Raspberry Pi, CUDA, Arduino</dd></div>
+      <div class="st"><dt>Languages</dt><dd><b>Python</b>, <b>Java</b>, <b>C/C++</b>, TypeScript</dd></div>
+      <div class="st"><dt>AI</dt><dd><b>MCP</b>, llama.cpp, Transformers trained from scratch, tree-sitter</dd></div>
+      <div class="st"><dt>Backend</dt><dd>FastAPI, Spring Boot, PostgreSQL, Kafka, SQLite</dd></div>
+      <div class="st"><dt>Quality</dt><dd>pytest, fuzz and concurrency tests, GitHub Actions</dd></div>
+      <div class="st"><dt>Infra</dt><dd>Linux, Docker, Fly.io, Render, Raspberry Pi</dd></div>
     </dl>
   </section>
 
   <section id="talk">
     <div class="k rv">Talk to me about</div>
     <ul class="topics rv">
-      <li>Local-first AI</li><li>Agent runtimes</li><li>AI safety in practice</li><li>Competitive programming</li>
+      <li>AI coding agents</li><li>Multi-agent coordination</li><li>Developer tools</li><li>Competitive programming</li>
       <li lang="ko">회사 만들기</li><li lang="en">Starting a company</li>
     </ul>
   </section>
