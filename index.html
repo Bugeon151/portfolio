@@ -198,8 +198,8 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin
     </div>
     <h1 class="rv" lang="ko">여러 AI 코딩 에이전트가 한 코드베이스에서 <span class="u" id="u1">서로의 작업을 망치지 않게</span> 만듭니다.</h1>
     <h1 class="rv" lang="en">I build Interlock, so many AI coding agents can work on one codebase <span class="u" id="u2">without breaking each other's work.</span></h1>
-    <p class="lede rv" lang="ko">에이전트들은 서로를 보지 못해서, 각자 통과한 PR이 합쳐지면 서로를 깨뜨립니다. Interlock은 코드가 들어가기 전에 충돌을 막습니다. 실제 Claude Code 에이전트 180회 사전 등록 벤치마크(Haiku 5.5)에서 병합·테스트 통과율 100%(Shepherd 45%, 조정 도구 없음 43%).</p>
-    <p class="lede rv" lang="en">Agents can't see each other, so two green PRs can silently undo each other. Interlock coordinates them before code lands. In a 180-run pre-registered benchmark with real Claude Code agents (Haiku 5.5), 100% of tasks merged and passed hidden tests (Shepherd 45%, no tool 43%).</p>
+    <p class="lede rv" lang="ko">에이전트들은 서로를 보지 못해서, 각자 통과한 PR이 합쳐지면 서로를 깨뜨립니다. Interlock은 코드가 들어가기 전에 충돌을 막습니다. 실제 Claude Code 에이전트로 돌린 사전 등록 벤치마크(Haiku 5.5, 조건당 60회)에서 Interlock은 60회 모두 병합과 숨은 검사를 통과했습니다(Shepherd 35회, 조정 도구 없음 39회).</p>
+    <p class="lede rv" lang="en">Agents can't see each other, so two green PRs can silently undo each other. Interlock coordinates them before code lands. In a pre-registered benchmark with real Claude Code agents (Haiku 5.5, 60 runs per condition), every Interlock run merged and passed hidden checks: 60 of 60, vs 35 with Shepherd and 39 with no tool.</p>
     <div class="cta rv">
       <a class="btn" href="#contact"><span lang="ko">연락하기</span><span lang="en">Get in touch</span> →</a>
       <a class="btn ghost" href="https://team-pj-lab.github.io/interlock/experiments/" target="_blank" rel="noopener"><span lang="ko">실험 데이터</span><span lang="en">Experiments</span> ↗</a>
@@ -217,8 +217,8 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin
     <div class="k rv">Now</div>
     <h2 class="rv" lang="ko">Interlock을 만들고 있습니다.</h2>
     <h2 class="rv" lang="en">Building Interlock.</h2>
-    <p class="big rv" lang="ko"><a href="https://team-pj-lab.github.io/" target="_blank" rel="noopener">Team PJ</a>에서 CTO로 코드, 아키텍처, 보안 등 엔지니어링 전반을 맡고, 공동창업자 정우진(CEO)과 Interlock을 만들고 있습니다. Interlock은 여러 AI 코딩 에이전트(Claude Code, Codex, Cursor)가 한 코드베이스에서 서로의 작업을 깨뜨리지 않게 합니다.</p>
-    <p class="big rv" lang="en">At <a href="https://team-pj-lab.github.io/" target="_blank" rel="noopener">Team PJ</a>, I lead engineering as CTO (code, architecture, security) and build Interlock with my co-founder Woojin Jung, our CEO. Interlock lets many AI coding agents (Claude Code, Codex, Cursor) work on one codebase without breaking each other's work.</p>
+    <p class="big rv" lang="ko"><a href="https://team-pj-lab.github.io/" target="_blank" rel="noopener">Team PJ</a>에서 CTO로 코드, 아키텍처, 보안 등 엔지니어링 전반을 맡고, 공동창업자 정우진(CEO)과 Interlock을 만들고 있습니다. Interlock은 여러 AI 코딩 에이전트가 한 코드베이스에서 서로의 작업을 깨뜨리지 않게 합니다.</p>
+    <p class="big rv" lang="en">At <a href="https://team-pj-lab.github.io/" target="_blank" rel="noopener">Team PJ</a>, I lead engineering as CTO (code, architecture, security) and build Interlock with my co-founder Woojin Jung, our CEO. Interlock lets many AI coding agents work on one codebase without breaking each other's work.</p>
   </section>
 
   <section id="why">
@@ -234,8 +234,8 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin
     <div class="work">
       <div class="w rv"><span class="t">2026 · Interlock</span><div>
         <h3>Interlock</h3>
-        <p lang="ko">여러 AI 코딩 에이전트(Claude Code, Codex, Cursor)가 한 코드베이스에서 충돌 없이 일하게 하는 도구. 실제 커밋 쌍 5,352건 재현 실험에서 불필요한 차단 0건, 놓친 충돌 2/1,817건. <a href="https://team-pj-lab.github.io/interlock/experiments/" target="_blank" rel="noopener">방법과 데이터 ↗</a></p>
-        <p lang="en">Lets many AI coding agents (Claude Code, Codex, Cursor) work on one codebase without conflicts. In a replay of 5,352 real commit pairs: 0 needless blocks, 2 of 1,817 conflicts missed. <a href="https://team-pj-lab.github.io/interlock/experiments/" target="_blank" rel="noopener">Method and data ↗</a></p></div></div>
+        <p lang="ko">여러 AI 코딩 에이전트가 한 코드베이스에서 서로의 작업을 깨뜨리지 않게 하는 도구. 실제 커밋 쌍 5,352건 재현 실험에서 줄 규칙은 git이 깨끗이 병합하는 쌍을 하나도 막지 않았고, 충돌로 분류한 1,817건 중 2건을 놓쳤습니다. <a href="https://team-pj-lab.github.io/interlock/experiments/" target="_blank" rel="noopener">방법과 데이터 ↗</a></p>
+        <p lang="en">Lets many AI coding agents work on one codebase without breaking each other's work. In a replay of 5,352 real commit pairs, its line rule blocked none of the pairs git merges cleanly and missed 2 of 1,817 counted as conflicts. <a href="https://team-pj-lab.github.io/interlock/experiments/" target="_blank" rel="noopener">Method and data ↗</a></p></div></div>
       <div class="w rv"><span class="t">Speech · NLP</span><div>
         <h3>jamo2hangul</h3>
         <p lang="ko">한국어 음성인식용으로 직접 학습한 53M 파라미터 Transformer. 자모 나열을 띄어쓰기 있는 한국어로 복원하며, 평가 단어 8,000개에서 정확도 96.7%, 문자 오류율 1.36%. <a href="https://github.com/aworse/jamo2hangul" target="_blank" rel="noopener">GitHub ↗</a></p>
@@ -260,16 +260,16 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin
     <div class="work">
       <div class="w rv"><span class="t">01 · Coordination</span><div>
         <h3 lang="ko">에이전트 조정</h3><h3 lang="en">Agent coordination</h3>
-        <p lang="ko">서명 변경 선언, 줄 범위 충돌 검사, 명시적 클레임. 편집·커밋·병합 시점에 적용합니다. <a href="https://team-pj-lab.github.io/interlock/experiments/e1/" target="_blank" rel="noopener">실험 e1 ↗</a></p>
-        <p lang="en">Declared signature changes, line-range conflict checks and explicit claims, enforced at edit, commit and merge time. <a href="https://team-pj-lab.github.io/interlock/experiments/e1/" target="_blank" rel="noopener">Experiment e1 ↗</a></p></div></div>
+        <p lang="ko">시그니처 변경 선언, 줄 범위 충돌 검사, 함수 단위 점유. 편집·커밋·병합 시점에 적용합니다. <a href="https://team-pj-lab.github.io/interlock/experiments/e1/" target="_blank" rel="noopener">실험 e1 ↗</a></p>
+        <p lang="en">Declared signature changes, line-range conflict checks and function-level holds, enforced at edit, commit and merge time. <a href="https://team-pj-lab.github.io/interlock/experiments/e1/" target="_blank" rel="noopener">Experiment e1 ↗</a></p></div></div>
       <div class="w rv"><span class="t">02 · Deterministic</span><div>
         <h3 lang="ko">LLM 없는 판정</h3><h3 lang="en">Decisions without an LLM</h3>
-        <p lang="ko">Interlock의 판정은 결정적이라 어떤 코딩 에이전트와도 동작하고, 거부에는 이유가 붙습니다. tree-sitter로 함수 단위까지 파싱합니다.</p>
-        <p lang="en">Interlock's decisions are deterministic, so it works with any coding agent, and every refusal comes with a reason. tree-sitter parsing down to the function.</p></div></div>
+        <p lang="ko">Interlock의 판정은 LLM 없이 결정적으로 내려지고, 거부에는 이유가 붙습니다. tree-sitter로 함수 단위까지 파싱합니다.</p>
+        <p lang="en">Interlock's decisions are deterministic, with no LLM, and every refusal comes with a reason. tree-sitter parsing down to the function.</p></div></div>
       <div class="w rv"><span class="t">03 · Proof</span><div>
         <h3 lang="ko">검증 가능한 개발</h3><h3 lang="en">Shipping with proof</h3>
-        <p lang="ko">자동화 테스트 982개(동시성·퍼징 포함), 사전 등록 벤치마크, 에이전트 세션 실험 데이터를 공개합니다. <a href="https://team-pj-lab.github.io/interlock/experiments/e7/" target="_blank" rel="noopener">지연 시간 e7 ↗</a></p>
-        <p lang="en">982 automated tests (including concurrency and fuzz), a pre-registered benchmark and public data from agent-session experiments. <a href="https://team-pj-lab.github.io/interlock/experiments/e7/" target="_blank" rel="noopener">Latency e7 ↗</a></p></div></div>
+        <p lang="ko">자동화 테스트 982개(동시성·퍼징 포함), 사전 등록 벤치마크, 에이전트 세션 실험 결과를 공개합니다. <a href="https://team-pj-lab.github.io/interlock/experiments/e7/" target="_blank" rel="noopener">지연 시간 e7 ↗</a></p>
+        <p lang="en">982 automated tests (including concurrency and fuzz), a pre-registered benchmark and published results from agent-session experiments. <a href="https://team-pj-lab.github.io/interlock/experiments/e7/" target="_blank" rel="noopener">Latency e7 ↗</a></p></div></div>
       <div class="w rv"><span class="t">04 · Self-hosting</span><div>
         <h3 lang="ko">직접 운영하는 서버</h3><h3 lang="en">Self-hosted by design</h3>
         <p lang="ko">로컬 데몬이나 자체 서버로 실행해 팀이 코드를 밖으로 내보내지 않게 합니다. Docker, Fly.io, Render 템플릿을 제공합니다.</p>
@@ -286,6 +286,8 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin
       <li class="rv" lang="en">2026: 7th place and Encouragement Award, student division, 2nd Seongnam × KAIST AI Competition, with <a href="https://github.com/Bugeon151/seongnamXKAIST" target="_blank" rel="noopener">MobiLens</a>.</li>
       <li class="rv" lang="ko">2026 제3회 미래융합 인재 발굴 소프트웨어 챌린지 고등부 본선 진출(과학기술정보통신부 공동 주최).</li>
       <li class="rv" lang="en">2026: High-school finalist, 3rd Future Convergence Talent Software Challenge, co-hosted by Korea's Ministry of Science and ICT.</li>
+      <li class="rv" lang="ko">2026년 4~7월 Votavis(초기 창업가가 1분 이내 피치 영상을 올리고 투자자가 보고 투자하는 앱, 법인 설립 전 스타트업) 파트타임 CTO. 개발자 10명을 이끌고 MVP를 완성했습니다.</li>
+      <li class="rv" lang="en">Apr–Jul 2026: part-time CTO at Votavis, a pre-incorporation startup building an app where early-stage founders pitch in videos under a minute for investors; led 10 developers to a finished MVP.</li>
       <li class="rv" lang="ko">7살 때부터 프로그래밍을 해 왔습니다.</li>
       <li class="rv" lang="en">Programming since I was 7.</li>
       <li class="rv" lang="ko">AI 시스템, 기계공학, 알고리즘을 함께 공부합니다.</li>
