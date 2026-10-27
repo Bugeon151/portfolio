@@ -226,7 +226,7 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin
     <h2 class="rv" lang="ko">에이전트는 빠릅니다. 깨지는 건 여러 에이전트가 한곳에서 일할 때입니다.</h2>
     <h2 class="rv" lang="en">Agents are fast. What breaks is several of them working in one place.</h2>
     <p class="rv" lang="ko">한 에이전트가 함수 시그니처를 바꾸는 동안 다른 에이전트는 옛 시그니처로 호출 코드를 씁니다. 각 PR은 따로 통과하고, 충돌은 병합 뒤에야 나타납니다. 저희가 여러 에이전트로 개발하며 직접 겪은 문제이고, 그래서 코드를 파싱해 함수 단위로 막는 도구를 만들었습니다.</p>
-    <p class="rv" lang="en">While one agent changes a function's signature, another writes calls against the old one. Each PR passes alone, and the conflict shows up only after merging. We hit this ourselves building with several agents at once, so I built a tool that parses code and coordinates at the function level.</p>
+    <p class="rv" lang="en">While one agent changes a function's signature, another writes calls against the old one. Each PR passes alone, and the conflict shows up only after merging. We hit this ourselves building with several agents at once, so we built a tool that parses code and coordinates at the function level.</p>
   </section>
 
   <section id="projects">
