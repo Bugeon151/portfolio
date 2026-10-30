@@ -42,7 +42,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Noto+Sans+KR:wght@400;500;600;700&display=swap">
 <style>
 /* Layout: founder one-pager. Narrow reading column, text first, one orange accent.
-   Statement hero → metrics strip → Now / Why / Projects / Awards / Background / Stack / Talk → contact.
+   Statement hero → metrics strip → Now / Why / Team PJ / Projects / Awards / Background / Stack / Talk → contact.
    Motion is quiet: lines fade up, the accent underline draws, numbers count. */
 :root{
   --bg:#fbfaf7;
@@ -186,7 +186,7 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin
   <div class="col">
     <a class="brand" href="#"><i aria-hidden="true"></i>Bugeon Park</a>
     <nav aria-label="Sections">
-      <a href="#now">Now</a><a href="#projects">Projects</a><a href="#awards">Awards</a><a href="#background">Background</a><a href="#contact">Contact</a>
+      <a href="#now">Now</a><a href="#teampj">Team PJ</a><a href="#projects">Projects</a><a href="#awards">Awards</a><a href="#background">Background</a><a href="#contact">Contact</a>
       <div class="lang" role="group" aria-label="Language">
         <button type="button" id="lang-ko" data-set="ko" aria-pressed="true">KO</button>
         <button type="button" id="lang-en" data-set="en" aria-pressed="false">EN</button>
@@ -253,20 +253,35 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin
     <p class="rv" lang="en">While one agent changes a function's signature, another writes calls against the old one. Each PR passes alone, and the conflict shows up only after merging. We hit this ourselves building with several agents at once, so we built a tool that parses code and coordinates at the function level.</p>
   </section>
 
-  <section id="projects">
-    <div class="k rv">Projects</div>
-
-    <h3 class="grp rv"><span lang="ko">에이전트 · 개발 도구</span><span lang="en">Agents &amp; developer tools</span></h3>
+  <section id="teampj">
+    <div class="k rv">Team PJ</div>
+    <h2 class="rv" lang="ko">Team PJ에서 함께 만든 것.</h2>
+    <h2 class="rv" lang="en">What we build at Team PJ.</h2>
+    <p class="rv" lang="ko">공동창업자 정우진(CEO)과 함께 <a href="https://team-pj-lab.github.io/" target="_blank" rel="noopener">Team PJ</a>에서 만든 프로젝트입니다.</p>
+    <p class="rv" lang="en">Projects built with my co-founder Woojin Jung (CEO) at <a href="https://team-pj-lab.github.io/" target="_blank" rel="noopener">Team PJ</a>.</p>
     <div class="work">
       <div class="w rv"><span class="t">2026 · Interlock</span><div>
-        <h3>Interlock <span class="tag">Team PJ</span></h3>
+        <h3>Interlock</h3>
         <p lang="ko">여러 AI 코딩 에이전트가 한 코드베이스에서 서로의 작업을 깨뜨리지 않게 하는 도구. 실제 커밋 쌍 5,352건 재현 실험에서 줄 규칙은 git이 깨끗이 병합하는 쌍을 하나도 막지 않았고, 충돌로 분류한 1,817건 중 2건을 놓쳤습니다. <a href="https://team-pj-lab.github.io/interlock/experiments/" target="_blank" rel="noopener">방법과 데이터 ↗</a> · <a href="https://github.com/TEAM-PJ-LAB/interlock-demo" target="_blank" rel="noopener">데모 저장소 ↗</a></p>
         <p lang="en">Lets many AI coding agents work on one codebase without breaking each other's work. In a replay of 5,352 real commit pairs, its line rule blocked none of the pairs git merges cleanly and missed 2 of 1,817 counted as conflicts. <a href="https://team-pj-lab.github.io/interlock/experiments/" target="_blank" rel="noopener">Method and data ↗</a> · <a href="https://github.com/TEAM-PJ-LAB/interlock-demo" target="_blank" rel="noopener">Demo repo ↗</a></p></div></div>
       <div class="w rv"><span class="t">Dev tools</span><div>
-        <h3>IntentGuard <span class="tag">Private</span> <span class="tag">Team PJ</span></h3>
+        <h3>IntentGuard <span class="tag">Private</span></h3>
         <p lang="ko">PRD의 요구사항(F-001 형식)이 코드에 반영됐는지 근거와 함께 점검하는 PRD-코드 불일치 탐지기의 초기 로컬 프로토타입. 키워드가 일치해도 구현 확인으로 세지 않고, 근거가 부족하면 INSUFFICIENT_EVIDENCE로 보고합니다. 웹훅 HMAC SHA-256 서명 검증, 단위 테스트, CI를 갖췄고 호스팅 서비스는 아직 아닙니다.</p>
         <p lang="en">An early local prototype that checks, with evidence, whether PRD requirements (F-001 style) show up in code. A keyword match never counts as verified; weak evidence is reported as INSUFFICIENT_EVIDENCE. Includes webhook HMAC SHA-256 verification, unit tests and CI. Not a hosted service yet.</p></div></div>
+      <div class="w rv"><span class="t">Mobile web · AI</span><div>
+        <h3>ANABADA <span class="tag">Private</span></h3>
+        <p lang="ko">사진 몇 장으로 중고 물품의 근거 있는 적정가 범위를 알려주는 모바일 웹 서비스. Next.js와 FastAPI 풀스택, Claude 멀티모달 감정, 선택형 3D 정밀 분석, Docker Compose 전체 스택, CI의 Playwright 모바일 E2E. 데모(mock) 결과는 화면과 API에 표시하고, 측정하지 않은 성능은 보고하지 않는다는 원칙을 둡니다.</p>
+        <p lang="en">A mobile web service that estimates an evidence-backed price range for a used item from a few photos. Next.js and FastAPI full stack, Claude multimodal appraisal, optional 3D analysis, a full Docker Compose stack and Playwright mobile E2E in CI. Demo (mock) results are labeled on screen and in the API, and unmeasured performance is never reported.</p></div></div>
+      <div class="w rv"><span class="t">Web · Data</span><div>
+        <h3>CISS</h3>
+        <p lang="ko">공개 코드 속 알고리즘의 원 설계자와 파생 계보를 근거와 함께 기록하는 서비스. 알고리즘 274개, 기여자 465명, 파생 관계 225개의 시드 데이터, 계보 그래프, 저장소 스캔, 4개 언어, 공개 API(OpenAPI)를 갖췄습니다. 출처 DOI·arXiv 214개를 Crossref·OpenAlex·arXiv와 전부 대조해 잘못된 DOI 2건을 고쳤습니다. <a href="https://github.com/TEAM-PJ-LAB/CISS" target="_blank" rel="noopener">GitHub ↗</a></p>
+        <p lang="en">Records who originally designed an algorithm in public code, and how it was derived, with evidence. Seed data of 274 algorithms, 465 contributors and 225 derivation edges, a lineage graph, repository scan, four languages and a public OpenAPI. All 214 DOI and arXiv references were checked against Crossref, OpenAlex and arXiv, which caught 2 wrong DOIs. <a href="https://github.com/TEAM-PJ-LAB/CISS" target="_blank" rel="noopener">GitHub ↗</a></p></div></div>
     </div>
+  </section>
+
+  <section id="projects">
+    <div class="k rv">Projects</div>
+
 
     <h3 class="grp rv"><span lang="ko">로컬 AI · 음성 · 벤치마크</span><span lang="en">Local AI, speech &amp; benchmarks</span></h3>
     <div class="work">
@@ -290,10 +305,6 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin
         <h3>급락 방어 AI <span class="tag">Private</span></h3>
         <p lang="ko">미국(S&amp;P 500)과 코스피의 급락 위험을 매일 장 마감 후 '평소의 몇 배'로 판정해 카카오톡·텔레그램으로 알리는 도구. 주문 기능은 없습니다. 학습에 없던 12개국 지수에 사전 등록한 규칙을 한 번만 적용한 평가에서 보수형(추세 앙상블)의 최대 낙폭 중앙값은 −27.3%로 매수 후 보유(−60.3%)보다 작았고 연복리는 4.4% 대 4.0%였습니다. AI가 급락 시점을 맞힌다고 주장하지 않으며, 효과가 작고 2024년 이후에는 유의한 가설이 없다는 한계도 함께 공개합니다.</p>
         <p lang="en">Rates the daily crash risk of the S&amp;P 500 and KOSPI as a multiple of normal and sends it by KakaoTalk or Telegram. It places no orders. In a one-shot test of pre-registered rules on 12 country indices unseen in training, the defensive profile (trend ensemble) had a median max drawdown of −27.3% vs −60.3% for buy-and-hold, with CAGR 4.4% vs 4.0%. It does not claim to time crashes, and it publishes the limits: the effect is small and no hypothesis is significant after 2024.</p></div></div>
-      <div class="w rv"><span class="t">Quant · Trading</span><div>
-        <h3>Quant Forge X <span class="tag">Private</span> <span class="tag">Team PJ</span></h3>
-        <p lang="ko">BTCUSDT 전략을 연구, L2 호가 백테스트, Paper, 제한적 Live까지 같은 전략·위험 코드로 잇는 검증 중심 자동매매 플랫폼. point-in-time 재현성, 수수료·슬리피지·펀딩·강제청산 반영, walk-forward, 비용 스트레스, DSR·PBO, 봉인한 holdout 1회 평가, 이상 시 신규 위험을 막는 fail-closed 설계. Python 약 5만 줄(테스트 포함). 코드 구현과 운영 검증을 따로 판정하며, 실계정 장기 운전은 아직 하지 않았습니다.</p>
-        <p lang="en">A verification-first trading platform that carries one BTCUSDT strategy through research, L2 order-book backtests, paper and limited live trading with the same strategy and risk code. Point-in-time reproducibility, fees, slippage, funding and liquidation modeled, walk-forward, cost stress, DSR and PBO, a sealed one-shot holdout, and a fail-closed design that blocks new risk on anomalies. About 50k lines of Python including tests. Code completeness and operating evidence are judged separately, and no long live run on a real account has been done yet.</p></div></div>
       <div class="w rv"><span class="t">Quant · Research</span><div>
         <h3>Financial Intelligence Platform <span class="tag">Private</span></h3>
         <p lang="ko">미국·한국 주식, 암호화폐, 금을 다루는 개인용 금융 리서치 백엔드의 설계 명세(4개 도메인, 엔진 25개)와, 명세가 요구하는 통계 검정의 참조 구현(v1.21, 테스트 199개). 정보 시점 준수, 기준 모델 대비 표본 외 검증, 모든 시도 기록을 원칙으로 하고 웹에서 주문하지 않습니다.</p>
@@ -314,14 +325,6 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin
         <h3>CIVIC-EYE <span class="tag">Private</span></h3>
         <p lang="ko">공공기관 홈페이지의 숨김·위장 불법광고를 실제 브라우저로 렌더링해 어디에, 왜 있는지 근거와 함께 찾는 Windows 11 프로그램(「공공 웹사이트 불법광고 탐지 도구 개발 공모전」 출품작, 행정안전부·NIA). 외부 AI API 없이 CPU에서 동작합니다. 개발 세트(blind 아님)에서 정밀도 0.997, 재현율 0.974이고, 첫 평가에서 F1 0.935였던 holdout은 미탐 분석 뒤 고쳤기 때문에 개발 결과로 분류했습니다. v1.3의 blind 평가는 하지 못했다고 보고서에 적었습니다.</p>
         <p lang="en">A Windows 11 tool that renders public-sector sites in a real browser and finds hidden or disguised illegal ads, showing where and why (entry to the 2026 Public Website Illegal Ad Detection contest by Korea's Ministry of the Interior and Safety and NIA). Runs on CPU with no external AI API. On the development set (not blind): precision 0.997, recall 0.974. The holdout scored F1 0.935 on first run; it was fixed after the miss analysis, so it is reported as a development result. A blind test of v1.3 was not run, and the report says so.</p></div></div>
-      <div class="w rv"><span class="t">Web · Data</span><div>
-        <h3>CISS <span class="tag">Team PJ</span></h3>
-        <p lang="ko">공개 코드 속 알고리즘의 원 설계자와 파생 계보를 근거와 함께 기록하는 서비스. 알고리즘 274개, 기여자 465명, 파생 관계 225개의 시드 데이터, 계보 그래프, 저장소 스캔, 4개 언어, 공개 API(OpenAPI)를 갖췄습니다. 출처 DOI·arXiv 214개를 Crossref·OpenAlex·arXiv와 전부 대조해 잘못된 DOI 2건을 고쳤습니다. <a href="https://github.com/TEAM-PJ-LAB/CISS" target="_blank" rel="noopener">GitHub ↗</a></p>
-        <p lang="en">Records who originally designed an algorithm in public code, and how it was derived, with evidence. Seed data of 274 algorithms, 465 contributors and 225 derivation edges, a lineage graph, repository scan, four languages and a public OpenAPI. All 214 DOI and arXiv references were checked against Crossref, OpenAlex and arXiv, which caught 2 wrong DOIs. <a href="https://github.com/TEAM-PJ-LAB/CISS" target="_blank" rel="noopener">GitHub ↗</a></p></div></div>
-      <div class="w rv"><span class="t">Mobile web · AI</span><div>
-        <h3>ANABADA <span class="tag">Private</span> <span class="tag">Team PJ</span></h3>
-        <p lang="ko">사진 몇 장으로 중고 물품의 근거 있는 적정가 범위를 알려주는 모바일 웹 서비스. Next.js와 FastAPI 풀스택, Claude 멀티모달 감정, 선택형 3D 정밀 분석, Docker Compose 전체 스택, CI의 Playwright 모바일 E2E. 데모(mock) 결과는 화면과 API에 표시하고, 측정하지 않은 성능은 보고하지 않는다는 원칙을 둡니다.</p>
-        <p lang="en">A mobile web service that estimates an evidence-backed price range for a used item from a few photos. Next.js and FastAPI full stack, Claude multimodal appraisal, optional 3D analysis, a full Docker Compose stack and Playwright mobile E2E in CI. Demo (mock) results are labeled on screen and in the API, and unmeasured performance is never reported.</p></div></div>
       <div class="w rv"><span class="t">Product AI</span><div>
         <h3>REUP <span class="tag">Private</span></h3>
         <p lang="ko">제품을 식별하고 시장 데이터를 연결해 현재 가치와 근거를 설명하는 Product Intelligence AI. 표준 카탈로그, 수집, 개체 식별, 시세 산출, 근거 기반 대화까지 MVP 경로를 구현했고 Next.js, FastAPI, PostgreSQL, Redis로 구성됩니다. 일치하는 거래 데이터가 부족하면 값을 지어내지 않고 insufficient_data를 반환합니다.</p>
