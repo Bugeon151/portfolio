@@ -90,16 +90,20 @@ p a:hover,.inl:hover{color:var(--accent)}
 .lang button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
 
 /* hero */
-.hero{padding-block:clamp(72px,12vw,140px) clamp(48px,7vw,80px)}
-.who{display:flex;align-items:center;gap:14px;margin-bottom:36px}
+.hero{padding-block:clamp(72px,12vw,140px) clamp(48px,7vw,80px);display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:40px;align-items:start}
+.portrait{margin:0;position:relative;margin-top:8px}
+.portrait img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:14px;border:1px solid var(--line);box-shadow:0 18px 40px -22px rgba(0,0,0,.35)}
+.portrait figcaption{margin-top:12px;font:500 12.5px var(--mono);letter-spacing:.04em;color:var(--muted)}
+@media (min-width:761px){.who{display:none}}
+.portrait figcaption b{display:block;color:var(--ink);font:600 15px var(--sans);letter-spacing:0;margin-bottom:2px}
+.who{display:flex;align-items:center;gap:14px;margin-bottom:28px}
 .who img{width:52px;height:52px;border-radius:50%;object-fit:cover;border:1px solid var(--line)}
 .who .n{color:var(--ink);font-weight:600;font-size:16px;line-height:1.3}
 .who .r{color:var(--muted);font-size:14.5px;line-height:1.3}
 .who .r a{color:var(--muted);text-decoration:none;border-bottom:1px solid var(--line)}
 .who .r a:hover{color:var(--accent);border-color:var(--accent)}
-.hero h1{color:var(--ink);font-size:clamp(30px,5.2vw,54px);font-weight:600;letter-spacing:-.04em;line-height:1.08;margin:0;text-wrap:balance}
-.hero h1 .u{position:relative;white-space:nowrap}
-.hero h1 .u::after{content:"";position:absolute;left:0;right:0;bottom:.02em;height:.09em;background:var(--accent);transform-origin:left;transform:scaleX(var(--u,1))}
+.hero h1{color:var(--ink);font-size:clamp(30px,4vw,40px);font-weight:600;letter-spacing:-.04em;line-height:1.08;margin:0;text-wrap:balance}
+.hero h1 .u{background:linear-gradient(var(--accent),var(--accent)) no-repeat 0 96%/calc(var(--u,1)*100%) .09em;-webkit-box-decoration-break:clone;box-decoration-break:clone;padding-bottom:.04em}
 .hero .lede{margin:28px 0 0;font-size:clamp(18px,2vw,21px);color:var(--ink-2);max-width:34em}
 .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
 .btn{display:inline-flex;align-items:center;gap:8px;font:500 15.5px var(--sans);padding:12px 20px;border-radius:8px;text-decoration:none;border:1px solid var(--accent);background:var(--accent);color:var(--accent-ink);transition:transform .15s,filter .15s}
@@ -107,13 +111,14 @@ p a:hover,.inl:hover{color:var(--accent)}
 .btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
 .btn.ghost:hover{border-color:var(--ink)}
 
+@media (max-width:760px){.hero{grid-template-columns:1fr;gap:28px}.portrait{order:-1;width:150px}.portrait figcaption{display:none}}
 @media (max-width:640px){.hero h1 .u{white-space:normal}}
 
 /* metrics */
 .metrics{display:grid;grid-template-columns:repeat(4,1fr);border-block:1px solid var(--line)}
 .m{padding:26px 20px 26px 0;min-width:0}
 .m+.m{padding-left:20px;border-left:1px solid var(--line)}
-.m .v{display:block;color:var(--ink);font-size:clamp(30px,4.4vw,44px);font-weight:600;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
+.m .v{display:block;color:var(--ink);font-size:clamp(30px,4vw,40px);font-weight:600;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
 .m .v .a{color:var(--accent)}
 .m .l{display:block;margin-top:10px;font-size:14px;color:var(--muted);line-height:1.4}
 
@@ -207,8 +212,8 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin
 
 <main class="col">
   <div class="hero">
+    <div class="hl">
     <div class="who rv">
-      <img src="img/avatar.jpg" alt="Bugeon Park">
       <div><div class="n">Bugeon Park <span style="color:var(--muted);font-weight:400">· 박부건</span></div>
         <div class="r">CTO, <a href="https://team-pj-lab.github.io/" target="_blank" rel="noopener">Team PJ</a></div></div>
     </div>
@@ -222,6 +227,9 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin
       <a class="btn ghost" href="https://team-pj-lab.github.io/interlock/experiments/" target="_blank" rel="noopener"><span lang="ko">실험 데이터</span><span lang="en">Experiments</span> ↗</a>
       <a class="btn ghost" href="https://github.com/Bugeon151" target="_blank" rel="noopener">GitHub ↗</a>
     </div>
+    </div>
+    <figure class="portrait rv"><img src="img/portrait.jpg" alt="Bugeon Park" fetchpriority="high">
+      <figcaption><b>Bugeon Park</b>CTO, Team PJ</figcaption></figure>
   </div>
 
   <div class="metrics rv" aria-label="Highlights">
