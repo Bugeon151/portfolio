@@ -42,7 +42,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Noto+Sans+KR:wght@400;500;600;700&display=swap">
 <style>
 /* Layout: founder one-pager. Narrow reading column, text first, one orange accent.
-   Statement hero → metrics strip → Now / Why / Work / Background / Stack / Talk → contact.
+   Statement hero → metrics strip → Now / Why / Projects / Awards / Background / Stack / Talk → contact.
    Motion is quiet: lines fade up, the accent underline draws, numbers count. */
 :root{
   --bg:#fbfaf7;
@@ -132,6 +132,12 @@ section p{margin:0 0 1em;max-width:38em}
 .w h3{margin:0 0 4px;color:var(--ink);font-size:17.5px;font-weight:600;letter-spacing:-.01em}
 .w p{margin:0;font-size:16px;color:var(--ink-2)}
 
+.grp{margin:44px 0 0;font:500 13px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.grp+.work{margin-top:12px}
+.grp+p{margin-top:12px}
+.tag{display:inline-block;font:500 10.5px var(--mono);letter-spacing:.05em;color:var(--muted);border:1px solid var(--line);border-radius:4px;padding:1px 6px;margin-left:6px;vertical-align:3px;text-transform:uppercase;font-weight:500}
+#now .work{margin-top:28px}
+
 .bl{list-style:none;margin:0;padding:0}
 .bl li{position:relative;padding-left:22px;margin-bottom:10px}
 .bl li::before{content:"";position:absolute;left:0;top:.72em;width:8px;height:2px;background:var(--accent)}
@@ -180,7 +186,7 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin
   <div class="col">
     <a class="brand" href="#"><i aria-hidden="true"></i>Bugeon Park</a>
     <nav aria-label="Sections">
-      <a href="#now">Now</a><a href="#projects">Projects</a><a href="#work">Work</a><a href="#background">Background</a><a href="#contact">Contact</a>
+      <a href="#now">Now</a><a href="#projects">Projects</a><a href="#awards">Awards</a><a href="#background">Background</a><a href="#contact">Contact</a>
       <div class="lang" role="group" aria-label="Language">
         <button type="button" id="lang-ko" data-set="ko" aria-pressed="true">KO</button>
         <button type="button" id="lang-en" data-set="en" aria-pressed="false">EN</button>
@@ -219,44 +225,6 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin
     <h2 class="rv" lang="en">Building Interlock.</h2>
     <p class="big rv" lang="ko"><a href="https://team-pj-lab.github.io/" target="_blank" rel="noopener">Team PJ</a>에서 CTO로 코드, 아키텍처, 보안 등 엔지니어링 전반을 맡고, 공동창업자 정우진(CEO)과 Interlock을 만들고 있습니다. Interlock은 여러 AI 코딩 에이전트가 한 코드베이스에서 서로의 작업을 깨뜨리지 않게 합니다.</p>
     <p class="big rv" lang="en">At <a href="https://team-pj-lab.github.io/" target="_blank" rel="noopener">Team PJ</a>, I lead engineering as CTO (code, architecture, security) and build Interlock with my co-founder Woojin Jung, our CEO. Interlock lets many AI coding agents work on one codebase without breaking each other's work.</p>
-  </section>
-
-  <section id="why">
-    <div class="k rv">Why</div>
-    <h2 class="rv" lang="ko">에이전트는 빠릅니다. 깨지는 건 여러 에이전트가 한곳에서 일할 때입니다.</h2>
-    <h2 class="rv" lang="en">Agents are fast. What breaks is several of them working in one place.</h2>
-    <p class="rv" lang="ko">한 에이전트가 함수 시그니처를 바꾸는 동안 다른 에이전트는 옛 시그니처로 호출 코드를 씁니다. 각 PR은 따로 통과하고, 충돌은 병합 뒤에야 나타납니다. 저희가 여러 에이전트로 개발하며 직접 겪은 문제이고, 그래서 코드를 파싱해 함수 단위로 막는 도구를 만들었습니다.</p>
-    <p class="rv" lang="en">While one agent changes a function's signature, another writes calls against the old one. Each PR passes alone, and the conflict shows up only after merging. We hit this ourselves building with several agents at once, so we built a tool that parses code and coordinates at the function level.</p>
-  </section>
-
-  <section id="projects">
-    <div class="k rv">Projects</div>
-    <div class="work">
-      <div class="w rv"><span class="t">2026 · Interlock</span><div>
-        <h3>Interlock</h3>
-        <p lang="ko">여러 AI 코딩 에이전트가 한 코드베이스에서 서로의 작업을 깨뜨리지 않게 하는 도구. 실제 커밋 쌍 5,352건 재현 실험에서 줄 규칙은 git이 깨끗이 병합하는 쌍을 하나도 막지 않았고, 충돌로 분류한 1,817건 중 2건을 놓쳤습니다. <a href="https://team-pj-lab.github.io/interlock/experiments/" target="_blank" rel="noopener">방법과 데이터 ↗</a></p>
-        <p lang="en">Lets many AI coding agents work on one codebase without breaking each other's work. In a replay of 5,352 real commit pairs, its line rule blocked none of the pairs git merges cleanly and missed 2 of 1,817 counted as conflicts. <a href="https://team-pj-lab.github.io/interlock/experiments/" target="_blank" rel="noopener">Method and data ↗</a></p></div></div>
-      <div class="w rv"><span class="t">Speech · NLP</span><div>
-        <h3>jamo2hangul</h3>
-        <p lang="ko">한국어 음성인식용으로 직접 학습한 53M 파라미터 Transformer. 자모 나열을 띄어쓰기 있는 한국어로 복원하며, 평가 단어 8,000개에서 정확도 96.7%, 문자 오류율 1.36%. <a href="https://github.com/aworse/jamo2hangul" target="_blank" rel="noopener">GitHub ↗</a></p>
-        <p lang="en">A 53M-parameter Transformer trained from scratch for Korean speech recognition. Rebuilds spaced Korean text from jamo: 96.7% exact on 8,000 held-out words, 1.36% character error rate. <a href="https://github.com/aworse/jamo2hangul" target="_blank" rel="noopener">GitHub ↗</a></p></div></div>
-      <div class="w rv"><span class="t">Backend</span><div>
-        <h3>Fintech Ledger Core</h3>
-        <p lang="ko">Java, Spring Boot, PostgreSQL, Kafka 기반 복식부기 원장. 동시 거래, 멱등 API, 트랜잭셔널 아웃박스, 자동 대사를 실제 PostgreSQL·Kafka로 테스트. <a href="https://github.com/Bugeon151/fintech-ledger-core" target="_blank" rel="noopener">GitHub ↗</a></p>
-        <p lang="en">Double-entry ledger (Java, Spring Boot, PostgreSQL, Kafka) with concurrent transactions, idempotent APIs, a transactional outbox and automated reconciliation, tested against real PostgreSQL and Kafka. <a href="https://github.com/Bugeon151/fintech-ledger-core" target="_blank" rel="noopener">GitHub ↗</a></p></div></div>
-      <div class="w rv"><span class="t">Data · Web</span><div>
-        <h3>SPORT-GAP</h3>
-        <p lang="ko">전국 250개 시군구의 체육시설 접근 격차를 공공데이터로 계산하고 what-if 시뮬레이터를 제공하는 공개 웹 서비스. <a href="https://bugeon151.github.io/SPORT-GAP/" target="_blank" rel="noopener">라이브 ↗</a></p>
-        <p lang="en">A public web service that measures sports-facility access gaps across all 250 Korean municipalities from open data, with a what-if simulator. <a href="https://bugeon151.github.io/SPORT-GAP/" target="_blank" rel="noopener">Live ↗</a></p></div></div>
-      <div class="w rv"><span class="t">Benchmark</span><div>
-        <h3>Q-Bench</h3>
-        <p lang="ko">Apple M5에서 Qwen2.5-7B-Instruct를 GGUF 양자화 7단계(F16~Q2_K)로 돌려 크기, 메모리, 처리량, 지연을 잰 재현 가능한 벤치마크(llama.cpp 빌드 고정). <a href="https://github.com/Bugeon151/Q-BENCH" target="_blank" rel="noopener">GitHub ↗</a></p>
-        <p lang="en">A reproducible benchmark of Qwen2.5-7B-Instruct across seven GGUF quantization levels (F16 to Q2_K) on Apple M5: size, memory, throughput and latency, with a pinned llama.cpp build. <a href="https://github.com/Bugeon151/Q-BENCH" target="_blank" rel="noopener">GitHub ↗</a></p></div></div>
-    </div>
-  </section>
-
-  <section id="work">
-    <div class="k rv">What I work on</div>
     <div class="work">
       <div class="w rv"><span class="t">01 · Coordination</span><div>
         <h3 lang="ko">에이전트 조정</h3><h3 lang="en">Agent coordination</h3>
@@ -277,13 +245,119 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin
     </div>
   </section>
 
+  <section id="why">
+    <div class="k rv">Why</div>
+    <h2 class="rv" lang="ko">에이전트는 빠릅니다. 깨지는 건 여러 에이전트가 한곳에서 일할 때입니다.</h2>
+    <h2 class="rv" lang="en">Agents are fast. What breaks is several of them working in one place.</h2>
+    <p class="rv" lang="ko">한 에이전트가 함수 시그니처를 바꾸는 동안 다른 에이전트는 옛 시그니처로 호출 코드를 씁니다. 각 PR은 따로 통과하고, 충돌은 병합 뒤에야 나타납니다. 저희가 여러 에이전트로 개발하며 직접 겪은 문제이고, 그래서 코드를 파싱해 함수 단위로 막는 도구를 만들었습니다.</p>
+    <p class="rv" lang="en">While one agent changes a function's signature, another writes calls against the old one. Each PR passes alone, and the conflict shows up only after merging. We hit this ourselves building with several agents at once, so we built a tool that parses code and coordinates at the function level.</p>
+  </section>
+
+  <section id="projects">
+    <div class="k rv">Projects</div>
+
+    <h3 class="grp rv"><span lang="ko">에이전트 · 개발 도구</span><span lang="en">Agents &amp; developer tools</span></h3>
+    <div class="work">
+      <div class="w rv"><span class="t">2026 · Interlock</span><div>
+        <h3>Interlock <span class="tag">Team PJ</span></h3>
+        <p lang="ko">여러 AI 코딩 에이전트가 한 코드베이스에서 서로의 작업을 깨뜨리지 않게 하는 도구. 실제 커밋 쌍 5,352건 재현 실험에서 줄 규칙은 git이 깨끗이 병합하는 쌍을 하나도 막지 않았고, 충돌로 분류한 1,817건 중 2건을 놓쳤습니다. <a href="https://team-pj-lab.github.io/interlock/experiments/" target="_blank" rel="noopener">방법과 데이터 ↗</a> · <a href="https://github.com/TEAM-PJ-LAB/interlock-demo" target="_blank" rel="noopener">데모 저장소 ↗</a></p>
+        <p lang="en">Lets many AI coding agents work on one codebase without breaking each other's work. In a replay of 5,352 real commit pairs, its line rule blocked none of the pairs git merges cleanly and missed 2 of 1,817 counted as conflicts. <a href="https://team-pj-lab.github.io/interlock/experiments/" target="_blank" rel="noopener">Method and data ↗</a> · <a href="https://github.com/TEAM-PJ-LAB/interlock-demo" target="_blank" rel="noopener">Demo repo ↗</a></p></div></div>
+      <div class="w rv"><span class="t">Dev tools</span><div>
+        <h3>IntentGuard <span class="tag">Private</span> <span class="tag">Team PJ</span></h3>
+        <p lang="ko">PRD의 요구사항(F-001 형식)이 코드에 반영됐는지 근거와 함께 점검하는 PRD-코드 불일치 탐지기의 초기 로컬 프로토타입. 키워드가 일치해도 구현 확인으로 세지 않고, 근거가 부족하면 INSUFFICIENT_EVIDENCE로 보고합니다. 웹훅 HMAC SHA-256 서명 검증, 단위 테스트, CI를 갖췄고 호스팅 서비스는 아직 아닙니다.</p>
+        <p lang="en">An early local prototype that checks, with evidence, whether PRD requirements (F-001 style) show up in code. A keyword match never counts as verified; weak evidence is reported as INSUFFICIENT_EVIDENCE. Includes webhook HMAC SHA-256 verification, unit tests and CI. Not a hosted service yet.</p></div></div>
+    </div>
+
+    <h3 class="grp rv"><span lang="ko">로컬 AI · 음성 · 벤치마크</span><span lang="en">Local AI, speech &amp; benchmarks</span></h3>
+    <div class="work">
+      <div class="w rv"><span class="t">Speech · ASR</span><div>
+        <h3>JamoDecoder <span class="tag">Private</span></h3>
+        <p lang="ko">외부 API 없이 로컬에서 학습·추론하는 한국어 자모 기반 음성 인식. Conformer-CTC 인코더, CTC prefix beam search, 자모 n-gram 언어 모델을 조합합니다. 학습에 없던 화자 10명의 456발화(Zeroth-Korean test)에서 문자 오류율(공백 제외) 9.2%, 단어 오류율 28.5%였고, 낭독체 뉴스 39.6시간으로만 학습했다는 한계를 모델 카드에 적어 두었습니다.</p>
+        <p lang="en">Korean jamo-based speech recognition that trains and runs locally with no external API: a Conformer-CTC encoder, CTC prefix beam search and a jamo n-gram language model. On 456 utterances from 10 unseen speakers (Zeroth-Korean test): 9.2% character error rate (spaces excluded) and 28.5% word error rate. Trained only on 39.6 hours of read news speech, a limit stated in the model card.</p></div></div>
+      <div class="w rv"><span class="t">Speech · NLP</span><div>
+        <h3>jamo2hangul</h3>
+        <p lang="ko">한국어 음성인식용으로 직접 학습한 53M 파라미터 Transformer. 자모 나열을 띄어쓰기 있는 한국어로 복원하며, 평가 단어 8,000개에서 정확도 96.7%, 문자 오류율 1.36%. <a href="https://github.com/aworse/jamo2hangul" target="_blank" rel="noopener">GitHub ↗</a></p>
+        <p lang="en">A 53M-parameter Transformer trained from scratch for Korean speech recognition. Rebuilds spaced Korean text from jamo: 96.7% exact on 8,000 held-out words, 1.36% character error rate. <a href="https://github.com/aworse/jamo2hangul" target="_blank" rel="noopener">GitHub ↗</a></p></div></div>
+      <div class="w rv"><span class="t">Benchmark</span><div>
+        <h3>Q-Bench</h3>
+        <p lang="ko">Apple M5에서 Qwen2.5-7B-Instruct를 GGUF 양자화 7단계(F16~Q2_K)로 돌려 크기, 메모리, 처리량, 지연을 잰 재현 가능한 벤치마크(llama.cpp 빌드 고정). <a href="https://github.com/Bugeon151/Q-BENCH" target="_blank" rel="noopener">GitHub ↗</a></p>
+        <p lang="en">A reproducible benchmark of Qwen2.5-7B-Instruct across seven GGUF quantization levels (F16 to Q2_K) on Apple M5: size, memory, throughput and latency, with a pinned llama.cpp build. <a href="https://github.com/Bugeon151/Q-BENCH" target="_blank" rel="noopener">GitHub ↗</a></p></div></div>
+    </div>
+
+    <h3 class="grp rv"><span lang="ko">퀀트 · 데이터</span><span lang="en">Quant &amp; data</span></h3>
+    <div class="work">
+      <div class="w rv"><span class="t">Quant · Risk</span><div>
+        <h3>급락 방어 AI <span class="tag">Private</span></h3>
+        <p lang="ko">미국(S&amp;P 500)과 코스피의 급락 위험을 매일 장 마감 후 '평소의 몇 배'로 판정해 카카오톡·텔레그램으로 알리는 도구. 주문 기능은 없습니다. 학습에 없던 12개국 지수에 사전 등록한 규칙을 한 번만 적용한 평가에서 보수형(추세 앙상블)의 최대 낙폭 중앙값은 −27.3%로 매수 후 보유(−60.3%)보다 작았고 연복리는 4.4% 대 4.0%였습니다. AI가 급락 시점을 맞힌다고 주장하지 않으며, 효과가 작고 2024년 이후에는 유의한 가설이 없다는 한계도 함께 공개합니다.</p>
+        <p lang="en">Rates the daily crash risk of the S&amp;P 500 and KOSPI as a multiple of normal and sends it by KakaoTalk or Telegram. It places no orders. In a one-shot test of pre-registered rules on 12 country indices unseen in training, the defensive profile (trend ensemble) had a median max drawdown of −27.3% vs −60.3% for buy-and-hold, with CAGR 4.4% vs 4.0%. It does not claim to time crashes, and it publishes the limits: the effect is small and no hypothesis is significant after 2024.</p></div></div>
+      <div class="w rv"><span class="t">Quant · Trading</span><div>
+        <h3>Quant Forge X <span class="tag">Private</span> <span class="tag">Team PJ</span></h3>
+        <p lang="ko">BTCUSDT 전략을 연구, L2 호가 백테스트, Paper, 제한적 Live까지 같은 전략·위험 코드로 잇는 검증 중심 자동매매 플랫폼. point-in-time 재현성, 수수료·슬리피지·펀딩·강제청산 반영, walk-forward, 비용 스트레스, DSR·PBO, 봉인한 holdout 1회 평가, 이상 시 신규 위험을 막는 fail-closed 설계. Python 약 5만 줄(테스트 포함). 코드 구현과 운영 검증을 따로 판정하며, 실계정 장기 운전은 아직 하지 않았습니다.</p>
+        <p lang="en">A verification-first trading platform that carries one BTCUSDT strategy through research, L2 order-book backtests, paper and limited live trading with the same strategy and risk code. Point-in-time reproducibility, fees, slippage, funding and liquidation modeled, walk-forward, cost stress, DSR and PBO, a sealed one-shot holdout, and a fail-closed design that blocks new risk on anomalies. About 50k lines of Python including tests. Code completeness and operating evidence are judged separately, and no long live run on a real account has been done yet.</p></div></div>
+      <div class="w rv"><span class="t">Quant · Research</span><div>
+        <h3>Financial Intelligence Platform <span class="tag">Private</span></h3>
+        <p lang="ko">미국·한국 주식, 암호화폐, 금을 다루는 개인용 금융 리서치 백엔드의 설계 명세(4개 도메인, 엔진 25개)와, 명세가 요구하는 통계 검정의 참조 구현(v1.21, 테스트 199개). 정보 시점 준수, 기준 모델 대비 표본 외 검증, 모든 시도 기록을 원칙으로 하고 웹에서 주문하지 않습니다.</p>
+        <p lang="en">The backend specification for a personal financial research tool covering US and Korean equities, crypto and gold (4 domains, 25 engines), plus a reference implementation of the statistical tests it requires (v1.21, 199 tests). Built on point-in-time data, out-of-sample validation against a baseline, and a record of every attempt. It places no orders.</p></div></div>
+      <div class="w rv"><span class="t">Data · Web</span><div>
+        <h3>SPORT-GAP</h3>
+        <p lang="ko">전국 250개 시군구의 체육시설 접근 격차를 공공데이터로 계산하고 what-if 시뮬레이터를 제공하는 공개 웹 서비스. <a href="https://bugeon151.github.io/SPORT-GAP/" target="_blank" rel="noopener">라이브 ↗</a></p>
+        <p lang="en">A public web service that measures sports-facility access gaps across all 250 Korean municipalities from open data, with a what-if simulator. <a href="https://bugeon151.github.io/SPORT-GAP/" target="_blank" rel="noopener">Live ↗</a></p></div></div>
+    </div>
+
+    <h3 class="grp rv"><span lang="ko">서비스 · 앱</span><span lang="en">Products &amp; apps</span></h3>
+    <div class="work">
+      <div class="w rv"><span class="t">Backend</span><div>
+        <h3>Fintech Ledger Core</h3>
+        <p lang="ko">Java, Spring Boot, PostgreSQL, Kafka 기반 복식부기 원장. 동시 거래, 멱등 API, 트랜잭셔널 아웃박스, 자동 대사를 실제 PostgreSQL·Kafka로 테스트. <a href="https://github.com/Bugeon151/fintech-ledger-core" target="_blank" rel="noopener">GitHub ↗</a></p>
+        <p lang="en">Double-entry ledger (Java, Spring Boot, PostgreSQL, Kafka) with concurrent transactions, idempotent APIs, a transactional outbox and automated reconciliation, tested against real PostgreSQL and Kafka. <a href="https://github.com/Bugeon151/fintech-ledger-core" target="_blank" rel="noopener">GitHub ↗</a></p></div></div>
+      <div class="w rv"><span class="t">Security · Detection</span><div>
+        <h3>CIVIC-EYE <span class="tag">Private</span></h3>
+        <p lang="ko">공공기관 홈페이지의 숨김·위장 불법광고를 실제 브라우저로 렌더링해 어디에, 왜 있는지 근거와 함께 찾는 Windows 11 프로그램(「공공 웹사이트 불법광고 탐지 도구 개발 공모전」 출품작, 행정안전부·NIA). 외부 AI API 없이 CPU에서 동작합니다. 개발 세트(blind 아님)에서 정밀도 0.997, 재현율 0.974이고, 첫 평가에서 F1 0.935였던 holdout은 미탐 분석 뒤 고쳤기 때문에 개발 결과로 분류했습니다. v1.3의 blind 평가는 하지 못했다고 보고서에 적었습니다.</p>
+        <p lang="en">A Windows 11 tool that renders public-sector sites in a real browser and finds hidden or disguised illegal ads, showing where and why (entry to the 2026 Public Website Illegal Ad Detection contest by Korea's Ministry of the Interior and Safety and NIA). Runs on CPU with no external AI API. On the development set (not blind): precision 0.997, recall 0.974. The holdout scored F1 0.935 on first run; it was fixed after the miss analysis, so it is reported as a development result. A blind test of v1.3 was not run, and the report says so.</p></div></div>
+      <div class="w rv"><span class="t">Web · Data</span><div>
+        <h3>CISS <span class="tag">Team PJ</span></h3>
+        <p lang="ko">공개 코드 속 알고리즘의 원 설계자와 파생 계보를 근거와 함께 기록하는 서비스. 알고리즘 274개, 기여자 465명, 파생 관계 225개의 시드 데이터, 계보 그래프, 저장소 스캔, 4개 언어, 공개 API(OpenAPI)를 갖췄습니다. 출처 DOI·arXiv 214개를 Crossref·OpenAlex·arXiv와 전부 대조해 잘못된 DOI 2건을 고쳤습니다. <a href="https://github.com/TEAM-PJ-LAB/CISS" target="_blank" rel="noopener">GitHub ↗</a></p>
+        <p lang="en">Records who originally designed an algorithm in public code, and how it was derived, with evidence. Seed data of 274 algorithms, 465 contributors and 225 derivation edges, a lineage graph, repository scan, four languages and a public OpenAPI. All 214 DOI and arXiv references were checked against Crossref, OpenAlex and arXiv, which caught 2 wrong DOIs. <a href="https://github.com/TEAM-PJ-LAB/CISS" target="_blank" rel="noopener">GitHub ↗</a></p></div></div>
+      <div class="w rv"><span class="t">Mobile web · AI</span><div>
+        <h3>ANABADA <span class="tag">Private</span> <span class="tag">Team PJ</span></h3>
+        <p lang="ko">사진 몇 장으로 중고 물품의 근거 있는 적정가 범위를 알려주는 모바일 웹 서비스. Next.js와 FastAPI 풀스택, Claude 멀티모달 감정, 선택형 3D 정밀 분석, Docker Compose 전체 스택, CI의 Playwright 모바일 E2E. 데모(mock) 결과는 화면과 API에 표시하고, 측정하지 않은 성능은 보고하지 않는다는 원칙을 둡니다.</p>
+        <p lang="en">A mobile web service that estimates an evidence-backed price range for a used item from a few photos. Next.js and FastAPI full stack, Claude multimodal appraisal, optional 3D analysis, a full Docker Compose stack and Playwright mobile E2E in CI. Demo (mock) results are labeled on screen and in the API, and unmeasured performance is never reported.</p></div></div>
+      <div class="w rv"><span class="t">Product AI</span><div>
+        <h3>REUP <span class="tag">Private</span></h3>
+        <p lang="ko">제품을 식별하고 시장 데이터를 연결해 현재 가치와 근거를 설명하는 Product Intelligence AI. 표준 카탈로그, 수집, 개체 식별, 시세 산출, 근거 기반 대화까지 MVP 경로를 구현했고 Next.js, FastAPI, PostgreSQL, Redis로 구성됩니다. 일치하는 거래 데이터가 부족하면 값을 지어내지 않고 insufficient_data를 반환합니다.</p>
+        <p lang="en">Product Intelligence AI that identifies a product, links market data, and explains its current value with evidence. The MVP path is built end to end: canonical catalog, ingestion, entity resolution, valuation and grounded conversation, on Next.js, FastAPI, PostgreSQL and Redis. With too little matched sales data it returns insufficient_data instead of inventing a value.</p></div></div>
+      <div class="w rv"><span class="t">Mobile · Flutter</span><div>
+        <h3>Bium <span class="tag">Private</span></h3>
+        <p lang="ko">사진이 기기 밖으로 나가지 않는 로컬 우선 사진 정리 앱(Flutter). 정확한 중복은 3단계 필터와 원본 SHA-256으로 확정하고, 유사 사진은 pHash·dHash 신뢰 등급으로 나눕니다. 놓치는 쪽이 낫다는 정밀도 우선 원칙으로 모든 임계값을 측정한 벤치마크에서 정했고, 서버·분석 SDK·광고·이미지 업로드가 없습니다.</p>
+        <p lang="en">A local-first photo cleaner (Flutter) whose photos never leave the phone. Exact duplicates are confirmed by a three-stage filter and a SHA-256 of the original; similar shots are tiered by pHash and dHash confidence. Precision comes before recall, every threshold was chosen from a measured benchmark, and there is no server, analytics SDK, ads or image upload.</p></div></div>
+      <div class="w rv"><span class="t">Mobile · Game</span><div>
+        <h3>ORVO <span class="tag">Private</span></h3>
+        <p lang="ko">실제 대중교통 이동을 게임 진행도로 바꾸는 현실 탐험 게임. 서버 없이 동작하는 로컬 우선 Flutter MVP로, 역 발견, XP, 퀘스트, 업적, 지도 안개 해제를 지원하며 자동화 테스트 63개를 갖췄습니다.</p>
+        <p lang="en">A real-world exploration game that turns actual public-transit rides into game progress. A server-free, local-first Flutter MVP with station discovery, XP, quests, achievements and fog-of-war map reveal, backed by 63 automated tests.</p></div></div>
+    </div>
+
+    <h3 class="grp rv"><span lang="ko">설계 · 초기 단계</span><span lang="en">Specs &amp; early stage</span></h3>
+    <p class="rv" lang="ko">출시된 코드가 없거나 프로토타입 단계의 프로젝트입니다. PARTSIT(C2C 부품 거래 PRD v1.1), SampleLedger(B2B 샘플 대여·이력 추적 요구사항), PromiseOS(고객 탐색 단계), Synapsis(의사결정 지원 프로토타입), COUNTERCROWD와 JEJU HOURSHIFT(공모전 PRD).</p>
+    <p class="rv" lang="en">Projects with no shipped code, or at prototype stage: PARTSIT (C2C parts marketplace PRD v1.1), SampleLedger (B2B sample loan and history tracking requirements), PromiseOS (customer discovery), Synapsis (a decision-support prototype), and COUNTERCROWD and JEJU HOURSHIFT (contest PRDs).</p>
+  </section>
+
+  <section id="awards">
+    <div class="k rv">Awards</div>
+    <div class="work">
+      <div class="w rv"><span class="t">2026 · <span lang="ko">전국 3위</span><span lang="en">3rd place</span></span><div>
+        <h3 lang="ko">제3회 미래융합 인재 발굴 소프트웨어 챌린지 고등부</h3><h3 lang="en">3rd Future Convergence Talent Software Challenge, high school division</h3>
+        <p lang="ko">경산시장상, 본선 10팀 중 3위. NEAR-ZERO X(산업 현장 충돌 예측·예방 시스템). 과학기술정보통신부·경산시 공동 주최.</p>
+        <p lang="en">Gyeongsan Mayor's Award, 3rd of 10 finalist teams, with NEAR-ZERO X, a system that predicts and prevents collisions at industrial work sites. Co-hosted by Korea's Ministry of Science and ICT and Gyeongsan City.</p></div></div>
+      <div class="w rv"><span class="t">2026 · <span lang="ko">장려상</span><span lang="en">7th place</span></span><div>
+        <h3 lang="ko">제2회 성남 × KAIST AI 경진대회 학생부</h3><h3 lang="en">2nd Seongnam × KAIST AI Competition, student division</h3>
+        <p lang="ko">장려상(7위). <a href="https://github.com/Bugeon151/seongnamXKAIST" target="_blank" rel="noopener">MobiLens ↗</a></p>
+        <p lang="en">7th place and Encouragement Award, with <a href="https://github.com/Bugeon151/seongnamXKAIST" target="_blank" rel="noopener">MobiLens ↗</a></p></div></div>
+    </div>
+  </section>
+
   <section id="background">
     <div class="k rv">Background</div>
     <ul class="bl">
-      <li class="rv" lang="ko">2026 제3회 미래융합 인재 발굴 소프트웨어 챌린지 고등부 <b>전국 3위</b>(경산시장상, 본선 10팀 중), NEAR-ZERO X(산업 현장 충돌 예측·예방 시스템). 과학기술정보통신부·경산시 공동 주최.</li>
-      <li class="rv" lang="en">2026: <b>3rd place nationally</b>, high school division, 3rd Future Convergence Talent Software Challenge (Gyeongsan Mayor's Award; 3rd of 10 finalist teams), with NEAR-ZERO X, a system that predicts and prevents collisions at industrial work sites. Co-hosted by Korea's Ministry of Science and ICT and Gyeongsan City.</li>
-      <li class="rv" lang="ko">2026 제2회 성남 × KAIST AI 경진대회 학생부 장려상(7위), <a href="https://github.com/Bugeon151/seongnamXKAIST" target="_blank" rel="noopener">MobiLens</a>.</li>
-      <li class="rv" lang="en">2026: 7th place and Encouragement Award, student division, 2nd Seongnam × KAIST AI Competition, with <a href="https://github.com/Bugeon151/seongnamXKAIST" target="_blank" rel="noopener">MobiLens</a>.</li>
       <li class="rv" lang="ko">2026년 4~7월 Votavis(초기 창업가가 1분 이내 피치 영상을 올리고 투자자가 보고 투자하는 앱, 법인 설립 전 스타트업) 파트타임 CTO. 개발자 10명을 이끌고 MVP를 완성했습니다.</li>
       <li class="rv" lang="en">Apr–Jul 2026: part-time CTO at Votavis, a pre-incorporation startup building an app where early-stage founders pitch in videos under a minute for investors; led 10 developers to a finished MVP.</li>
       <li class="rv" lang="ko">7살 때부터 프로그래밍을 해 왔습니다.</li>
