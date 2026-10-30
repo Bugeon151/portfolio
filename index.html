@@ -42,7 +42,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Noto+Sans+KR:wght@400;500;600;700&display=swap">
 <style>
 /* Layout: founder one-pager. Narrow reading column, text first, one orange accent.
-   Statement hero → metrics strip → Now / Why / Team PJ / Projects / Awards / Background / Stack / Talk → contact.
+   Statement hero → Now / Why / Team PJ / Projects / Awards / Background / Stack / Talk → contact.
    Motion is quiet: lines fade up, the accent underline draws, numbers count. */
 :root{
   --bg:#fbfaf7;
@@ -114,15 +114,7 @@ p a:hover,.inl:hover{color:var(--accent)}
 @media (max-width:760px){.hero{grid-template-columns:1fr;gap:28px}.portrait{order:-1;width:150px}.portrait figcaption{display:none}}
 @media (max-width:640px){.hero h1 .u{white-space:normal}}
 
-/* metrics */
-.metrics{display:grid;grid-template-columns:repeat(4,1fr);border-block:1px solid var(--line)}
-.m{padding:26px 20px 26px 0;min-width:0}
-.m+.m{padding-left:20px;border-left:1px solid var(--line)}
-.m .v{display:block;color:var(--ink);font-size:clamp(30px,4vw,40px);font-weight:600;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
-.m .v .a{color:var(--accent)}
-.m .l{display:block;margin-top:10px;font-size:14px;color:var(--muted);line-height:1.4}
 
-.metrics{grid-template-columns:repeat(4,1fr)}
 .more{margin-top:36px}
 .more>summary{cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:10px;font:500 15px var(--sans);color:var(--ink);padding:10px 16px;border:1px solid var(--line);border-radius:8px;background:var(--paper);transition:border-color .2s,color .2s}
 .more>summary::-webkit-details-marker{display:none}
@@ -186,10 +178,6 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin
 
 @media (max-width:640px){
   .top nav a{display:none}
-  .metrics{grid-template-columns:1fr 1fr}
-  .m,.m+.m{padding:18px 12px 18px 0;border-left:0}
-  .m:nth-child(even){padding-left:14px;border-left:1px solid var(--line)}
-  .m:nth-child(n+3){border-top:1px solid var(--line)}
   .w,.st{grid-template-columns:1fr;gap:4px}
 }
 @media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
@@ -230,13 +218,6 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin
     </div>
     <figure class="portrait rv"><img src="img/portrait.jpg" alt="Bugeon Park" fetchpriority="high">
       <figcaption><b>Bugeon Park</b>CTO, Team PJ</figcaption></figure>
-  </div>
-
-  <div class="metrics rv" aria-label="Highlights">
-    <div class="m"><span class="v">54<span class="a">/60</span></span><span class="l" lang="ko">사전 등록 벤치마크 성공 (Shepherd 38/60)</span><span class="l" lang="en">Pre-registered benchmark runs passed (Shepherd: 38/60)</span></div>
-    <div class="m"><span class="v">5,352</span><span class="l" lang="ko">규칙 검증에 쓴 실제 커밋 쌍</span><span class="l" lang="en">Real commit pairs replayed to test the rules</span></div>
-    <div class="m"><span class="v">1005</span><span class="l" lang="ko">Interlock 자동화 테스트</span><span class="l" lang="en">Interlock automated tests</span></div>
-    <div class="m"><span class="v">V3.17</span><span class="l" lang="ko">2026-10-16 이후 번호 릴리스 30번</span><span class="l" lang="en">Interlock version after 30 numbered releases since 2026-10-16</span></div>
   </div>
 
   <section id="now">
