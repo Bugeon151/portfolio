@@ -115,6 +115,15 @@ p a:hover,.inl:hover{color:var(--accent)}
 @media (max-width:640px){.hero h1 .u{white-space:normal}}
 
 
+.shots{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.shot{display:block;position:relative;border-radius:8px;overflow:hidden;border:1px solid var(--line);line-height:0;transition:border-color .15s,transform .15s}
+.shot:hover{border-color:var(--accent);transform:translateY(-1px)}
+.shot img{height:92px;width:150px;max-width:100%;object-fit:cover;object-position:top;display:block}
+#lb{border:0;padding:0;background:transparent;max-width:min(1100px,94vw);max-height:92vh;overflow:visible}
+#lb::backdrop{background:rgba(10,10,10,.82)}
+#lb img{display:block;max-width:100%;max-height:78vh;margin:auto;border-radius:10px;background:#fff}
+#lb p{margin:12px 4px 0;color:#eee;font-size:14.5px;text-align:center;max-width:none}
+#lb button{position:absolute;top:-14px;right:-6px;width:34px;height:34px;border-radius:50%;border:0;background:#fff;color:#111;font-size:18px;cursor:pointer}
 .more{margin-top:36px}
 .more>summary{cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:10px;font:500 15px var(--sans);color:var(--ink);padding:10px 16px;border:1px solid var(--line);border-radius:8px;background:var(--paper);transition:border-color .2s,color .2s}
 .more>summary::-webkit-details-marker{display:none}
@@ -276,7 +285,8 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin
       <div class="w rv"><span class="t">Web · Data</span><div>
         <h3>CISS</h3>
         <p lang="ko">공개 코드 속 알고리즘의 원 설계자와 파생 계보를 근거와 함께 기록하는 서비스. 알고리즘 274개, 기여자 465명, 파생 관계 225개의 시드 데이터, 계보 그래프, 저장소 스캔, 4개 언어, 공개 API(OpenAPI)를 갖췄습니다. 출처 DOI·arXiv 214개를 Crossref·OpenAlex·arXiv와 전부 대조해 잘못된 DOI 2건을 고쳤습니다. <a href="https://github.com/TEAM-PJ-LAB/CISS" target="_blank" rel="noopener">GitHub ↗</a></p>
-        <p lang="en">Records who originally designed an algorithm in public code, and how it was derived, with evidence. Seed data of 274 algorithms, 465 contributors and 225 derivation edges, a lineage graph, repository scan, four languages and a public OpenAPI. All 214 DOI and arXiv references were checked against Crossref, OpenAlex and arXiv, which caught 2 wrong DOIs. <a href="https://github.com/TEAM-PJ-LAB/CISS" target="_blank" rel="noopener">GitHub ↗</a></p></div></div>
+        <p lang="en">Records who originally designed an algorithm in public code, and how it was derived, with evidence. Seed data of 274 algorithms, 465 contributors and 225 derivation edges, a lineage graph, repository scan, four languages and a public OpenAPI. All 214 DOI and arXiv references were checked against Crossref, OpenAlex and arXiv, which caught 2 wrong DOIs. <a href="https://github.com/TEAM-PJ-LAB/CISS" target="_blank" rel="noopener">GitHub ↗</a></p>
+        <div class="shots"><a class="shot" href="img/shots/ciss-home.jpg" data-ko="CISS 첫 화면(로컬 실행)" data-en="CISS home page (run locally)"><img src="img/shots/ciss-home.jpg" alt="CISS home page (run locally)" width="1440" height="900" loading="lazy"></a><a class="shot" href="img/shots/ciss-algorithm.jpg" data-ko="알고리즘 상세: 기원·출처·계보(Transformer)" data-en="Algorithm page: origin, source, lineage (Transformer)"><img src="img/shots/ciss-algorithm.jpg" alt="Algorithm page: origin, source, lineage (Transformer)" width="1440" height="900" loading="lazy"></a></div></div></div>
     </div>
   </section>
 
@@ -291,11 +301,13 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin
       <div class="w rv"><span class="t">Security · Detection</span><div>
         <h3>CIVIC-EYE <span class="tag">Private</span></h3>
         <p lang="ko">공공기관 홈페이지의 숨김·위장 불법광고를 실제 브라우저로 렌더링해 어디에, 왜 있는지 근거와 함께 찾는 Windows 11 프로그램(「공공 웹사이트 불법광고 탐지 도구 개발 공모전」 출품작, 행정안전부·NIA). 외부 AI API 없이 CPU에서 동작합니다. 개발 세트(blind 아님)에서 정밀도 0.997, 재현율 0.974이고, 첫 평가에서 F1 0.935였던 holdout은 미탐 분석 뒤 고쳤기 때문에 개발 결과로 분류했습니다. v1.3의 blind 평가는 하지 못했다고 보고서에 적었습니다.</p>
-        <p lang="en">A Windows 11 tool that renders public-sector sites in a real browser and finds hidden or disguised illegal ads, showing where and why (entry to the 2026 Public Website Illegal Ad Detection contest by Korea's Ministry of the Interior and Safety and NIA). Runs on CPU with no external AI API. On the development set (not blind): precision 0.997, recall 0.974. The holdout scored F1 0.935 on first run; it was fixed after the miss analysis, so it is reported as a development result. A blind test of v1.3 was not run, and the report says so.</p></div></div>
+        <p lang="en">A Windows 11 tool that renders public-sector sites in a real browser and finds hidden or disguised illegal ads, showing where and why (entry to the 2026 Public Website Illegal Ad Detection contest by Korea's Ministry of the Interior and Safety and NIA). Runs on CPU with no external AI API. On the development set (not blind): precision 0.997, recall 0.974. The holdout scored F1 0.935 on first run; it was fixed after the miss analysis, so it is reported as a development result. A blind test of v1.3 was not run, and the report says so.</p>
+        <div class="shots"><a class="shot" href="img/shots/civic-results.jpg" data-ko="탐지 결과 목록. 자체 제작한 가상 기관 테스트 사이트 대상" data-en="Detection results on a self-made test site of a fictional agency"><img src="img/shots/civic-results.jpg" alt="Detection results on a self-made test site of a fictional agency" width="1400" height="900" loading="lazy"></a><a class="shot" href="img/shots/civic-jamo.jpg" data-ko="탐지 상세: 자모로 분해한 문구를 근거와 함께 표시" data-en="Detection detail: a jamo-decomposed phrase shown with evidence"><img src="img/shots/civic-jamo.jpg" alt="Detection detail: a jamo-decomposed phrase shown with evidence" width="1400" height="900" loading="lazy"></a><a class="shot" href="img/shots/civic-dashboard.jpg" data-ko="대시보드" data-en="Dashboard"><img src="img/shots/civic-dashboard.jpg" alt="Dashboard" width="1400" height="900" loading="lazy"></a></div></div></div>
       <div class="w rv"><span class="t">Quant · Risk</span><div>
         <h3>급락 방어 AI <span class="tag">Private</span></h3>
         <p lang="ko">미국(S&amp;P 500)과 코스피의 급락 위험을 매일 장 마감 후 '평소의 몇 배'로 판정해 카카오톡·텔레그램으로 알리는 도구. 주문 기능은 없습니다. 학습에 없던 12개국 지수에 사전 등록한 규칙을 한 번만 적용한 평가에서 보수형(추세 앙상블)의 최대 낙폭 중앙값은 −27.3%로 매수 후 보유(−60.3%)보다 작았고 연복리는 4.4% 대 4.0%였습니다. AI가 급락 시점을 맞힌다고 주장하지 않으며, 효과가 작고 2024년 이후에는 유의한 가설이 없다는 한계도 함께 공개합니다.</p>
-        <p lang="en">Rates the daily crash risk of the S&amp;P 500 and KOSPI as a multiple of normal and sends it by KakaoTalk or Telegram. It places no orders. In a one-shot test of pre-registered rules on 12 country indices unseen in training, the defensive profile (trend ensemble) had a median max drawdown of −27.3% vs −60.3% for buy-and-hold, with CAGR 4.4% vs 4.0%. It does not claim to time crashes, and it publishes the limits: the effect is small and no hypothesis is significant after 2024.</p></div></div>
+        <p lang="en">Rates the daily crash risk of the S&amp;P 500 and KOSPI as a multiple of normal and sends it by KakaoTalk or Telegram. It places no orders. In a one-shot test of pre-registered rules on 12 country indices unseen in training, the defensive profile (trend ensemble) had a median max drawdown of −27.3% vs −60.3% for buy-and-hold, with CAGR 4.4% vs 4.0%. It does not claim to time crashes, and it publishes the limits: the effect is small and no hypothesis is significant after 2024.</p>
+        <div class="shots"><a class="shot" href="img/shots/crashguard-equity.jpg" data-ko="시장별 순자산·낙폭 그래프. 저장소 산출물(v3/validation/index), 그림에는 지수 9개가 표시됨" data-en="Equity and drawdown by market, from the repo outputs (v3/validation/index). The figure shows 9 indices"><img src="img/shots/crashguard-equity.jpg" alt="Equity and drawdown by market, from the repo outputs (v3/validation/index). The figure shows 9 indices" width="1400" height="1763" loading="lazy"></a></div></div></div>
     </div>
     <details class="more rv">
       <summary><span lang="ko">나머지 프로젝트 8개와 설계 단계 보기</span><span lang="en">8 more projects and early-stage specs</span></summary>
@@ -352,7 +364,8 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin
       <div class="w rv"><span class="t">2026 · <span lang="ko">전국 3위</span><span lang="en">3rd place</span></span><div>
         <h3 lang="ko">제3회 미래융합 인재 발굴 소프트웨어 챌린지 고등부</h3><h3 lang="en">3rd Future Convergence Talent Software Challenge, high school division</h3>
         <p lang="ko">경산시장상, 본선 10팀 중 3위. <a href="https://github.com/Bugeon151/The-3rd-Future-Convergence-Talent-Discovery-Software-Challenge" target="_blank" rel="noopener">NEAR-ZERO X ↗</a>(산업 현장 충돌 예측·예방 시스템). 과학기술정보통신부·경산시 공동 주최.</p>
-        <p lang="en">Gyeongsan Mayor's Award, 3rd of 10 finalist teams, with <a href="https://github.com/Bugeon151/The-3rd-Future-Convergence-Talent-Discovery-Software-Challenge" target="_blank" rel="noopener">NEAR-ZERO X ↗</a>, a system that predicts and prevents collisions at industrial work sites. Co-hosted by Korea's Ministry of Science and ICT and Gyeongsan City.</p></div></div>
+        <p lang="en">Gyeongsan Mayor's Award, 3rd of 10 finalist teams, with <a href="https://github.com/Bugeon151/The-3rd-Future-Convergence-Talent-Discovery-Software-Challenge" target="_blank" rel="noopener">NEAR-ZERO X ↗</a>, a system that predicts and prevents collisions at industrial work sites. Co-hosted by Korea's Ministry of Science and ICT and Gyeongsan City.</p>
+        <div class="shots"><a class="shot" href="img/shots/nearzero.jpg" data-ko="NEAR-ZERO X 시뮬레이션 대시보드(SIM 모드): 위험 점수와 개입안별 결과 위험" data-en="NEAR-ZERO X simulation dashboard (SIM mode): risk score and resulting risk per intervention"><img src="img/shots/nearzero.jpg" alt="NEAR-ZERO X simulation dashboard (SIM mode): risk score and resulting risk per intervention" width="1400" height="758" loading="lazy"></a></div></div></div>
       <div class="w rv"><span class="t">2026 · <span lang="ko">장려상</span><span lang="en">7th place</span></span><div>
         <h3 lang="ko">제2회 성남 × KAIST AI 경진대회 학생부</h3><h3 lang="en">2nd Seongnam × KAIST AI Competition, student division</h3>
         <p lang="ko">장려상(7위). <a href="https://github.com/Bugeon151/seongnamXKAIST" target="_blank" rel="noopener">MobiLens ↗</a></p>
@@ -465,6 +478,13 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin
   }), { threshold: .6 });
   document.querySelectorAll('.cnt').forEach(el => cio.observe(el));
 })();
+</script>
+<dialog id="lb"><button type="button" aria-label="Close">×</button><img alt=""><p></p></dialog>
+<script>
+(function(){var d=document.getElementById('lb');if(!d||!d.showModal)return;var im=d.querySelector('img'),cp=d.querySelector('p');
+d.querySelector('button').onclick=function(){d.close()};d.addEventListener('click',function(e){if(e.target===d)d.close()});
+document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a.shot');if(!a)return;e.preventDefault();
+var l=document.documentElement.getAttribute('data-lang')==='en'?'en':'ko';im.src=a.href;im.alt=a.dataset[l]||'';cp.textContent=a.dataset[l]||'';d.showModal()})})();
 </script>
 </body>
 </html>
