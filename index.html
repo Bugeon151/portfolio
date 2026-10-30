@@ -412,7 +412,7 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin
     <h2 lang="ko">이야기 나눠요.</h2><h2 lang="en">Let's talk.</h2>
     <p lang="ko">협업, 프로젝트, 아니면 그냥 아이디어도 좋습니다. 이메일이 가장 빠릅니다.</p>
     <p lang="en">Collaboration, a project, or just an idea. Email is fastest.</p>
-    <div class="mail"><code id="email">bagdoeon827@gmail.com</code><button class="copy" id="copy" type="button"><span lang="ko">복사</span><span lang="en">Copy</span></button></div>
+    <div class="mail"><code id="email" data-u="bagdoeon827" data-d="gmail.com">&hellip;</code><button class="copy" id="copy" type="button"><span lang="ko">복사</span><span lang="en">Copy</span></button></div>
     <div class="elsewhere">
       <a href="https://github.com/Bugeon151" target="_blank" rel="noopener">GitHub ↗</a>
       <a href="https://www.instagram.com/bugeon.dev/" target="_blank" rel="noopener">Instagram ↗</a>
@@ -479,6 +479,7 @@ footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin
   document.querySelectorAll('.cnt').forEach(el => cio.observe(el));
 })();
 </script>
+<script>(function(){var e=document.getElementById('email');if(e)e.textContent=e.dataset.u+String.fromCharCode(64)+e.dataset.d})();</script>
 <dialog id="lb"><button type="button" aria-label="Close">×</button><img alt=""><p></p></dialog>
 <script>
 (function(){var d=document.getElementById('lb');if(!d||!d.showModal)return;var im=d.querySelector('img'),cp=d.querySelector('p');
