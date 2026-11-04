@@ -111,15 +111,7 @@ section{padding-block:clamp(48px,7vw,80px) 0;border-top:1px solid var(--line);ma
 .hero+section{margin-top:0}
 h2{margin:0 0 8px;color:var(--ink);font-size:clamp(22px,2.4vw,26px);font-weight:700;letter-spacing:-.02em;line-height:1.3}
 .lead{color:var(--ink-2);max-width:42em;font-size:17px}
-.split{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(24px,5vw,64px)}
 
-.spec{margin:0;border-top:1px solid var(--line)}
-.spec>div{display:grid;grid-template-columns:150px minmax(0,1fr);gap:4px 20px;padding:13px 0;border-bottom:1px solid var(--line)}
-.spec dt{font-size:14px;color:var(--muted);padding-top:1px}
-.spec dd{margin:0;color:var(--ink);font-size:15.5px}
-.spec dd .mono{font-weight:600}
-.spec dd a{font-size:13.5px;color:var(--muted);margin-left:6px;text-decoration:none;border-bottom:1px solid var(--line-2)}
-.spec dd a:hover{color:var(--accent);border-color:var(--accent)}
 
 /* project index */
 h3.grp{margin:40px 0 0;font-size:15px;font-weight:650;color:var(--ink)}
@@ -145,13 +137,16 @@ h3.grp small{font-weight:400;color:var(--muted);margin-left:8px;font-size:14px}
 .more>summary::before{content:"+";font:600 15px var(--mono);color:var(--accent)}
 .more[open]>summary::before{content:"−"}
 .more>summary:hover{border-color:var(--ink)}
-.specs{margin-top:28px;font-size:15px;color:var(--muted);max-width:46em}
 
 /* background, stack */
 .bl{list-style:none;margin:16px 0 0;padding:0;border-top:1px solid var(--line)}
 .bl li{padding:13px 0;border-bottom:1px solid var(--line);font-size:15.5px}
 .bl li b{color:var(--ink);font-weight:600}
 
+.stackgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 48px;margin-top:20px}
+.sg h3{margin:0 0 10px;font-size:14px;font-weight:550;color:var(--muted)}
+.chips{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.chips li{font:500 13px/1 var(--mono);padding:8px 10px;border:1px solid var(--line-2);border-radius:6px;background:var(--surface);color:var(--ink)}
 /* contact */
 .contact{margin-top:clamp(56px,8vw,96px);padding:clamp(24px,4vw,40px);border-radius:14px;background:var(--surface);border:1px solid var(--line);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px 40px;align-items:end;scroll-margin-top:80px}
 .contact h2{font-size:clamp(24px,3vw,30px)}
@@ -174,7 +169,7 @@ footer a{color:var(--muted)}
 @media (max-width:900px){
   .hero{grid-template-columns:1fr}
   .portrait{order:-1;width:140px}
-  .split{grid-template-columns:1fr}
+  .stackgrid{grid-template-columns:1fr;gap:22px}
 }
 @media (max-width:680px){
   .top .wrap{gap:10px}
@@ -184,7 +179,6 @@ footer a{color:var(--muted)}
   .p{grid-template-columns:1fr;gap:6px}
   .p__meta{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px}
   .p__meta .area{margin:0}
-  .spec>div{grid-template-columns:1fr;gap:2px}
   .contact{grid-template-columns:1fr}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
@@ -198,6 +192,7 @@ footer a{color:var(--muted)}
       <a href="#projects"><span lang="ko">프로젝트</span><span lang="en">Projects</span></a>
       <a href="#awards"><span lang="ko">수상</span><span lang="en">Awards</span></a>
       <a href="#background"><span lang="ko">경력</span><span lang="en">Background</span></a>
+      <a href="#stack"><span lang="ko">스택</span><span lang="en">Stack</span></a>
       <a href="#contact"><span lang="ko">연락</span><span lang="en">Contact</span></a>
     </nav>
     <div class="lang" role="group" aria-label="Language">
@@ -318,10 +313,8 @@ footer a{color:var(--muted)}
   </section>
 
   <section id="background">
-    <div class="split">
-      <div>
-        <h2 lang="ko">경력</h2><h2 lang="en">Background</h2>
-        <ul class="bl">
+    <h2 lang="ko">경력</h2><h2 lang="en">Background</h2>
+    <ul class="bl">
           <li lang="ko"><b>Team PJ</b> 공동창업자, CTO (2026–)</li>
           <li lang="en"><b>Team PJ</b>, co-founder and CTO (2026–)</li>
           <li lang="ko"><b>Votavis</b> 파트타임 CTO (2026년 4~7월). 초기 창업가가 1분 이내 피치 영상을 올리고 투자자가 보고 투자하는 앱(법인 설립 전 스타트업). 개발자 10명을 이끌고 MVP를 완성했습니다.</li>
@@ -331,17 +324,18 @@ footer a{color:var(--muted)}
           <li lang="ko">테스트와 벤치마크, 재현 가능한 빌드를 기본값으로 둡니다.</li>
           <li lang="en">Tests, benchmarks and reproducible builds are the default, not an extra.</li>
         </ul>
-      </div>
-      <div>
-        <h2 lang="ko">기술 스택</h2><h2 lang="en">Stack</h2>
-        <dl class="spec" style="margin-top:16px">
-          <div><dt>Languages</dt><dd>Python, Java, C/C++, TypeScript</dd></div>
-          <div><dt>AI</dt><dd>MCP, llama.cpp, Transformers trained from scratch, tree-sitter</dd></div>
-          <div><dt>Backend</dt><dd>FastAPI, Spring Boot, PostgreSQL, Kafka, SQLite</dd></div>
-          <div><dt>Quality</dt><dd>pytest, fuzz and concurrency tests, GitHub Actions</dd></div>
-          <div><dt>Infra</dt><dd>Linux, Docker, Fly.io, Render, Raspberry Pi</dd></div>
-        </dl>
-      </div>
+  </section>
+
+  <section id="stack">
+    <h2 lang="ko">기술 스택</h2><h2 lang="en">Stack</h2>
+    <div class="stackgrid">
+      <div class="sg"><h3>Languages</h3><ul class="chips"><li>Python</li><li>TypeScript</li><li>JavaScript</li><li>Java</li><li>C/C++</li><li>Rust</li><li>Go</li><li>Swift</li><li>Dart</li><li>SQL</li><li>HTML/CSS</li><li>Bash</li><li>PowerShell</li></ul></div>
+      <div class="sg"><h3>AI / ML</h3><ul class="chips"><li>PyTorch</li><li>torchaudio</li><li>Conformer-CTC</li><li>Transformers (from scratch)</li><li>llama.cpp / GGUF</li><li>Ultralytics YOLOv8</li><li>OpenCV</li><li>scikit-learn</li><li>Claude API</li><li>MCP</li><li>tree-sitter</li></ul></div>
+      <div class="sg"><h3>Backend</h3><ul class="chips"><li>FastAPI</li><li>Pydantic</li><li>SQLAlchemy</li><li>Alembic</li><li>Spring Boot</li><li>Kafka</li><li>PostgreSQL</li><li>Redis</li><li>SQLite</li><li>httpx</li></ul></div>
+      <div class="sg"><h3>Frontend & mobile</h3><ul class="chips"><li>Next.js</li><li>React</li><li>Vite</li><li>Tailwind CSS</li><li>Flutter</li><li>sqflite</li></ul></div>
+      <div class="sg"><h3>Data</h3><ul class="chips"><li>NumPy</li><li>pandas</li><li>SciPy</li><li>GeoPandas</li><li>OSMnx</li><li>Matplotlib</li><li>Plotly</li><li>Folium</li><li>Streamlit</li></ul></div>
+      <div class="sg"><h3>Testing</h3><ul class="chips"><li>pytest</li><li>Vitest</li><li>JUnit 5</li><li>Testcontainers</li><li>Playwright</li><li>Fuzz testing</li><li>Concurrency testing</li></ul></div>
+      <div class="sg"><h3>Infra & tools</h3><ul class="chips"><li>Linux</li><li>Docker</li><li>Docker Compose</li><li>GitHub Actions</li><li>Fly.io</li><li>Render</li><li>Railway</li><li>PyInstaller</li><li>Raspberry Pi</li></ul></div>
     </div>
   </section>
 
