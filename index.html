@@ -85,7 +85,7 @@ code{font:500 .88em ui-monospace,"SF Mono",Menlo,Consolas,monospace;background:v
 .lang button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
 
 /* hero */
-.hero{display:grid;grid-template-columns:minmax(0,1fr) 208px;gap:56px;align-items:end;padding-block:clamp(56px,9vw,104px) clamp(48px,7vw,80px)}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) clamp(280px,32vw,400px);gap:clamp(32px,5vw,72px);align-items:center;padding-block:clamp(56px,9vw,104px) clamp(48px,7vw,80px)}
 h1{font-size:clamp(36px,5vw,52px);line-height:1.12;letter-spacing:-.02em;font-weight:700}
 h1 small{display:inline-block;margin-left:12px;font-size:.5em;font-weight:500;color:var(--muted);letter-spacing:0}
 .role{margin-top:10px;font-size:16.5px;color:var(--muted)}
@@ -176,12 +176,14 @@ footer{padding-block:28px 48px;border-top:1px solid var(--rule);font-size:13.5px
 #lb button{position:absolute;top:-16px;right:-8px;width:40px;height:40px;border-radius:50%;border:0;background:#fff;color:#111;font-size:20px;cursor:pointer}
 
 @media (max-width:900px){
-  .hero{grid-template-columns:1fr;gap:28px}
-  .portrait{order:-1;width:128px}
+  .hero{grid-template-columns:minmax(0,1fr) 240px;gap:32px}
   .sec{grid-template-columns:1fr;gap:20px;padding-block:48px}
   .sec__h h2{position:static;font-size:22px}
 }
 @media (max-width:680px){
+  .hero{grid-template-columns:1fr;gap:28px}
+  .portrait{order:-1}
+  .portrait img{aspect-ratio:4/3;object-position:50% 30%}
   .top .wrap{flex-wrap:wrap;gap:0 12px;padding-top:8px}
   .lang{margin-left:auto}
   .top nav{order:3;width:100%;margin:2px 0 4px;justify-content:space-between}
@@ -239,7 +241,7 @@ footer{padding-block:28px 48px;border-top:1px solid var(--rule);font-size:13.5px
         <a class="btn" href="https://github.com/Bugeon151" target="_blank" rel="noopener">GitHub ↗</a>
       </div>
     </div>
-    <figure class="portrait"><img src="img/portrait.jpg" alt="Bugeon Park" width="540" height="675" fetchpriority="high"></figure>
+    <figure class="portrait"><img src="img/portrait.jpg" alt="Bugeon Park" width="630" height="787" fetchpriority="high"></figure>
   </div>
 
   <section class="sec" id="projects">
