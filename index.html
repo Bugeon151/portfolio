@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#f4f6f8" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0e1217" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f6f7f9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0b111c" media="(prefers-color-scheme: dark)">
 <meta name="color-scheme" content="light dark">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%23161b22%27/%3E%3Ctext x=%2732%27 y=%2742%27 text-anchor=%27middle%27 font-family=%27Menlo,monospace%27 font-weight=%27700%27 font-size=%2726%27 fill=%27%23ff7a4d%27%3EBP%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2712%27 fill=%27%230f1a2b%27/%3E%3Ctext x=%2732%27 y=%2742%27 text-anchor=%27middle%27 font-family=%27Helvetica,Arial,sans-serif%27 font-weight=%27700%27 font-size=%2726%27 fill=%27%2386a7ff%27%3EBP%3C/text%3E%3C/svg%3E">
 <title>Bugeon Park (박부건), CTO of Team PJ</title>
 <meta name="description" content="Bugeon Park(박부건) — full-stack AI developer and CTO of Team PJ. Speech recognition, detection systems, backends and mobile apps. 풀스택 AI 개발자 박부건의 포트폴리오.">
 <meta name="author" content="Bugeon Park">
@@ -37,149 +37,172 @@
   "jobTitle": ["Full-stack AI developer", "CTO"],
   "worksFor": { "@type": "Organization", "name": "Team PJ", "alternateName": "팀 PJ", "url": "https://team-pj-lab.github.io/" },
   "nationality": { "@type": "Country", "name": "South Korea" },
-  "knowsAbout": ["AI coding agents", "Multi-agent coordination", "Developer tools", "Local LLM", "Speech recognition", "Competitive programming"],
+  "knowsAbout": ["Speech recognition", "Detection systems", "Local LLM", "Backend engineering", "Mobile apps", "Developer tools", "Competitive programming"],
   "sameAs": ["https://github.com/Bugeon151", "https://www.linkedin.com/in/bugeon-park-3b58433a9", "https://www.instagram.com/bugeon.dev/"]
 }
 </script>
-<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap">
 <style>
-/* Developer portfolio. One loud thing: the code panel in the hero, built from real
-   interlock-demo code. Everything else is a quiet, dense index. */
+/* Measurement-record layout: section titles in a fixed left column, key projects as
+   results tables (metric, value, condition, limit). Accent is reserved for measured values. */
 :root{
-  --bg:#f4f6f8;--surface:#fff;--ink:#14181f;--ink-2:#3a414c;--muted:#626b78;--line:#dde2e8;--line-2:#c9d0d9;
-  --accent:#c43d10;--accent-soft:#fdeee7;
-  --sans:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Segoe UI",system-ui,sans-serif;
-  --mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
-  --w:1080px;
+  --bg:#f6f7f9;--paper:#fff;--ink:#0f1a2b;--ink-2:#364152;--muted:#687386;--rule:#dce1e8;--rule-2:#c5ccd6;
+  --accent:#1f4fd1;--accent-soft:#e8eefc;
+  --sans:"IBM Plex Sans KR","Apple SD Gothic Neo","Noto Sans KR",-apple-system,"Segoe UI",system-ui,sans-serif;
+  --w:1120px;--col:176px;
 }
 @media (prefers-color-scheme:dark){:root{
-  --bg:#0e1217;--surface:#151a21;--ink:#e8ecf1;--ink-2:#c1c8d2;--muted:#8d97a5;--line:#242b35;--line-2:#323b47;
-  --accent:#ff7a4d;--accent-soft:rgba(255,122,77,.12)}}
+  --bg:#0b111c;--paper:#111a29;--ink:#e6ebf2;--ink-2:#c0c9d6;--muted:#8c98ab;--rule:#222d40;--rule-2:#2f3b51;
+  --accent:#86a7ff;--accent-soft:rgba(134,167,255,.12)}}
 :root:not([data-lang="en"]) [lang="en"]{display:none!important}
 :root[data-lang="en"] [lang="ko"]{display:none!important}
-[hidden]{display:none!important}
 
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:72px;-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--ink-2);font:16px/1.7 var(--sans);letter-spacing:-.003em;-webkit-font-smoothing:antialiased;word-break:keep-all;overflow-wrap:break-word}
+html{scroll-behavior:smooth;scroll-padding-top:84px;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink-2);font:16px/1.75 var(--sans);-webkit-font-smoothing:antialiased;word-break:keep-all;overflow-wrap:break-word;font-variant-numeric:tabular-nums}
 img{max-width:100%;display:block}
 a{color:inherit}
-:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
 ::selection{background:var(--accent);color:#fff}
-.wrap{max-width:var(--w);margin-inline:auto;padding-inline:clamp(16px,4vw,32px)}
-code,.mono{font-family:var(--mono);font-size:.92em}
-p{margin:0 0 .9em}
-p a,.lnk{color:var(--ink);text-decoration:underline;text-decoration-color:var(--line-2);text-underline-offset:3px;text-decoration-thickness:1px}
-p a:hover,.lnk:hover{text-decoration-color:var(--accent);color:var(--accent)}
+h1,h2,h3{color:var(--ink);margin:0;font-weight:600}
+p{margin:0}
+code{font:500 .88em ui-monospace,"SF Mono",Menlo,Consolas,monospace;background:var(--accent-soft);padding:1px 5px;border-radius:3px}
+.wrap{max-width:var(--w);margin-inline:auto;padding-inline:clamp(16px,4vw,40px)}
+.tx a,.lnk{color:var(--ink);text-decoration:underline;text-decoration-color:var(--rule-2);text-underline-offset:3px}
+.tx a:hover,.lnk:hover{color:var(--accent);text-decoration-color:var(--accent)}
 
 /* header */
-.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 90%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.top .wrap{display:flex;align-items:center;gap:20px;height:56px}
-.brand{font-weight:650;color:var(--ink);text-decoration:none;font-size:15px;white-space:nowrap}
-.brand span{font-family:var(--mono);font-weight:500;color:var(--muted);font-size:13px;margin-left:6px}
-.top nav{display:flex;gap:4px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
-.top nav::-webkit-scrollbar{display:none}
-.top nav a{font-size:14px;color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:6px;white-space:nowrap}
-.top nav a:hover{color:var(--ink);background:var(--surface)}
-.lang{display:inline-flex;border:1px solid var(--line-2);border-radius:7px;overflow:hidden;flex:none}
-.lang button{font:600 12.5px var(--mono);background:transparent;color:var(--muted);border:0;min-width:40px;min-height:32px;cursor:pointer}
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--rule)}
+.top .wrap{display:flex;align-items:center;gap:24px;min-height:60px}
+.brand{font-weight:600;color:var(--ink);text-decoration:none;font-size:15px;white-space:nowrap}
+.top nav{display:flex;gap:2px;margin-left:auto}
+.top nav a{font-size:14px;color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:4px;white-space:nowrap}
+.top nav a:hover{color:var(--ink);background:var(--paper)}
+.lang{display:inline-flex;border:1px solid var(--rule-2);border-radius:4px;overflow:hidden;flex:none}
+.lang button{font:600 12.5px var(--sans);background:transparent;color:var(--muted);border:0;min-width:40px;min-height:32px;cursor:pointer}
 .lang button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
 
 /* hero */
-.hero{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:clamp(32px,5vw,64px);align-items:center;padding-block:clamp(48px,8vw,96px) clamp(40px,6vw,72px)}
-h1{margin:0 0 6px;color:var(--ink);font-size:clamp(34px,4.6vw,48px);font-weight:700;letter-spacing:-.025em;line-height:1.2}
-h1 .alt{font-weight:500;color:var(--muted);margin-left:8px;font-size:.62em;letter-spacing:0}
-.role{margin:0 0 28px;font-size:16px;color:var(--muted)}
-.role a{color:var(--ink-2);text-decoration:none;border-bottom:1px solid var(--line-2)}
-.statement{margin:0;color:var(--ink);font-size:clamp(22px,2.6vw,29px);font-weight:600;letter-spacing:-.025em;line-height:1.38;text-wrap:balance;max-width:20em}
-.sub{margin:18px 0 0;font-size:17px;color:var(--ink-2);max-width:32em}
-.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
-.btn{display:inline-flex;align-items:center;gap:8px;min-height:42px;padding:0 16px;border-radius:8px;font:550 15px var(--sans);text-decoration:none;border:1px solid var(--line-2);background:var(--surface);color:var(--ink)}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) 208px;gap:56px;align-items:end;padding-block:clamp(56px,9vw,104px) clamp(48px,7vw,80px)}
+h1{font-size:clamp(36px,5vw,52px);line-height:1.12;letter-spacing:-.02em;font-weight:700}
+h1 small{display:inline-block;margin-left:12px;font-size:.5em;font-weight:500;color:var(--muted);letter-spacing:0}
+.role{margin-top:10px;font-size:16.5px;color:var(--muted)}
+.role a{color:var(--ink-2);text-decoration:none;border-bottom:1px solid var(--rule-2)}
+.role a:hover{color:var(--accent);border-color:var(--accent)}
+.statement{margin-top:36px;font-size:clamp(21px,2.5vw,27px);line-height:1.48;font-weight:500;color:var(--ink);letter-spacing:-.015em;max-width:24em;text-wrap:balance}
+.sub{margin-top:14px;font-size:17px;max-width:34em}
+.cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:32px}
+.btn{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:4px;font:500 15px var(--sans);text-decoration:none;border:1px solid var(--rule-2);background:var(--paper);color:var(--ink)}
 .btn:hover{border-color:var(--ink)}
 .btn.pri{background:var(--ink);border-color:var(--ink);color:var(--bg)}
 .btn.pri:hover{background:var(--accent);border-color:var(--accent);color:#fff}
 .portrait{margin:0}
-.portrait img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:12px;border:1px solid var(--line)}
+.portrait img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:4px}
 
+/* sections: title column + body column */
+.sec{display:grid;grid-template-columns:var(--col) minmax(0,1fr);gap:0 56px;padding-block:64px;border-top:1px solid var(--ink)}
+.sec__h h2{position:sticky;top:84px;font-size:19px;letter-spacing:-.01em}
+.lead{font-size:16px;max-width:46em;color:var(--ink-2)}
+h3.grp{margin:56px 0 0;font-size:16px;font-weight:600;padding-bottom:12px;border-bottom:1px solid var(--rule-2)}
+h3.grp small{margin-left:10px;font-size:14px;font-weight:400;color:var(--muted)}
 
-/* sections */
-section{padding-block:clamp(48px,7vw,80px) 0;border-top:1px solid var(--line);margin-top:clamp(48px,7vw,80px)}
-.hero+section{margin-top:0}
-h2{margin:0 0 8px;color:var(--ink);font-size:clamp(22px,2.4vw,26px);font-weight:700;letter-spacing:-.02em;line-height:1.3}
-.lead{color:var(--ink-2);max-width:42em;font-size:17px}
-
-
-/* project index */
-h3.grp{margin:40px 0 0;font-size:15px;font-weight:650;color:var(--ink)}
-h3.grp small{font-weight:400;color:var(--muted);margin-left:8px;font-size:14px}
-.list{border-top:1px solid var(--line);margin-top:12px}
-.p{display:grid;grid-template-columns:220px minmax(0,1fr);gap:8px 32px;padding:22px 0;border-bottom:1px solid var(--line)}
-.p__meta h3{margin:0;font-size:17px;font-weight:650;color:var(--ink);letter-spacing:-.01em}
-.p__meta .area{margin:2px 0 8px;font-size:14px;color:var(--muted)}
-.badge{display:inline-block;font:500 12px/1.9 var(--mono);padding:0 8px;border-radius:5px;border:1px solid var(--line-2);color:var(--muted)}
-.badge.pub{border-color:color-mix(in srgb,var(--accent) 45%,var(--line-2));color:var(--accent)}
-.p__body p{margin:0;font-size:15.5px;max-width:46em}
-.p__body p+p{margin-top:.6em}
-.p__links{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:10px;font-size:14.5px}
-.p__links a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line-2)}
-.p__links a:hover{color:var(--accent);border-color:var(--accent)}
-.shots{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
-.shot{display:block;border-radius:8px;overflow:hidden;border:1px solid var(--line);line-height:0;background:var(--surface)}
+/* measurement record */
+.rec{padding:36px 0 40px;border-bottom:1px solid var(--rule-2)}
+.lead+.rec{margin-top:24px;border-top:1px solid var(--rule-2)}
+.rec__h{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 20px}
+.rec__h h3{font-size:23px;letter-spacing:-.015em}
+.meta{display:flex;flex-wrap:wrap;gap:4px 16px;font-size:14px;color:var(--muted)}
+.meta a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--rule-2)}
+.meta a:hover{color:var(--accent);border-color:var(--accent)}
+.rec__sum{margin-top:10px;max-width:46em}
+.m{width:100%;margin-top:22px;border-collapse:collapse;table-layout:fixed;font-size:14.5px}
+.m caption{caption-side:top;text-align:left;font-size:14px;color:var(--muted);padding-bottom:8px}
+.m th,.m td{padding:12px 0;border-top:1px solid var(--rule);vertical-align:baseline;text-align:left;font-weight:400}
+.m th{width:30%;color:var(--ink);padding-right:20px}
+.m .v{width:136px;white-space:nowrap;text-align:right;padding-right:28px;font-size:24px;line-height:1.2;font-weight:600;color:var(--accent);letter-spacing:-.01em}
+.m .c{color:var(--muted)}
+.m tr:last-child>*{border-bottom:1px solid var(--rule)}
+.m .lim>*{border-top:1px dashed var(--rule-2);color:var(--ink-2)}
+.m .lim th{color:var(--muted)}
+.shots{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.shot{display:block;border-radius:4px;overflow:hidden;border:1px solid var(--rule);line-height:0;background:var(--paper)}
 .shot:hover{border-color:var(--ink)}
-.shot img{height:108px;width:172px;object-fit:cover;object-position:top}
-.more{margin-top:28px}
-.more>summary{cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:0 16px;border:1px solid var(--line-2);border-radius:8px;background:var(--surface);color:var(--ink);font-weight:550;font-size:15px}
+.shot img{height:100px;width:160px;object-fit:cover;object-position:top}
+
+/* compact rows */
+.row{display:grid;grid-template-columns:200px minmax(0,1fr);gap:6px 32px;padding:22px 0;border-bottom:1px solid var(--rule)}
+.row__m h3{font-size:16.5px}
+.row__m p{font-size:14px;color:var(--muted)}
+.row__m .meta{margin-top:2px}
+.row__b{font-size:15.5px;max-width:46em}
+.row__b p+p{margin-top:.6em}
+.row__b .meta{margin-top:10px}
+.more{margin-top:32px}
+.more>summary{cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:0 18px;border:1px solid var(--rule-2);border-radius:4px;background:var(--paper);color:var(--ink);font-weight:500;font-size:15px}
 .more>summary::-webkit-details-marker{display:none}
-.more>summary::before{content:"+";font:600 15px var(--mono);color:var(--accent)}
+.more>summary::before{content:"+";font-weight:600;color:var(--accent);width:10px}
 .more[open]>summary::before{content:"−"}
 .more>summary:hover{border-color:var(--ink)}
+.specs{margin-top:28px;font-size:14.5px;color:var(--muted);max-width:50em}
 
 /* background, stack */
-.bl{list-style:none;margin:16px 0 0;padding:0;border-top:1px solid var(--line)}
-.bl li{padding:13px 0;border-bottom:1px solid var(--line);font-size:15.5px}
-.bl li b{color:var(--ink);font-weight:600}
+.tl{list-style:none;margin:0;padding:0}
+.tl li{display:grid;grid-template-columns:132px minmax(0,1fr);gap:4px 24px;padding:16px 0;border-bottom:1px solid var(--rule)}
+.tl li:first-child{border-top:1px solid var(--rule-2)}
+.tl time{color:var(--muted);font-size:14.5px}
+.tl b{color:var(--ink);font-weight:600}
+.notes{margin-top:20px;max-width:46em}
+.notes p+p{margin-top:.4em}
+.stack{margin:0;display:grid;grid-template-columns:160px minmax(0,1fr);border-top:1px solid var(--rule-2)}
+.stack dt,.stack dd{margin:0;padding:14px 0;border-bottom:1px solid var(--rule)}
+.stack dt{color:var(--muted);font-size:14.5px}
+.stack dd{color:var(--ink);font-size:15px}
 
-.stackgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 48px;margin-top:20px}
-.sg h3{margin:0 0 10px;font-size:14px;font-weight:550;color:var(--muted)}
-.chips{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
-.chips li{font:500 13px/1 var(--mono);padding:8px 10px;border:1px solid var(--line-2);border-radius:6px;background:var(--surface);color:var(--ink)}
 /* contact */
-.contact{margin-top:clamp(56px,8vw,96px);padding:clamp(24px,4vw,40px);border-radius:14px;background:var(--surface);border:1px solid var(--line);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px 40px;align-items:end;scroll-margin-top:80px}
-.contact h2{font-size:clamp(24px,3vw,30px)}
-.contact p{margin:0;color:var(--muted);max-width:34em}
-.mail{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
-.mail a{font:500 15px var(--mono);color:var(--ink);text-decoration:none;border:1px solid var(--line-2);border-radius:8px;min-height:44px;display:inline-flex;align-items:center;padding:0 14px;overflow-wrap:anywhere}
-.mail a:hover{border-color:var(--ink)}
-.copy{font:550 14px var(--sans);min-height:44px;padding:0 16px;border-radius:8px;border:0;background:var(--ink);color:var(--bg);cursor:pointer}
-.copy:hover{background:var(--accent);color:#fff}
-footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-block:40px 48px;font-size:13.5px;color:var(--muted)}
-footer a{color:var(--muted)}
-.elsewhere{display:flex;flex-wrap:wrap;gap:6px 18px}
+.mail{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:22px}
+.mail a{font:500 17px var(--sans);color:var(--ink);text-decoration:none;border-bottom:1px solid var(--rule-2);padding:6px 0;overflow-wrap:anywhere}
+.mail a:hover{color:var(--accent);border-color:var(--accent)}
+.copy{font:500 14px var(--sans);min-height:40px;padding:0 16px;border-radius:4px;border:1px solid var(--rule-2);background:var(--paper);color:var(--ink);cursor:pointer;margin-left:6px}
+.copy:hover{border-color:var(--ink)}
+.elsewhere{display:flex;flex-wrap:wrap;gap:6px 22px;margin-top:24px;font-size:15px}
+footer{padding-block:28px 48px;border-top:1px solid var(--rule);font-size:13.5px;color:var(--muted)}
 
 #lb{border:0;padding:0;background:transparent;max-width:min(1100px,94vw);max-height:92vh;overflow:visible}
-#lb::backdrop{background:rgba(8,10,14,.84)}
-#lb img{max-width:100%;max-height:78vh;margin:auto;border-radius:10px;background:#fff}
-#lb p{margin:12px 4px 0;color:#eee;font-size:14.5px;text-align:center}
+#lb::backdrop{background:rgba(6,10,18,.86)}
+#lb img{max-width:100%;max-height:78vh;margin:auto;border-radius:4px;background:#fff}
+#lb p{margin:12px 4px 0;color:#eef1f6;font-size:14.5px;text-align:center}
 #lb button{position:absolute;top:-16px;right:-8px;width:40px;height:40px;border-radius:50%;border:0;background:#fff;color:#111;font-size:20px;cursor:pointer}
 
 @media (max-width:900px){
-  .hero{grid-template-columns:1fr}
-  .portrait{order:-1;width:140px}
-  .stackgrid{grid-template-columns:1fr;gap:22px}
+  .hero{grid-template-columns:1fr;gap:28px}
+  .portrait{order:-1;width:128px}
+  .sec{grid-template-columns:1fr;gap:20px;padding-block:48px}
+  .sec__h h2{position:static;font-size:22px}
 }
 @media (max-width:680px){
-  .top .wrap{gap:10px}
-  .brand span{display:none}
-  .top nav a{padding:8px 7px;font-size:13.5px}
-  .top nav{-webkit-mask-image:linear-gradient(90deg,#000 82%,transparent);mask-image:linear-gradient(90deg,#000 82%,transparent);padding-right:16px}
-  .p{grid-template-columns:1fr;gap:6px}
-  .p__meta{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px}
-  .p__meta .area{margin:0}
-  .contact{grid-template-columns:1fr}
+  .top .wrap{flex-wrap:wrap;gap:0 12px;padding-top:8px}
+  .lang{margin-left:auto}
+  .top nav{order:3;width:100%;margin:2px 0 4px;justify-content:space-between}
+  .top nav a{padding:8px 4px;font-size:13.5px}
+  .row,.tl li,.stack{grid-template-columns:1fr}
+  .row{gap:8px}
+  .tl li{gap:0}
+  .stack dt{padding-bottom:2px;border-bottom:0}
+  .stack dd{padding-top:0}
+  .m,.m tbody,.m caption{display:block}
+  .m tr{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:16px;border-top:1px solid var(--rule)}
+  .m tr:last-child{border-bottom:1px solid var(--rule)}
+  .m th,.m td,.m tr:last-child>*{border:0;padding:10px 0 0}
+  .m th{width:auto}
+  .m .v{width:auto;padding:8px 0 0;font-size:21px}
+  .m .c{grid-column:1/-1;padding:2px 0 12px;font-size:14px}
+  .m .lim{border-top:1px dashed var(--rule-2)}
+  .m .lim>*,.m .lim td{border:0;grid-column:1/-1;padding:10px 0 12px}
+  .m .lim th{padding-bottom:0}
+  .m .lim td{padding-top:2px}
+  .rec__h h3{font-size:21px}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
@@ -187,7 +210,7 @@ footer a{color:var(--muted)}
 <body>
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#">Bugeon Park<span>@bugeon151</span></a>
+    <a class="brand" href="#">Bugeon Park</a>
     <nav aria-label="Sections">
       <a href="#projects"><span lang="ko">프로젝트</span><span lang="en">Projects</span></a>
       <a href="#awards"><span lang="ko">수상</span><span lang="en">Awards</span></a>
@@ -205,7 +228,7 @@ footer a{color:var(--muted)}
 <main class="wrap">
   <div class="hero">
     <div>
-      <h1>Bugeon Park<span class="alt">박부건</span></h1>
+      <h1>Bugeon Park<small>박부건</small></h1>
       <p class="role"><span lang="ko">풀스택 AI 개발자, <a href="https://team-pj-lab.github.io/" target="_blank" rel="noopener">Team PJ</a> 공동창업자·CTO</span><span lang="en">Full-stack AI developer, co-founder and CTO of <a href="https://team-pj-lab.github.io/" target="_blank" rel="noopener">Team PJ</a></span></p>
       <p class="statement" lang="ko">음성 인식부터 탐지 시스템, 백엔드, 모바일 앱까지 직접 만들고 측정합니다.</p>
       <p class="statement" lang="en">I build and measure software end to end, from speech recognition and detection systems to backends and mobile apps.</p>
@@ -213,146 +236,182 @@ footer a{color:var(--muted)}
       <p class="sub" lang="en">Every result comes with numbers, and every number with its limits.</p>
       <div class="cta">
         <a class="btn pri" href="#contact"><span lang="ko">연락하기</span><span lang="en">Get in touch</span></a>
-        <a class="btn" href="#projects"><span lang="ko">프로젝트 보기</span><span lang="en">See projects</span></a>
         <a class="btn" href="https://github.com/Bugeon151" target="_blank" rel="noopener">GitHub ↗</a>
       </div>
     </div>
     <figure class="portrait"><img src="img/portrait.jpg" alt="Bugeon Park" width="540" height="675" fetchpriority="high"></figure>
   </div>
 
-  <section id="projects">
-    <h2 lang="ko">프로젝트</h2><h2 lang="en">Projects</h2>
-    <p class="lead" lang="ko">비공개 저장소는 링크 대신 표시만 두었습니다. 수치는 각 저장소의 README와 보고서에 적힌 값입니다.</p>
-    <p class="lead" lang="en">Private repos are marked instead of linked. Figures are the ones stated in each repo's README or report.</p>
+  <section class="sec" id="projects">
+    <div class="sec__h"><h2 lang="ko">프로젝트</h2><h2 lang="en">Projects</h2></div>
+    <div class="sec__b">
+      <p class="lead" lang="ko">수치는 각 저장소의 README와 보고서에 적힌 값이며, 측정 조건과 한계를 같이 적었습니다. 비공개 저장소는 링크 대신 표시만 두었습니다.</p>
+      <p class="lead" lang="en">Figures are the ones stated in each repo's README or report, listed with their test conditions and limits. Private repos are marked instead of linked.</p>
 
-    <h3 class="grp">Team PJ<small lang="ko">공동창업자와 함께 만든 것</small><small lang="en">built with my co-founder</small></h3>
-    <div class="list">
-      <article class="p"><div class="p__meta"><h3>Interlock</h3><p class="area">Dev tools</p><span class="badge">Private</span></div><div class="p__body">
+      <article class="rec">
+        <div class="rec__h"><h3>JamoDecoder</h3><div class="meta"><span>Speech recognition</span><span lang="ko">비공개</span><span lang="en">Private</span></div></div>
+        <p class="rec__sum" lang="ko">외부 API 없이 로컬에서 학습·추론하는 한국어 자모 기반 음성 인식. Conformer-CTC 인코더, CTC prefix beam search, 자모 n-gram 언어 모델을 조합합니다.</p>
+        <p class="rec__sum" lang="en">Korean jamo-based speech recognition that trains and runs locally with no external API: a Conformer-CTC encoder, CTC prefix beam search and a jamo n-gram language model.</p>
+        <table class="m">
+          <caption><span lang="ko">평가: Zeroth-Korean test, 학습에 없던 화자 10명의 456발화</span><span lang="en">Test: Zeroth-Korean test, 456 utterances from 10 unseen speakers</span></caption>
+          <tr><th><span lang="ko">문자 오류율(CER)</span><span lang="en">Character error rate</span></th><td class="v">9.2%</td><td class="c"><span lang="ko">공백 제외</span><span lang="en">Spaces excluded</span></td></tr>
+          <tr><th><span lang="ko">단어 오류율(WER)</span><span lang="en">Word error rate</span></th><td class="v">28.5%</td><td class="c"><span lang="ko">같은 평가 세트</span><span lang="en">Same test set</span></td></tr>
+          <tr class="lim"><th><span lang="ko">한계</span><span lang="en">Limit</span></th><td colspan="2"><span lang="ko">낭독체 뉴스 39.6시간으로만 학습했습니다. 모델 카드에 적어 두었습니다.</span><span lang="en">Trained only on 39.6 hours of read news speech, as stated in the model card.</span></td></tr>
+        </table>
+      </article>
+
+      <article class="rec">
+        <div class="rec__h"><h3>CIVIC-EYE</h3><div class="meta"><span>Security, detection</span><span lang="ko">비공개</span><span lang="en">Private</span></div></div>
+        <p class="rec__sum" lang="ko">공공기관 홈페이지의 숨김·위장 불법광고를 실제 브라우저로 렌더링해 어디에, 왜 있는지 근거와 함께 찾는 Windows 11 프로그램. 외부 AI API 없이 CPU에서 동작합니다. 「공공 웹사이트 불법광고 탐지 도구 개발 공모전」(행정안전부·NIA) 출품작입니다.</p>
+        <p class="rec__sum" lang="en">A Windows 11 tool that renders public-sector sites in a real browser and finds hidden or disguised illegal ads, showing where and why. Runs on CPU with no external AI API. Entry to the 2026 Public Website Illegal Ad Detection contest by Korea's Ministry of the Interior and Safety and NIA.</p>
+        <table class="m">
+          <tr><th><span lang="ko">정밀도</span><span lang="en">Precision</span></th><td class="v">0.997</td><td class="c"><span lang="ko">개발 세트(blind 아님)</span><span lang="en">Development set, not blind</span></td></tr>
+          <tr><th><span lang="ko">재현율</span><span lang="en">Recall</span></th><td class="v">0.974</td><td class="c"><span lang="ko">개발 세트(blind 아님)</span><span lang="en">Development set, not blind</span></td></tr>
+          <tr><th><span lang="ko">Holdout F1, 첫 평가</span><span lang="en">Holdout F1, first run</span></th><td class="v">0.935</td><td class="c"><span lang="ko">미탐 분석 뒤 고쳤기 때문에 개발 결과로 분류</span><span lang="en">Fixed after the miss analysis, so reported as a development result</span></td></tr>
+          <tr class="lim"><th><span lang="ko">한계</span><span lang="en">Limit</span></th><td colspan="2"><span lang="ko">v1.3의 blind 평가는 하지 못했다고 보고서에 적었습니다.</span><span lang="en">A blind test of v1.3 was not run, and the report says so.</span></td></tr>
+        </table>
+        <div class="shots"><a class="shot" href="img/shots/civic-results.jpg" data-ko="탐지 결과 목록. 자체 제작한 가상 기관 테스트 사이트 대상" data-en="Detection results on a self-made test site of a fictional agency"><img src="img/shots/civic-results.jpg" alt="Detection results on a self-made test site of a fictional agency" width="1400" height="900" loading="lazy"></a><a class="shot" href="img/shots/civic-jamo.jpg" data-ko="탐지 상세: 자모로 분해한 문구를 근거와 함께 표시" data-en="Detection detail: a jamo-decomposed phrase shown with evidence"><img src="img/shots/civic-jamo.jpg" alt="Detection detail: a jamo-decomposed phrase shown with evidence" width="1400" height="900" loading="lazy"></a><a class="shot" href="img/shots/civic-dashboard.jpg" data-ko="대시보드" data-en="Dashboard"><img src="img/shots/civic-dashboard.jpg" alt="Dashboard" width="1400" height="900" loading="lazy"></a></div>
+      </article>
+
+      <article class="rec">
+        <div class="rec__h"><h3>CISS</h3><div class="meta"><span>Web, data</span><span>Team PJ</span><a href="https://github.com/TEAM-PJ-LAB/CISS" target="_blank" rel="noopener">GitHub ↗</a></div></div>
+        <p class="rec__sum" lang="ko">공개 코드 속 알고리즘의 원 설계자와 파생 계보를 근거와 함께 기록하는 서비스. 계보 그래프, 저장소 스캔, 4개 언어, 공개 API(OpenAPI)를 갖췄습니다.</p>
+        <p class="rec__sum" lang="en">Records who originally designed an algorithm in public code, and how it was derived, with evidence. Includes a lineage graph, repository scan, four languages and a public OpenAPI.</p>
+        <table class="m">
+          <caption><span lang="ko">시드 데이터</span><span lang="en">Seed data</span></caption>
+          <tr><th><span lang="ko">알고리즘</span><span lang="en">Algorithms</span></th><td class="v">274</td><td class="c"><span lang="ko">기여자 465명</span><span lang="en">465 contributors</span></td></tr>
+          <tr><th><span lang="ko">파생 관계</span><span lang="en">Derivation edges</span></th><td class="v">225</td><td class="c"><span lang="ko">계보 그래프의 간선</span><span lang="en">Edges in the lineage graph</span></td></tr>
+          <tr><th><span lang="ko">출처 대조</span><span lang="en">References checked</span></th><td class="v">214</td><td class="c"><span lang="ko">DOI·arXiv 전부를 Crossref·OpenAlex·arXiv와 대조해 잘못된 DOI 2건을 고침</span><span lang="en">Every DOI and arXiv reference checked against Crossref, OpenAlex and arXiv; 2 wrong DOIs fixed</span></td></tr>
+        </table>
+        <div class="shots"><a class="shot" href="img/shots/ciss-home.jpg" data-ko="CISS 첫 화면(로컬 실행)" data-en="CISS home page (run locally)"><img src="img/shots/ciss-home.jpg" alt="CISS home page (run locally)" width="1440" height="900" loading="lazy"></a><a class="shot" href="img/shots/ciss-algorithm.jpg" data-ko="알고리즘 상세: 기원·출처·계보(Transformer)" data-en="Algorithm page: origin, source, lineage (Transformer)"><img src="img/shots/ciss-algorithm.jpg" alt="Algorithm page: origin, source, lineage (Transformer)" width="1440" height="900" loading="lazy"></a></div>
+      </article>
+
+      <article class="rec">
+        <div class="rec__h"><h3 lang="ko">급락 방어 AI</h3><h3 lang="en">Crash-defense AI</h3><div class="meta"><span>Quant, risk</span><span lang="ko">비공개</span><span lang="en">Private</span></div></div>
+        <p class="rec__sum" lang="ko">미국(S&amp;P 500)과 코스피의 급락 위험을 매일 장 마감 후 '평소의 몇 배'로 판정해 카카오톡·텔레그램으로 알리는 도구. 주문 기능은 없습니다.</p>
+        <p class="rec__sum" lang="en">Rates the daily crash risk of the S&amp;P 500 and KOSPI as a multiple of normal and sends it by KakaoTalk or Telegram. It places no orders.</p>
+        <table class="m">
+          <caption><span lang="ko">평가: 학습에 없던 12개국 지수에 사전 등록한 규칙을 한 번만 적용, 보수형(추세 앙상블)</span><span lang="en">Test: pre-registered rules applied once to 12 country indices unseen in training; defensive profile (trend ensemble)</span></caption>
+          <tr><th><span lang="ko">최대 낙폭 중앙값</span><span lang="en">Median max drawdown</span></th><td class="v">−27.3%</td><td class="c"><span lang="ko">매수 후 보유 −60.3%</span><span lang="en">Buy-and-hold −60.3%</span></td></tr>
+          <tr><th><span lang="ko">연복리</span><span lang="en">CAGR</span></th><td class="v">4.4%</td><td class="c"><span lang="ko">매수 후 보유 4.0%</span><span lang="en">Buy-and-hold 4.0%</span></td></tr>
+          <tr class="lim"><th><span lang="ko">한계</span><span lang="en">Limit</span></th><td colspan="2"><span lang="ko">AI가 급락 시점을 맞힌다고 주장하지 않습니다. 효과가 작고, 2024년 이후에는 유의한 가설이 없습니다.</span><span lang="en">It does not claim to time crashes. The effect is small, and no hypothesis is significant after 2024.</span></td></tr>
+        </table>
+        <div class="shots"><a class="shot" href="img/shots/crashguard-equity.jpg" data-ko="시장별 순자산·낙폭 그래프. 저장소 산출물(v3/validation/index), 그림에는 지수 9개가 표시됨" data-en="Equity and drawdown by market, from the repo outputs (v3/validation/index). The figure shows 9 indices"><img src="img/shots/crashguard-equity.jpg" alt="Equity and drawdown by market, from the repo outputs (v3/validation/index). The figure shows 9 indices" width="1400" height="1763" loading="lazy"></a></div>
+      </article>
+
+      <h3 class="grp">Team PJ<small lang="ko">공동창업자와 함께 만든 것</small><small lang="en">built with my co-founder</small></h3>
+      <article class="row"><div class="row__m"><h3>Interlock</h3><p>Dev tools</p></div><div class="row__b">
         <p lang="ko">Team PJ의 제품. 여러 AI 코딩 에이전트가 한 코드베이스에서 서로의 작업을 깨뜨리지 않게 하는 도구입니다. 제품 소개와 실험 데이터는 회사 사이트에 있습니다.</p>
         <p lang="en">Team PJ's product: a tool that lets many AI coding agents work on one codebase without breaking each other's work. Product details and experiment data are on the company site.</p>
-        <div class="p__links"><a href="https://team-pj-lab.github.io/apps/" target="_blank" rel="noopener"><span lang="ko">Interlock 페이지</span><span lang="en">Interlock page</span> ↗</a><a href="https://team-pj-lab.github.io/interlock/experiments/" target="_blank" rel="noopener"><span lang="ko">실험 데이터</span><span lang="en">Experiments</span> ↗</a></div></div></article>
-      <article class="p"><div class="p__meta"><h3>IntentGuard</h3><p class="area">Dev tools</p><span class="badge">Private</span></div><div class="p__body">
+        <div class="meta"><span lang="ko">비공개</span><span lang="en">Private</span><a href="https://team-pj-lab.github.io/apps/" target="_blank" rel="noopener"><span lang="ko">Interlock 페이지</span><span lang="en">Interlock page</span> ↗</a><a href="https://team-pj-lab.github.io/interlock/experiments/" target="_blank" rel="noopener"><span lang="ko">실험 데이터</span><span lang="en">Experiments</span> ↗</a></div></div></article>
+      <article class="row"><div class="row__m"><h3>IntentGuard</h3><p>Dev tools</p></div><div class="row__b">
         <p lang="ko">PRD의 요구사항(F-001 형식)이 코드에 반영됐는지 근거와 함께 점검하는 PRD-코드 불일치 탐지기의 초기 로컬 프로토타입. 키워드가 일치해도 구현 확인으로 세지 않고, 근거가 부족하면 <code>INSUFFICIENT_EVIDENCE</code>로 보고합니다. 웹훅 HMAC SHA-256 서명 검증, 단위 테스트, CI를 갖췄고 호스팅 서비스는 아직 아닙니다.</p>
-        <p lang="en">An early local prototype that checks, with evidence, whether PRD requirements (F-001 style) show up in code. A keyword match never counts as verified; weak evidence is reported as <code>INSUFFICIENT_EVIDENCE</code>. Includes webhook HMAC SHA-256 verification, unit tests and CI. Not a hosted service yet.</p></div></article>
-      <article class="p"><div class="p__meta"><h3>ANABADA</h3><p class="area">Mobile web, AI</p><span class="badge">Private</span></div><div class="p__body">
+        <p lang="en">An early local prototype that checks, with evidence, whether PRD requirements (F-001 style) show up in code. A keyword match never counts as verified; weak evidence is reported as <code>INSUFFICIENT_EVIDENCE</code>. Includes webhook HMAC SHA-256 verification, unit tests and CI. Not a hosted service yet.</p>
+        <div class="meta"><span lang="ko">비공개</span><span lang="en">Private</span></div></div></article>
+      <article class="row"><div class="row__m"><h3>ANABADA</h3><p>Mobile web, AI</p></div><div class="row__b">
         <p lang="ko">사진 몇 장으로 중고 물품의 근거 있는 적정가 범위를 알려주는 모바일 웹 서비스. Next.js와 FastAPI 풀스택, Claude 멀티모달 감정, 선택형 3D 정밀 분석, Docker Compose 전체 스택, CI의 Playwright 모바일 E2E. 데모(mock) 결과는 화면과 API에 표시하고, 측정하지 않은 성능은 보고하지 않습니다.</p>
-        <p lang="en">A mobile web service that estimates an evidence-backed price range for a used item from a few photos. Next.js and FastAPI full stack, Claude multimodal appraisal, optional 3D analysis, a full Docker Compose stack and Playwright mobile E2E in CI. Demo (mock) results are labeled on screen and in the API, and unmeasured performance is never reported.</p></div></article>
-      <article class="p"><div class="p__meta"><h3>CISS</h3><p class="area">Web, data</p><a class="badge pub" href="https://github.com/TEAM-PJ-LAB/CISS" target="_blank" rel="noopener">GitHub ↗</a></div><div class="p__body">
-        <p lang="ko">공개 코드 속 알고리즘의 원 설계자와 파생 계보를 근거와 함께 기록하는 서비스. 알고리즘 274개, 기여자 465명, 파생 관계 225개의 시드 데이터, 계보 그래프, 저장소 스캔, 4개 언어, 공개 API(OpenAPI)를 갖췄습니다. 출처 DOI·arXiv 214개를 Crossref·OpenAlex·arXiv와 전부 대조해 잘못된 DOI 2건을 고쳤습니다.</p>
-        <p lang="en">Records who originally designed an algorithm in public code, and how it was derived, with evidence. Seed data of 274 algorithms, 465 contributors and 225 derivation edges, a lineage graph, repository scan, four languages and a public OpenAPI. All 214 DOI and arXiv references were checked against Crossref, OpenAlex and arXiv, which caught 2 wrong DOIs.</p>
-        <div class="shots"><a class="shot" href="img/shots/ciss-home.jpg" data-ko="CISS 첫 화면(로컬 실행)" data-en="CISS home page (run locally)"><img src="img/shots/ciss-home.jpg" alt="CISS home page (run locally)" width="1440" height="900" loading="lazy"></a><a class="shot" href="img/shots/ciss-algorithm.jpg" data-ko="알고리즘 상세: 기원·출처·계보(Transformer)" data-en="Algorithm page: origin, source, lineage (Transformer)"><img src="img/shots/ciss-algorithm.jpg" alt="Algorithm page: origin, source, lineage (Transformer)" width="1440" height="900" loading="lazy"></a></div></div></article>
-    </div>
+        <p lang="en">A mobile web service that estimates an evidence-backed price range for a used item from a few photos. Next.js and FastAPI full stack, Claude multimodal appraisal, optional 3D analysis, a full Docker Compose stack and Playwright mobile E2E in CI. Demo (mock) results are labeled on screen and in the API, and unmeasured performance is never reported.</p>
+        <div class="meta"><span lang="ko">비공개</span><span lang="en">Private</span></div></div></article>
 
-    <h3 class="grp"><span lang="ko">주요 작업</span><span lang="en">Selected work</span></h3>
-    <div class="list">
-      <article class="p"><div class="p__meta"><h3>JamoDecoder</h3><p class="area">Speech recognition</p><span class="badge">Private</span></div><div class="p__body">
-        <p lang="ko">외부 API 없이 로컬에서 학습·추론하는 한국어 자모 기반 음성 인식. Conformer-CTC 인코더, CTC prefix beam search, 자모 n-gram 언어 모델을 조합합니다. 학습에 없던 화자 10명의 456발화(Zeroth-Korean test)에서 문자 오류율(공백 제외) 9.2%, 단어 오류율 28.5%였고, 낭독체 뉴스 39.6시간으로만 학습했다는 한계를 모델 카드에 적어 두었습니다.</p>
-        <p lang="en">Korean jamo-based speech recognition that trains and runs locally with no external API: a Conformer-CTC encoder, CTC prefix beam search and a jamo n-gram language model. On 456 utterances from 10 unseen speakers (Zeroth-Korean test): 9.2% character error rate (spaces excluded) and 28.5% word error rate. Trained only on 39.6 hours of read news speech, a limit stated in the model card.</p></div></article>
-      <article class="p"><div class="p__meta"><h3>CIVIC-EYE</h3><p class="area">Security, detection</p><span class="badge">Private</span></div><div class="p__body">
-        <p lang="ko">공공기관 홈페이지의 숨김·위장 불법광고를 실제 브라우저로 렌더링해 어디에, 왜 있는지 근거와 함께 찾는 Windows 11 프로그램(「공공 웹사이트 불법광고 탐지 도구 개발 공모전」 출품작, 행정안전부·NIA). 외부 AI API 없이 CPU에서 동작합니다. 개발 세트(blind 아님)에서 정밀도 0.997, 재현율 0.974이고, 첫 평가에서 F1 0.935였던 holdout은 미탐 분석 뒤 고쳤기 때문에 개발 결과로 분류했습니다. v1.3의 blind 평가는 하지 못했다고 보고서에 적었습니다.</p>
-        <p lang="en">A Windows 11 tool that renders public-sector sites in a real browser and finds hidden or disguised illegal ads, showing where and why (entry to the 2026 Public Website Illegal Ad Detection contest by Korea's Ministry of the Interior and Safety and NIA). Runs on CPU with no external AI API. On the development set (not blind): precision 0.997, recall 0.974. The holdout scored F1 0.935 on first run; it was fixed after the miss analysis, so it is reported as a development result. A blind test of v1.3 was not run, and the report says so.</p>
-        <div class="shots"><a class="shot" href="img/shots/civic-results.jpg" data-ko="탐지 결과 목록. 자체 제작한 가상 기관 테스트 사이트 대상" data-en="Detection results on a self-made test site of a fictional agency"><img src="img/shots/civic-results.jpg" alt="Detection results on a self-made test site of a fictional agency" width="1400" height="900" loading="lazy"></a><a class="shot" href="img/shots/civic-jamo.jpg" data-ko="탐지 상세: 자모로 분해한 문구를 근거와 함께 표시" data-en="Detection detail: a jamo-decomposed phrase shown with evidence"><img src="img/shots/civic-jamo.jpg" alt="Detection detail: a jamo-decomposed phrase shown with evidence" width="1400" height="900" loading="lazy"></a><a class="shot" href="img/shots/civic-dashboard.jpg" data-ko="대시보드" data-en="Dashboard"><img src="img/shots/civic-dashboard.jpg" alt="Dashboard" width="1400" height="900" loading="lazy"></a></div></div></article>
-      <article class="p"><div class="p__meta"><h3 lang="ko">급락 방어 AI</h3><h3 lang="en">Crash-defense AI</h3><p class="area">Quant, risk</p><span class="badge">Private</span></div><div class="p__body">
-        <p lang="ko">미국(S&amp;P 500)과 코스피의 급락 위험을 매일 장 마감 후 '평소의 몇 배'로 판정해 카카오톡·텔레그램으로 알리는 도구. 주문 기능은 없습니다. 학습에 없던 12개국 지수에 사전 등록한 규칙을 한 번만 적용한 평가에서 보수형(추세 앙상블)의 최대 낙폭 중앙값은 −27.3%로 매수 후 보유(−60.3%)보다 작았고 연복리는 4.4% 대 4.0%였습니다. AI가 급락 시점을 맞힌다고 주장하지 않으며, 효과가 작고 2024년 이후에는 유의한 가설이 없다는 한계도 함께 공개합니다.</p>
-        <p lang="en">Rates the daily crash risk of the S&amp;P 500 and KOSPI as a multiple of normal and sends it by KakaoTalk or Telegram. It places no orders. In a one-shot test of pre-registered rules on 12 country indices unseen in training, the defensive profile (trend ensemble) had a median max drawdown of −27.3% vs −60.3% for buy-and-hold, with CAGR 4.4% vs 4.0%. It does not claim to time crashes, and it publishes the limits: the effect is small and no hypothesis is significant after 2024.</p>
-        <div class="shots"><a class="shot" href="img/shots/crashguard-equity.jpg" data-ko="시장별 순자산·낙폭 그래프. 저장소 산출물(v3/validation/index), 그림에는 지수 9개가 표시됨" data-en="Equity and drawdown by market, from the repo outputs (v3/validation/index). The figure shows 9 indices"><img src="img/shots/crashguard-equity.jpg" alt="Equity and drawdown by market, from the repo outputs (v3/validation/index). The figure shows 9 indices" width="1400" height="1763" loading="lazy"></a></div></div></article>
-    </div>
-
-    <details class="more">
-      <summary><span lang="ko">나머지 프로젝트 8개와 설계 단계 보기</span><span lang="en">8 more projects and early-stage specs</span></summary>
-      <h3 class="grp"><span lang="ko">로컬 AI, 음성, 벤치마크</span><span lang="en">Local AI, speech and benchmarks</span></h3>
-      <div class="list">
-        <article class="p"><div class="p__meta"><h3>jamo2hangul</h3><p class="area">Speech, NLP</p><a class="badge pub" href="https://github.com/aworse/jamo2hangul" target="_blank" rel="noopener">GitHub ↗</a></div><div class="p__body">
+      <details class="more">
+        <summary><span lang="ko">나머지 프로젝트 8개와 설계 단계 보기</span><span lang="en">8 more projects and early-stage specs</span></summary>
+        <h3 class="grp"><span lang="ko">로컬 AI, 음성, 벤치마크</span><span lang="en">Local AI, speech and benchmarks</span></h3>
+        <article class="row"><div class="row__m"><h3>jamo2hangul</h3><p>Speech, NLP</p></div><div class="row__b">
           <p lang="ko">한국어 음성인식용으로 직접 학습한 53M 파라미터 Transformer. 자모 나열을 띄어쓰기 있는 한국어로 복원하며, 평가 단어 8,000개에서 정확도 96.7%, 문자 오류율 1.36%.</p>
-          <p lang="en">A 53M-parameter Transformer trained from scratch for Korean speech recognition. Rebuilds spaced Korean text from jamo: 96.7% exact on 8,000 held-out words, 1.36% character error rate.</p></div></article>
-        <article class="p"><div class="p__meta"><h3>Q-Bench</h3><p class="area">Benchmark</p><a class="badge pub" href="https://github.com/Bugeon151/Q-BENCH" target="_blank" rel="noopener">GitHub ↗</a></div><div class="p__body">
+          <p lang="en">A 53M-parameter Transformer trained from scratch for Korean speech recognition. Rebuilds spaced Korean text from jamo: 96.7% exact on 8,000 held-out words, 1.36% character error rate.</p>
+          <div class="meta"><a href="https://github.com/aworse/jamo2hangul" target="_blank" rel="noopener">GitHub ↗</a></div></div></article>
+        <article class="row"><div class="row__m"><h3>Q-Bench</h3><p>Benchmark</p></div><div class="row__b">
           <p lang="ko">Apple M5에서 Qwen2.5-7B-Instruct를 GGUF 양자화 7단계(F16~Q2_K)로 돌려 크기, 메모리, 처리량, 지연을 잰 재현 가능한 벤치마크(llama.cpp 빌드 고정).</p>
-          <p lang="en">A reproducible benchmark of Qwen2.5-7B-Instruct across seven GGUF quantization levels (F16 to Q2_K) on Apple M5: size, memory, throughput and latency, with a pinned llama.cpp build.</p></div></article>
-      </div>
-      <h3 class="grp"><span lang="ko">퀀트, 데이터</span><span lang="en">Quant and data</span></h3>
-      <div class="list">
-        <article class="p"><div class="p__meta"><h3>Financial Intelligence Platform</h3><p class="area">Quant, research</p><span class="badge">Private</span></div><div class="p__body">
+          <p lang="en">A reproducible benchmark of Qwen2.5-7B-Instruct across seven GGUF quantization levels (F16 to Q2_K) on Apple M5: size, memory, throughput and latency, with a pinned llama.cpp build.</p>
+          <div class="meta"><a href="https://github.com/Bugeon151/Q-BENCH" target="_blank" rel="noopener">GitHub ↗</a></div></div></article>
+        <h3 class="grp"><span lang="ko">퀀트, 데이터</span><span lang="en">Quant and data</span></h3>
+        <article class="row"><div class="row__m"><h3>Financial Intelligence Platform</h3><p>Quant, research</p></div><div class="row__b">
           <p lang="ko">미국·한국 주식, 암호화폐, 금을 다루는 개인용 금융 리서치 백엔드의 설계 명세(4개 도메인, 엔진 25개)와, 명세가 요구하는 통계 검정의 참조 구현(v1.21.1, 테스트 199개). 정보 시점 준수, 기준 모델 대비 표본 외 검증, 모든 시도 기록을 원칙으로 하고 웹에서 주문하지 않습니다.</p>
-          <p lang="en">The backend specification for a personal financial research tool covering US and Korean equities, crypto and gold (4 domains, 25 engines), plus a reference implementation of the statistical tests it requires (v1.21.1, 199 tests). Built on point-in-time data, out-of-sample validation against a baseline, and a record of every attempt. It places no orders.</p></div></article>
-        <article class="p"><div class="p__meta"><h3>SPORT-GAP</h3><p class="area">Data, web</p><a class="badge pub" href="https://bugeon151.github.io/SPORT-GAP/" target="_blank" rel="noopener">Live ↗</a></div><div class="p__body">
+          <p lang="en">The backend specification for a personal financial research tool covering US and Korean equities, crypto and gold (4 domains, 25 engines), plus a reference implementation of the statistical tests it requires (v1.21.1, 199 tests). Built on point-in-time data, out-of-sample validation against a baseline, and a record of every attempt. It places no orders.</p>
+          <div class="meta"><span lang="ko">비공개</span><span lang="en">Private</span></div></div></article>
+        <article class="row"><div class="row__m"><h3>SPORT-GAP</h3><p>Data, web</p></div><div class="row__b">
           <p lang="ko">전국 250개 시군구의 체육시설 접근 격차를 공공데이터로 계산하고 what-if 시뮬레이터를 제공하는 공개 웹 서비스.</p>
-          <p lang="en">A public web service that measures sports-facility access gaps across all 250 Korean municipalities from open data, with a what-if simulator.</p></div></article>
-      </div>
-      <h3 class="grp"><span lang="ko">서비스, 앱</span><span lang="en">Products and apps</span></h3>
-      <div class="list">
-        <article class="p"><div class="p__meta"><h3>Fintech Ledger Core</h3><p class="area">Backend</p><a class="badge pub" href="https://github.com/Bugeon151/fintech-ledger-core" target="_blank" rel="noopener">GitHub ↗</a></div><div class="p__body">
+          <p lang="en">A public web service that measures sports-facility access gaps across all 250 Korean municipalities from open data, with a what-if simulator.</p>
+          <div class="meta"><a href="https://bugeon151.github.io/SPORT-GAP/" target="_blank" rel="noopener">Live ↗</a></div></div></article>
+        <h3 class="grp"><span lang="ko">서비스, 앱</span><span lang="en">Products and apps</span></h3>
+        <article class="row"><div class="row__m"><h3>Fintech Ledger Core</h3><p>Backend</p></div><div class="row__b">
           <p lang="ko">Java, Spring Boot, PostgreSQL, Kafka 기반 복식부기 원장. 동시 거래, 멱등 API, 트랜잭셔널 아웃박스, 자동 대사를 실제 PostgreSQL·Kafka로 테스트.</p>
-          <p lang="en">Double-entry ledger (Java, Spring Boot, PostgreSQL, Kafka) with concurrent transactions, idempotent APIs, a transactional outbox and automated reconciliation, tested against real PostgreSQL and Kafka.</p></div></article>
-        <article class="p"><div class="p__meta"><h3>REUP</h3><p class="area">Product AI</p><span class="badge">Private</span></div><div class="p__body">
+          <p lang="en">Double-entry ledger (Java, Spring Boot, PostgreSQL, Kafka) with concurrent transactions, idempotent APIs, a transactional outbox and automated reconciliation, tested against real PostgreSQL and Kafka.</p>
+          <div class="meta"><a href="https://github.com/Bugeon151/fintech-ledger-core" target="_blank" rel="noopener">GitHub ↗</a></div></div></article>
+        <article class="row"><div class="row__m"><h3>REUP</h3><p>Product AI</p></div><div class="row__b">
           <p lang="ko">제품을 식별하고 시장 데이터를 연결해 현재 가치와 근거를 설명하는 Product Intelligence AI. 표준 카탈로그, 수집, 개체 식별, 시세 산출, 근거 기반 대화까지 MVP 경로를 구현했고 Next.js, FastAPI, PostgreSQL, Redis로 구성됩니다. 일치하는 거래 데이터가 부족하면 값을 지어내지 않고 <code>insufficient_data</code>를 반환합니다.</p>
-          <p lang="en">Product Intelligence AI that identifies a product, links market data, and explains its current value with evidence. The MVP path is built end to end: canonical catalog, ingestion, entity resolution, valuation and grounded conversation, on Next.js, FastAPI, PostgreSQL and Redis. With too little matched sales data it returns <code>insufficient_data</code> instead of inventing a value.</p></div></article>
-        <article class="p"><div class="p__meta"><h3>Bium</h3><p class="area">Mobile, Flutter</p><span class="badge">Private</span></div><div class="p__body">
+          <p lang="en">Product Intelligence AI that identifies a product, links market data, and explains its current value with evidence. The MVP path is built end to end: canonical catalog, ingestion, entity resolution, valuation and grounded conversation, on Next.js, FastAPI, PostgreSQL and Redis. With too little matched sales data it returns <code>insufficient_data</code> instead of inventing a value.</p>
+          <div class="meta"><span lang="ko">비공개</span><span lang="en">Private</span></div></div></article>
+        <article class="row"><div class="row__m"><h3>Bium</h3><p>Mobile, Flutter</p></div><div class="row__b">
           <p lang="ko">사진이 기기 밖으로 나가지 않는 로컬 우선 사진 정리 앱(Flutter). 정확한 중복은 3단계 필터와 원본 SHA-256으로 확정하고, 유사 사진은 pHash·dHash 신뢰 등급으로 나눕니다. 놓치는 쪽이 낫다는 정밀도 우선 원칙으로 모든 임계값을 측정한 벤치마크에서 정했고, 서버·분석 SDK·광고·이미지 업로드가 없습니다.</p>
-          <p lang="en">A local-first photo cleaner (Flutter) whose photos never leave the phone. Exact duplicates are confirmed by a three-stage filter and a SHA-256 of the original; similar shots are tiered by pHash and dHash confidence. Precision comes before recall, every threshold was chosen from a measured benchmark, and there is no server, analytics SDK, ads or image upload.</p></div></article>
-        <article class="p"><div class="p__meta"><h3>ORVO</h3><p class="area">Mobile, game</p><span class="badge">Private</span></div><div class="p__body">
+          <p lang="en">A local-first photo cleaner (Flutter) whose photos never leave the phone. Exact duplicates are confirmed by a three-stage filter and a SHA-256 of the original; similar shots are tiered by pHash and dHash confidence. Precision comes before recall, every threshold was chosen from a measured benchmark, and there is no server, analytics SDK, ads or image upload.</p>
+          <div class="meta"><span lang="ko">비공개</span><span lang="en">Private</span></div></div></article>
+        <article class="row"><div class="row__m"><h3>ORVO</h3><p>Mobile, game</p></div><div class="row__b">
           <p lang="ko">실제 대중교통 이동을 게임 진행도로 바꾸는 현실 탐험 게임. 서버 없이 동작하는 로컬 우선 Flutter MVP로, 역 발견, XP, 퀘스트, 업적, 지도 안개 해제를 지원하며 자동화 테스트 63개를 갖췄습니다.</p>
-          <p lang="en">A real-world exploration game that turns actual public-transit rides into game progress. A server-free, local-first Flutter MVP with station discovery, XP, quests, achievements and fog-of-war map reveal, backed by 63 automated tests.</p></div></article>
-      </div>
-      <p class="specs" lang="ko">설계·초기 단계(출시된 코드가 없거나 프로토타입): SampleLedger(B2B 샘플 대여·이력 추적 요구사항), PromiseOS(고객 탐색 단계), Synapsis(의사결정 지원 프로토타입), COUNTERCROWD와 JEJU HOURSHIFT(공모전 PRD).</p>
-      <p class="specs" lang="en">Specs and early stage (no shipped code, or prototype): SampleLedger (B2B sample loan and history tracking requirements), PromiseOS (customer discovery), Synapsis (a decision-support prototype), and COUNTERCROWD and JEJU HOURSHIFT (contest PRDs).</p>
-    </details>
+          <p lang="en">A real-world exploration game that turns actual public-transit rides into game progress. A server-free, local-first Flutter MVP with station discovery, XP, quests, achievements and fog-of-war map reveal, backed by 63 automated tests.</p>
+          <div class="meta"><span lang="ko">비공개</span><span lang="en">Private</span></div></div></article>
+        <p class="specs" lang="ko">설계·초기 단계(출시된 코드가 없거나 프로토타입): SampleLedger(B2B 샘플 대여·이력 추적 요구사항), PromiseOS(고객 탐색 단계), Synapsis(의사결정 지원 프로토타입), COUNTERCROWD와 JEJU HOURSHIFT(공모전 PRD).</p>
+        <p class="specs" lang="en">Specs and early stage (no shipped code, or prototype): SampleLedger (B2B sample loan and history tracking requirements), PromiseOS (customer discovery), Synapsis (a decision-support prototype), and COUNTERCROWD and JEJU HOURSHIFT (contest PRDs).</p>
+      </details>
+    </div>
   </section>
 
-  <section id="awards">
-    <h2 lang="ko">수상</h2><h2 lang="en">Awards</h2>
-    <div class="list">
-      <article class="p"><div class="p__meta"><h3 lang="ko">전국 3위</h3><h3 lang="en">3rd place</h3><p class="area">2026</p></div><div class="p__body">
+  <section class="sec" id="awards">
+    <div class="sec__h"><h2 lang="ko">수상</h2><h2 lang="en">Awards</h2></div>
+    <div class="sec__b">
+      <article class="row" style="border-top:1px solid var(--rule-2)"><div class="row__m"><h3 lang="ko">전국 3위</h3><h3 lang="en">3rd place</h3><p>2026</p></div><div class="row__b tx">
         <p lang="ko"><b>제3회 미래융합 인재 발굴 소프트웨어 챌린지 고등부</b>. 경산시장상, 본선 10팀 중 3위. <a href="https://github.com/Bugeon151/The-3rd-Future-Convergence-Talent-Discovery-Software-Challenge" target="_blank" rel="noopener">NEAR-ZERO X ↗</a>(산업 현장 충돌 예측·예방 시스템). 과학기술정보통신부·경산시 공동 주최.</p>
         <p lang="en"><b>3rd Future Convergence Talent Software Challenge, high school division.</b> Gyeongsan Mayor's Award, 3rd of 10 finalist teams, with <a href="https://github.com/Bugeon151/The-3rd-Future-Convergence-Talent-Discovery-Software-Challenge" target="_blank" rel="noopener">NEAR-ZERO X ↗</a>, a system that predicts and prevents collisions at industrial work sites. Co-hosted by Korea's Ministry of Science and ICT and Gyeongsan City.</p>
         <div class="shots"><a class="shot" href="img/shots/nearzero.jpg" data-ko="NEAR-ZERO X 시뮬레이션 대시보드(SIM 모드): 위험 점수와 개입안별 결과 위험" data-en="NEAR-ZERO X simulation dashboard (SIM mode): risk score and resulting risk per intervention"><img src="img/shots/nearzero.jpg" alt="NEAR-ZERO X simulation dashboard (SIM mode): risk score and resulting risk per intervention" width="1400" height="758" loading="lazy"></a></div></div></article>
-      <article class="p"><div class="p__meta"><h3 lang="ko">장려상</h3><h3 lang="en">7th place</h3><p class="area">2026</p></div><div class="p__body">
+      <article class="row"><div class="row__m"><h3 lang="ko">장려상</h3><h3 lang="en">7th place</h3><p>2026</p></div><div class="row__b tx">
         <p lang="ko"><b>제2회 성남 × KAIST AI 경진대회 학생부</b>. 장려상(7위). <a href="https://github.com/Bugeon151/seongnamXKAIST" target="_blank" rel="noopener">MobiLens ↗</a></p>
         <p lang="en"><b>2nd Seongnam × KAIST AI Competition, student division.</b> 7th place and Encouragement Award, with <a href="https://github.com/Bugeon151/seongnamXKAIST" target="_blank" rel="noopener">MobiLens ↗</a></p>
         <div class="shots"><a class="shot" href="img/shots/mobilens-mvi.jpg" data-ko="성남시 동별 이동취약지수(MVI) 지도, 상위 5개 동 표시" data-en="MobiLens: mobility vulnerability index (MVI) by neighborhood in Seongnam, top 5 labeled"><img src="img/shots/mobilens-mvi.jpg" alt="MobiLens: mobility vulnerability index (MVI) by neighborhood in Seongnam, top 5 labeled" width="1390" height="1296" loading="lazy"></a><a class="shot" href="img/shots/mobilens-routes.jpg" data-ko="정책 A/B/C 거점과 차량 순환노선(OSM 차량망 최단경로)" data-en="Policy A/B/C hubs and vehicle loop routes (shortest paths on the OSM road network)"><img src="img/shots/mobilens-routes.jpg" alt="Policy A/B/C hubs and vehicle loop routes (shortest paths on the OSM road network)" width="1382" height="1345" loading="lazy"></a><a class="shot" href="img/shots/mobilens-before-after.jpg" data-ko="정책 시행 전후 비교" data-en="Before and after each policy"><img src="img/shots/mobilens-before-after.jpg" alt="Before and after each policy" width="1317" height="793" loading="lazy"></a></div></div></article>
     </div>
   </section>
 
-  <section id="background">
-    <h2 lang="ko">경력</h2><h2 lang="en">Background</h2>
-    <ul class="bl">
-          <li lang="ko"><b>Team PJ</b> 공동창업자, CTO (2026–)</li>
-          <li lang="en"><b>Team PJ</b>, co-founder and CTO (2026–)</li>
-          <li lang="ko"><b>Votavis</b> 파트타임 CTO (2026년 4~7월). 초기 창업가가 1분 이내 피치 영상을 올리고 투자자가 보고 투자하는 앱(법인 설립 전 스타트업). 개발자 10명을 이끌고 MVP를 완성했습니다.</li>
-          <li lang="en"><b>Votavis</b>, part-time CTO (Apr–Jul 2026). A pre-incorporation startup building an app where early-stage founders pitch in videos under a minute for investors; led 10 developers to a finished MVP.</li>
-          <li lang="ko">AI 시스템, 알고리즘, 정보보안을 공부합니다. 임베디드·로봇 제어부터 모바일 앱, 백엔드까지 다룹니다.</li>
-          <li lang="en">Studying AI systems, algorithms and information security. Works from embedded and robot control to mobile apps and backends.</li>
-          <li lang="ko">테스트와 벤치마크, 재현 가능한 빌드를 기본값으로 둡니다.</li>
-          <li lang="en">Tests, benchmarks and reproducible builds are the default, not an extra.</li>
-        </ul>
-  </section>
-
-  <section id="stack">
-    <h2 lang="ko">기술 스택</h2><h2 lang="en">Stack</h2>
-    <div class="stackgrid">
-      <div class="sg"><h3>Languages</h3><ul class="chips"><li>Python</li><li>TypeScript</li><li>JavaScript</li><li>Java</li><li>C/C++</li><li>Rust</li><li>Go</li><li>Swift</li><li>Dart</li><li>SQL</li><li>HTML/CSS</li><li>Bash</li><li>PowerShell</li></ul></div>
-      <div class="sg"><h3>AI / ML</h3><ul class="chips"><li>PyTorch</li><li>torchaudio</li><li>Conformer-CTC</li><li>Transformers (from scratch)</li><li>llama.cpp / GGUF</li><li>Ultralytics YOLOv8</li><li>OpenCV</li><li>scikit-learn</li><li>Claude API</li><li>MCP</li><li>tree-sitter</li></ul></div>
-      <div class="sg"><h3>Backend</h3><ul class="chips"><li>FastAPI</li><li>Pydantic</li><li>SQLAlchemy</li><li>Alembic</li><li>Spring Boot</li><li>Kafka</li><li>PostgreSQL</li><li>Redis</li><li>SQLite</li><li>httpx</li></ul></div>
-      <div class="sg"><h3>Frontend & mobile</h3><ul class="chips"><li>Next.js</li><li>React</li><li>Vite</li><li>Tailwind CSS</li><li>Flutter</li><li>sqflite</li></ul></div>
-      <div class="sg"><h3>Data</h3><ul class="chips"><li>NumPy</li><li>pandas</li><li>SciPy</li><li>GeoPandas</li><li>OSMnx</li><li>Matplotlib</li><li>Plotly</li><li>Folium</li><li>Streamlit</li></ul></div>
-      <div class="sg"><h3>Testing</h3><ul class="chips"><li>pytest</li><li>Vitest</li><li>JUnit 5</li><li>Testcontainers</li><li>Playwright</li><li>Fuzz testing</li><li>Concurrency testing</li></ul></div>
-      <div class="sg"><h3>Infra & tools</h3><ul class="chips"><li>Linux</li><li>Docker</li><li>Docker Compose</li><li>GitHub Actions</li><li>Fly.io</li><li>Render</li><li>Railway</li><li>PyInstaller</li><li>Raspberry Pi</li></ul></div>
+  <section class="sec" id="background">
+    <div class="sec__h"><h2 lang="ko">경력</h2><h2 lang="en">Background</h2></div>
+    <div class="sec__b">
+      <ol class="tl">
+        <li><time lang="ko">2026–</time><time lang="en">2026–</time><p lang="ko"><b>Team PJ</b> 공동창업자, CTO</p><p lang="en"><b>Team PJ</b>, co-founder and CTO</p></li>
+        <li><time lang="ko">2026년 4~7월</time><time lang="en">Apr–Jul 2026</time><p lang="ko"><b>Votavis</b> 파트타임 CTO. 초기 창업가가 1분 이내 피치 영상을 올리고 투자자가 보고 투자하는 앱(법인 설립 전 스타트업). 개발자 10명을 이끌고 MVP를 완성했습니다.</p><p lang="en"><b>Votavis</b>, part-time CTO. A pre-incorporation startup building an app where early-stage founders pitch in videos under a minute for investors; led 10 developers to a finished MVP.</p></li>
+      </ol>
+      <div class="notes">
+        <p lang="ko">AI 시스템, 알고리즘, 정보보안을 공부합니다. 임베디드·로봇 제어부터 모바일 앱, 백엔드까지 다룹니다.</p>
+        <p lang="en">Studying AI systems, algorithms and information security. Works from embedded and robot control to mobile apps and backends.</p>
+        <p lang="ko">테스트와 벤치마크, 재현 가능한 빌드를 기본값으로 둡니다.</p>
+        <p lang="en">Tests, benchmarks and reproducible builds are the default, not an extra.</p>
+      </div>
     </div>
   </section>
 
-  <div class="contact" id="contact">
-    <div>
-      <h2 lang="ko">이야기 나눠요</h2><h2 lang="en">Let's talk</h2>
-      <p lang="ko">AI 코딩 에이전트, 멀티 에이전트 조정, 개발자 도구, 알고리즘, 회사 만들기. 협업이나 아이디어도 좋습니다. 이메일이 가장 빠릅니다.</p>
-      <p lang="en">AI coding agents, multi-agent coordination, developer tools, competitive programming, starting a company. Collaboration or just an idea. Email is fastest.</p>
+  <section class="sec" id="stack">
+    <div class="sec__h"><h2 lang="ko">기술 스택</h2><h2 lang="en">Stack</h2></div>
+    <div class="sec__b">
+      <dl class="stack">
+        <dt>Languages</dt><dd>Python, TypeScript, JavaScript, Java, C/C++, Rust, Go, Swift, Dart, SQL, HTML/CSS, Bash, PowerShell</dd>
+        <dt>AI / ML</dt><dd>PyTorch, torchaudio, Conformer-CTC, Transformers (from scratch), llama.cpp / GGUF, Ultralytics YOLOv8, OpenCV, scikit-learn, Claude API, MCP, tree-sitter</dd>
+        <dt>Backend</dt><dd>FastAPI, Pydantic, SQLAlchemy, Alembic, Spring Boot, Kafka, PostgreSQL, Redis, SQLite, httpx</dd>
+        <dt>Frontend &amp; mobile</dt><dd>Next.js, React, Vite, Tailwind CSS, Flutter, sqflite</dd>
+        <dt>Data</dt><dd>NumPy, pandas, SciPy, GeoPandas, OSMnx, Matplotlib, Plotly, Folium, Streamlit</dd>
+        <dt>Testing</dt><dd>pytest, Vitest, JUnit 5, Testcontainers, Playwright, Fuzz testing, Concurrency testing</dd>
+        <dt>Infra &amp; tools</dt><dd>Linux, Docker, Docker Compose, GitHub Actions, Fly.io, Render, Railway, PyInstaller, Raspberry Pi</dd>
+      </dl>
     </div>
-    <div class="mail"><a id="email" href="#contact" data-u="bagdoeon827" data-d="gmail.com">&hellip;</a><button class="copy" id="copy" type="button"><span lang="ko">복사</span><span lang="en">Copy</span></button></div>
-  </div>
+  </section>
 
-  <footer>
-    <span>© 2026 Bugeon Park</span>
-    <span class="elsewhere"><a href="https://github.com/Bugeon151" target="_blank" rel="noopener">GitHub</a><a href="https://www.linkedin.com/in/bugeon-park-3b58433a9" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/bugeon.dev/" target="_blank" rel="noopener">Instagram</a><a href="https://team-pj-lab.github.io/" target="_blank" rel="noopener">Team PJ</a></span>
-  </footer>
+  <section class="sec" id="contact">
+    <div class="sec__h"><h2 lang="ko">연락</h2><h2 lang="en">Contact</h2></div>
+    <div class="sec__b">
+      <p class="lead" lang="ko">음성 인식, 탐지 시스템, 로컬 AI, 백엔드와 모바일 개발, 회사 만들기. 협업 제안이나 아이디어도 좋습니다. 이메일이 가장 빠릅니다.</p>
+      <p class="lead" lang="en">Speech recognition, detection systems, local AI, backend and mobile work, starting a company. Collaboration or just an idea. Email is fastest.</p>
+      <div class="mail"><a id="email" href="#contact" data-u="bagdoeon827" data-d="gmail.com">&hellip;</a><button class="copy" id="copy" type="button"><span lang="ko">주소 복사</span><span lang="en">Copy address</span></button></div>
+      <div class="elsewhere"><a class="lnk" href="https://github.com/Bugeon151" target="_blank" rel="noopener">GitHub</a><a class="lnk" href="https://www.linkedin.com/in/bugeon-park-3b58433a9" target="_blank" rel="noopener">LinkedIn</a><a class="lnk" href="https://www.instagram.com/bugeon.dev/" target="_blank" rel="noopener">Instagram</a><a class="lnk" href="https://team-pj-lab.github.io/" target="_blank" rel="noopener">Team PJ</a></div>
+    </div>
+  </section>
 </main>
+<footer><div class="wrap">© 2026 Bugeon Park</div></footer>
 
 <dialog id="lb"><button type="button" aria-label="Close">×</button><img alt=""><p></p></dialog>
 <script>
