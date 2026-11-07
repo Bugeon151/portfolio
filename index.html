@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#f6f7f9" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0b111c" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f5f5f5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
 <meta name="color-scheme" content="light dark">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2712%27 fill=%27%230f1a2b%27/%3E%3Ctext x=%2732%27 y=%2742%27 text-anchor=%27middle%27 font-family=%27Helvetica,Arial,sans-serif%27 font-weight=%27700%27 font-size=%2726%27 fill=%27%2386a7ff%27%3EBP%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2712%27 fill=%27%23141414%27/%3E%3Ctext x=%2732%27 y=%2742%27 text-anchor=%27middle%27 font-family=%27Helvetica,Arial,sans-serif%27 font-weight=%27700%27 font-size=%2726%27 fill=%27%23ededed%27%3EBP%3C/text%3E%3C/svg%3E">
 <title>Bugeon Park (박부건), CTO of Team PJ</title>
 <meta name="description" content="Bugeon Park(박부건) — full-stack AI developer and CTO of Team PJ. Speech recognition, detection systems, backends and mobile apps. 풀스택 AI 개발자 박부건의 포트폴리오.">
 <meta name="author" content="Bugeon Park">
@@ -46,16 +46,16 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap">
 <style>
 /* Measurement-record layout: section titles in a fixed left column, key projects as
-   results tables (metric, value, condition, limit). Accent is reserved for measured values. */
+   results tables (metric, value, condition, limit). Monochrome; measured values stand out by size and weight. */
 :root{
-  --bg:#f6f7f9;--paper:#fff;--ink:#0f1a2b;--ink-2:#364152;--muted:#687386;--rule:#dce1e8;--rule-2:#c5ccd6;
-  --accent:#1f4fd1;--accent-soft:#e8eefc;
+  --bg:#f5f5f5;--paper:#fff;--ink:#141414;--ink-2:#3d3d3d;--muted:#6e6e6e;--rule:#e0e0e0;--rule-2:#c8c8c8;
+  --accent:#141414;--accent-soft:#ebebeb;
   --sans:"IBM Plex Sans KR","Apple SD Gothic Neo","Noto Sans KR",-apple-system,"Segoe UI",system-ui,sans-serif;
   --w:1120px;--col:176px;
 }
 @media (prefers-color-scheme:dark){:root{
-  --bg:#0b111c;--paper:#111a29;--ink:#e6ebf2;--ink-2:#c0c9d6;--muted:#8c98ab;--rule:#222d40;--rule-2:#2f3b51;
-  --accent:#86a7ff;--accent-soft:rgba(134,167,255,.12)}}
+  --bg:#121212;--paper:#1a1a1a;--ink:#ededed;--ink-2:#c7c7c7;--muted:#959595;--rule:#2a2a2a;--rule-2:#3a3a3a;
+  --accent:#ededed;--accent-soft:rgba(255,255,255,.08)}}
 :root:not([data-lang="en"]) [lang="en"]{display:none!important}
 :root[data-lang="en"] [lang="ko"]{display:none!important}
 
@@ -65,7 +65,7 @@ body{margin:0;background:var(--bg);color:var(--ink-2);font:16px/1.75 var(--sans)
 img{max-width:100%;display:block}
 a{color:inherit}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
-::selection{background:var(--accent);color:#fff}
+::selection{background:var(--ink);color:var(--bg)}
 h1,h2,h3{color:var(--ink);margin:0;font-weight:600}
 p{margin:0}
 code{font:500 .88em ui-monospace,"SF Mono",Menlo,Consolas,monospace;background:var(--accent-soft);padding:1px 5px;border-radius:3px}
@@ -97,7 +97,7 @@ h1 small{display:inline-block;margin-left:12px;font-size:.5em;font-weight:500;co
 .btn{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:4px;font:500 15px var(--sans);text-decoration:none;border:1px solid var(--rule-2);background:var(--paper);color:var(--ink)}
 .btn:hover{border-color:var(--ink)}
 .btn.pri{background:var(--ink);border-color:var(--ink);color:var(--bg)}
-.btn.pri:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn.pri:hover{background:var(--ink-2);border-color:var(--ink-2);color:var(--bg)}
 .portrait{margin:0}
 .portrait img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:4px}
 
@@ -170,7 +170,7 @@ h3.grp small{margin-left:10px;font-size:14px;font-weight:400;color:var(--muted)}
 footer{padding-block:28px 48px;border-top:1px solid var(--rule);font-size:13.5px;color:var(--muted)}
 
 #lb{border:0;padding:0;background:transparent;max-width:min(1100px,94vw);max-height:92vh;overflow:visible}
-#lb::backdrop{background:rgba(6,10,18,.86)}
+#lb::backdrop{background:rgba(10,10,10,.86)}
 #lb img{max-width:100%;max-height:78vh;margin:auto;border-radius:4px;background:#fff}
 #lb p{margin:12px 4px 0;color:#eef1f6;font-size:14.5px;text-align:center}
 #lb button{position:absolute;top:-16px;right:-8px;width:40px;height:40px;border-radius:50%;border:0;background:#fff;color:#111;font-size:20px;cursor:pointer}
