@@ -37,7 +37,7 @@
   "jobTitle": ["Full-stack AI developer", "CTO"],
   "worksFor": { "@type": "Organization", "name": "Team PJ", "alternateName": "팀 PJ", "url": "https://team-pj-lab.github.io/" },
   "nationality": { "@type": "Country", "name": "South Korea" },
-  "knowsAbout": ["Speech recognition", "Detection systems", "Local LLM", "Backend engineering", "Mobile apps", "Developer tools", "Competitive programming"],
+  "knowsAbout": ["Speech recognition", "Detection systems", "Local LLM", "Backend engineering", "Mobile apps", "Developer tools", "Embedded systems", "Competitive programming"],
   "sameAs": ["https://github.com/Bugeon151", "https://www.linkedin.com/in/bugeon-park-3b58433a9", "https://www.instagram.com/bugeon.dev/"]
 }
 </script>
@@ -145,7 +145,6 @@ h3.grp small{margin-left:10px;font-size:14px;font-weight:400;color:var(--muted)}
 .more>summary::before{content:"+";font-weight:600;color:var(--accent);width:10px}
 .more[open]>summary::before{content:"−"}
 .more>summary:hover{border-color:var(--ink)}
-.specs{margin-top:28px;font-size:14.5px;color:var(--muted);max-width:50em}
 
 /* background, stack */
 .tl{list-style:none;margin:0;padding:0}
@@ -216,7 +215,7 @@ footer{padding-block:28px 48px;border-top:1px solid var(--rule);font-size:13.5px
     <nav aria-label="Sections">
       <a href="#projects"><span lang="ko">프로젝트</span><span lang="en">Projects</span></a>
       <a href="#awards"><span lang="ko">수상</span><span lang="en">Awards</span></a>
-      <a href="#background"><span lang="ko">경력</span><span lang="en">Background</span></a>
+      <a href="#background"><span lang="ko">이력</span><span lang="en">Background</span></a>
       <a href="#stack"><span lang="ko">스택</span><span lang="en">Stack</span></a>
       <a href="#contact"><span lang="ko">연락</span><span lang="en">Contact</span></a>
     </nav>
@@ -250,7 +249,35 @@ footer{padding-block:28px 48px;border-top:1px solid var(--rule);font-size:13.5px
       <p class="lead" lang="ko">수치는 각 저장소의 README와 보고서에 적힌 값이며, 측정 조건과 한계를 같이 적었습니다. 비공개 저장소는 링크 대신 표시만 두었습니다.</p>
       <p class="lead" lang="en">Figures are the ones stated in each repo's README or report, listed with their test conditions and limits. Private repos are marked instead of linked.</p>
 
-      <article class="rec">
+      <article class="rec" id="p-nearzero">
+        <div class="rec__h"><h3>NEAR-ZERO X</h3><div class="meta"><span>Vision, safety</span><span lang="ko">전국 3위</span><span lang="en">3rd place</span><a href="https://github.com/Bugeon151/The-3rd-Future-Convergence-Talent-Discovery-Software-Challenge" target="_blank" rel="noopener">GitHub ↗</a></div></div>
+        <p class="rec__sum" lang="ko">산업 현장의 이동 로봇·카트 충돌을 사고 전에 막는 시스템. 감지→예측→예방→검증의 폐쇄 루프로, 지금 할 수 있는 개입안을 가상으로 돌려 보고 위험을 가장 많이 줄이는 안을 추천한 뒤 실제로 막았는지 확인합니다. 안전 판정은 LLM이 아니라 기하·확률·물리 기반의 결정적 파이프라인이 합니다. 2인 팀, 개발 총괄과 영상 인식 모델 담당(2026.08–10).</p>
+        <p class="rec__sum" lang="en">Prevents collisions of mobile robots and carts at industrial sites before they happen. A closed perceive, predict, prevent, verify loop simulates the interventions available right now, recommends the one that cuts risk the most, then checks whether it actually prevented the accident. Safety calls come from a deterministic geometry, probability and physics pipeline, not an LLM. Two-person team; I led development and built the vision model (Aug–Oct 2026).</p>
+        <table class="m">
+          <caption><span lang="ko">평가: 정합 시나리오 8종 시뮬레이션, 기존 정책 3종(거리·TTC·궤적 예측)과 비교</span><span lang="en">Test: 8 matched simulated scenarios, against 3 baseline policies (distance, TTC, trajectory)</span></caption>
+          <tr><th><span lang="ko">재현율(recall)</span><span lang="en">Recall</span></th><td class="v">1.00</td><td class="c"><span lang="ko">기존 정책 3종도 1.00</span><span lang="en">All 3 baselines also 1.00</span></td></tr>
+          <tr><th><span lang="ko">거짓 경보</span><span lang="en">False alarms</span></th><td class="v">1</td><td class="c"><span lang="ko">TTC·궤적 예측 정책은 2건</span><span lang="en">TTC and trajectory baselines: 2</span></td></tr>
+          <tr><th><span lang="ko">코어 파이프라인</span><span lang="en">Core pipeline</span></th><td class="v">181.6 ms</td><td class="c"><span lang="ko">프레임당, RTX 5070. 감지(YOLOv8n) 48.7 ms 별도</span><span lang="en">Per frame on RTX 5070; detection (YOLOv8n) 48.7 ms on top</span></td></tr>
+          <tr class="lim"><th><span lang="ko">한계</span><span lang="en">Limit</span></th><td colspan="2"><span lang="ko">평균 선행 시간 1.52초로 TTC 정책(2.62초)보다 짧습니다. 예방 경고·제한만 구현했고 자동 비상 제동은 시뮬레이션에서만 동작합니다.</span><span lang="en">Mean lead time is 1.52 s, shorter than the TTC baseline's 2.62 s. Only preventive warnings and limits are built; emergency braking runs in simulation only.</span></td></tr>
+        </table>
+        <div class="shots"><a class="shot" href="img/shots/nearzero.jpg" data-ko="NEAR-ZERO X 시뮬레이션 대시보드(SIM 모드): 위험 점수와 개입안별 결과 위험" data-en="NEAR-ZERO X simulation dashboard (SIM mode): risk score and resulting risk per intervention"><img src="img/shots/nearzero.jpg" alt="NEAR-ZERO X simulation dashboard (SIM mode): risk score and resulting risk per intervention" width="1400" height="758" loading="lazy"></a></div>
+      </article>
+
+      <article class="rec" id="p-mobilens">
+        <div class="rec__h"><h3>MobiLens</h3><div class="meta"><span>Geospatial, optimization</span><span lang="ko">장려상</span><span lang="en">Encouragement Award</span><a href="https://github.com/Bugeon151/seongnamXKAIST" target="_blank" rel="noopener">GitHub ↗</a></div></div>
+        <p class="rec__sum" lang="ko">성남시 공개 집계자료로 교통약자의 의료·복지 접근 취약 지역을 찾고, 이동지원 거점과 노선 대안을 같은 지표로 비교해 사람의 정책 결정을 돕는 재현 가능한 분석 시스템. 데이터 검증·지오코딩부터 접근성(E2SFCA), 공간 통계, 최적 배치(MCLP), 차량 노선까지 혼자 개발했습니다(2026.09–10).</p>
+        <p class="rec__sum" lang="en">A reproducible analysis system that uses Seongnam's open aggregate data to find where people with limited mobility lack access to medical and welfare services, then compares support hubs and routes on the same metrics to inform human policy decisions. Built solo, from data validation and geocoding to accessibility (E2SFCA), spatial statistics, coverage optimization (MCLP) and vehicle routing (Sep–Oct 2026).</p>
+        <table class="m">
+          <caption><span lang="ko">결과: 성남시 행정동 단위, 거점 5곳(k=5)</span><span lang="en">Results: Seongnam neighborhoods, 5 hubs (k=5)</span></caption>
+          <tr><th><span lang="ko">취약 수요 커버</span><span lang="en">Vulnerable demand covered</span></th><td class="v">0.865</td><td class="c"><span lang="ko">취약 상위 동 우선 배치(0.621) 대비 +24.4%p, 무작위 평균 0.345</span><span lang="en">+24.4 pp over placing by top vulnerable areas (0.621); random mean 0.345</span></td></tr>
+          <tr><th><span lang="ko">안정 핫스폿</span><span lang="en">Robust hotspots</span></th><td class="v"><span lang="ko">4개 동</span><span lang="en">4</span></td><td class="c"><span lang="ko">36개 시나리오 중 80% 이상에서 유의</span><span lang="en">Significant in 80%+ of 36 scenarios</span></td></tr>
+          <tr><th><span lang="ko">순위 강건성</span><span lang="en">Rank robustness</span></th><td class="v">ρ ≥ 0.815</td><td class="c"><span lang="ko">모든 시나리오의 순위 상관</span><span lang="en">Rank correlation across all scenarios</span></td></tr>
+          <tr class="lim"><th><span lang="ko">한계</span><span lang="en">Limit</span></th><td colspan="2"><span lang="ko">의료 공급은 시설 수로 근사했고, 재가요양 시설 정원의 69%만 좌표를 확보했습니다. 취약 지수 순위는 수요 항목의 영향이 큽니다(ρ = 0.94).</span><span lang="en">Medical supply is approximated by facility counts, and only 69% of home-care capacity could be geocoded. The vulnerability ranking leans heavily on the need term (ρ = 0.94).</span></td></tr>
+        </table>
+        <div class="shots"><a class="shot" href="img/shots/mobilens-mvi.jpg" data-ko="성남시 동별 이동취약지수(MVI) 지도, 상위 5개 동 표시" data-en="MobiLens: mobility vulnerability index (MVI) by neighborhood in Seongnam, top 5 labeled"><img src="img/shots/mobilens-mvi.jpg" alt="MobiLens: mobility vulnerability index (MVI) by neighborhood in Seongnam, top 5 labeled" width="1390" height="1296" loading="lazy"></a><a class="shot" href="img/shots/mobilens-routes.jpg" data-ko="정책 A/B/C 거점과 차량 순환노선(OSM 차량망 최단경로)" data-en="Policy A/B/C hubs and vehicle loop routes (shortest paths on the OSM road network)"><img src="img/shots/mobilens-routes.jpg" alt="Policy A/B/C hubs and vehicle loop routes (shortest paths on the OSM road network)" width="1382" height="1345" loading="lazy"></a><a class="shot" href="img/shots/mobilens-before-after.jpg" data-ko="정책 시행 전후 비교" data-en="Before and after each policy"><img src="img/shots/mobilens-before-after.jpg" alt="Before and after each policy" width="1317" height="793" loading="lazy"></a></div>
+      </article>
+
+      <article class="rec" id="p-jamodecoder">
         <div class="rec__h"><h3>JamoDecoder</h3><div class="meta"><span>Speech recognition</span><span lang="ko">비공개</span><span lang="en">Private</span></div></div>
         <p class="rec__sum" lang="ko">외부 API 없이 로컬에서 학습·추론하는 한국어 자모 기반 음성 인식. Conformer-CTC 인코더, CTC prefix beam search, 자모 n-gram 언어 모델을 조합합니다.</p>
         <p class="rec__sum" lang="en">Korean jamo-based speech recognition that trains and runs locally with no external API: a Conformer-CTC encoder, CTC prefix beam search and a jamo n-gram language model.</p>
@@ -262,7 +289,7 @@ footer{padding-block:28px 48px;border-top:1px solid var(--rule);font-size:13.5px
         </table>
       </article>
 
-      <article class="rec">
+      <article class="rec" id="p-civiceye">
         <div class="rec__h"><h3>CIVIC-EYE</h3><div class="meta"><span>Security, detection</span><span lang="ko">비공개</span><span lang="en">Private</span></div></div>
         <p class="rec__sum" lang="ko">공공기관 홈페이지의 숨김·위장 불법광고를 실제 브라우저로 렌더링해 어디에, 왜 있는지 근거와 함께 찾는 Windows 11 프로그램. 외부 AI API 없이 CPU에서 동작합니다. 「공공 웹사이트 불법광고 탐지 도구 개발 공모전」(행정안전부·NIA) 출품작입니다.</p>
         <p class="rec__sum" lang="en">A Windows 11 tool that renders public-sector sites in a real browser and finds hidden or disguised illegal ads, showing where and why. Runs on CPU with no external AI API. Entry to the 2026 Public Website Illegal Ad Detection contest by Korea's Ministry of the Interior and Safety and NIA.</p>
@@ -275,7 +302,7 @@ footer{padding-block:28px 48px;border-top:1px solid var(--rule);font-size:13.5px
         <div class="shots"><a class="shot" href="img/shots/civic-results.jpg" data-ko="탐지 결과 목록. 자체 제작한 가상 기관 테스트 사이트 대상" data-en="Detection results on a self-made test site of a fictional agency"><img src="img/shots/civic-results.jpg" alt="Detection results on a self-made test site of a fictional agency" width="1400" height="900" loading="lazy"></a><a class="shot" href="img/shots/civic-jamo.jpg" data-ko="탐지 상세: 자모로 분해한 문구를 근거와 함께 표시" data-en="Detection detail: a jamo-decomposed phrase shown with evidence"><img src="img/shots/civic-jamo.jpg" alt="Detection detail: a jamo-decomposed phrase shown with evidence" width="1400" height="900" loading="lazy"></a><a class="shot" href="img/shots/civic-dashboard.jpg" data-ko="대시보드" data-en="Dashboard"><img src="img/shots/civic-dashboard.jpg" alt="Dashboard" width="1400" height="900" loading="lazy"></a></div>
       </article>
 
-      <article class="rec">
+      <article class="rec" id="p-ciss">
         <div class="rec__h"><h3>CISS</h3><div class="meta"><span>Web, data</span><span>Team PJ</span><a href="https://github.com/TEAM-PJ-LAB/CISS" target="_blank" rel="noopener">GitHub ↗</a></div></div>
         <p class="rec__sum" lang="ko">공개 코드 속 알고리즘의 원 설계자와 파생 계보를 근거와 함께 기록하는 서비스. 계보 그래프, 저장소 스캔, 4개 언어, 공개 API(OpenAPI)를 갖췄습니다.</p>
         <p class="rec__sum" lang="en">Records who originally designed an algorithm in public code, and how it was derived, with evidence. Includes a lineage graph, repository scan, four languages and a public OpenAPI.</p>
@@ -288,72 +315,73 @@ footer{padding-block:28px 48px;border-top:1px solid var(--rule);font-size:13.5px
         <div class="shots"><a class="shot" href="img/shots/ciss-home.jpg" data-ko="CISS 첫 화면(로컬 실행)" data-en="CISS home page (run locally)"><img src="img/shots/ciss-home.jpg" alt="CISS home page (run locally)" width="1440" height="900" loading="lazy"></a><a class="shot" href="img/shots/ciss-algorithm.jpg" data-ko="알고리즘 상세: 기원·출처·계보(Transformer)" data-en="Algorithm page: origin, source, lineage (Transformer)"><img src="img/shots/ciss-algorithm.jpg" alt="Algorithm page: origin, source, lineage (Transformer)" width="1440" height="900" loading="lazy"></a></div>
       </article>
 
-      <article class="rec">
-        <div class="rec__h"><h3 lang="ko">급락 방어 AI</h3><h3 lang="en">Crash-defense AI</h3><div class="meta"><span>Quant, risk</span><span lang="ko">비공개</span><span lang="en">Private</span></div></div>
-        <p class="rec__sum" lang="ko">미국(S&amp;P 500)과 코스피의 급락 위험을 매일 장 마감 후 '평소의 몇 배'로 판정해 카카오톡·텔레그램으로 알리는 도구. 주문 기능은 없습니다.</p>
-        <p class="rec__sum" lang="en">Rates the daily crash risk of the S&amp;P 500 and KOSPI as a multiple of normal and sends it by KakaoTalk or Telegram. It places no orders.</p>
-        <table class="m">
-          <caption><span lang="ko">평가: 학습에 없던 12개국 지수에 사전 등록한 규칙을 한 번만 적용, 보수형(추세 앙상블)</span><span lang="en">Test: pre-registered rules applied once to 12 country indices unseen in training; defensive profile (trend ensemble)</span></caption>
-          <tr><th><span lang="ko">최대 낙폭 중앙값</span><span lang="en">Median max drawdown</span></th><td class="v">−27.3%</td><td class="c"><span lang="ko">매수 후 보유 −60.3%</span><span lang="en">Buy-and-hold −60.3%</span></td></tr>
-          <tr><th><span lang="ko">연복리</span><span lang="en">CAGR</span></th><td class="v">4.4%</td><td class="c"><span lang="ko">매수 후 보유 4.0%</span><span lang="en">Buy-and-hold 4.0%</span></td></tr>
-          <tr class="lim"><th><span lang="ko">한계</span><span lang="en">Limit</span></th><td colspan="2"><span lang="ko">AI가 급락 시점을 맞힌다고 주장하지 않습니다. 효과가 작고, 2024년 이후에는 유의한 가설이 없습니다.</span><span lang="en">It does not claim to time crashes. The effect is small, and no hypothesis is significant after 2024.</span></td></tr>
-        </table>
-        <div class="shots"><a class="shot" href="img/shots/crashguard-equity.jpg" data-ko="시장별 순자산·낙폭 그래프. 저장소 산출물(v3/validation/index), 그림에는 지수 9개가 표시됨" data-en="Equity and drawdown by market, from the repo outputs (v3/validation/index). The figure shows 9 indices"><img src="img/shots/crashguard-equity.jpg" alt="Equity and drawdown by market, from the repo outputs (v3/validation/index). The figure shows 9 indices" width="1400" height="1763" loading="lazy"></a></div>
-      </article>
-
-      <h3 class="grp">Team PJ<small lang="ko">공동창업자와 함께 만든 것</small><small lang="en">built with my co-founder</small></h3>
-      <article class="row"><div class="row__m"><h3>Interlock</h3><p>Dev tools</p></div><div class="row__b">
+      <h3 class="grp">Team PJ<small lang="ko">공동창업한 회사, 개발 전담</small><small lang="en">the company I co-founded; I lead all engineering</small></h3>
+        <article class="row"><div class="row__m"><h3>Interlock</h3><p>Dev tools</p></div><div class="row__b">
         <p lang="ko">Team PJ의 제품. 여러 AI 코딩 에이전트가 한 코드베이스에서 서로의 작업을 깨뜨리지 않게 하는 도구입니다. 제품 소개와 실험 데이터는 회사 사이트에 있습니다.</p>
         <p lang="en">Team PJ's product: a tool that lets many AI coding agents work on one codebase without breaking each other's work. Product details and experiment data are on the company site.</p>
         <div class="meta"><span lang="ko">비공개</span><span lang="en">Private</span><a href="https://team-pj-lab.github.io/apps/" target="_blank" rel="noopener"><span lang="ko">Interlock 페이지</span><span lang="en">Interlock page</span> ↗</a><a href="https://team-pj-lab.github.io/interlock/experiments/" target="_blank" rel="noopener"><span lang="ko">실험 데이터</span><span lang="en">Experiments</span> ↗</a></div></div></article>
-      <article class="row"><div class="row__m"><h3>IntentGuard</h3><p>Dev tools</p></div><div class="row__b">
+      <article class="row"><div class="row__m"><h3>Portwright</h3><p>Security, embedded</p></div><div class="row__b">
+        <p lang="ko">오래된 SoC 벤더 BSP 리눅스 커널에 upstream 보안 수정을 AI로 백포팅하고, 검증 결과와 EU 사이버복원력법(CRA) 대응 근거를 함께 남기는 도구.</p>
+        <p lang="en">AI backporting of upstream Linux security fixes into aging SoC-vendor BSP kernels, with validation results and evidence for the EU Cyber Resilience Act (CRA).</p>
+        <div class="meta"><span lang="ko">개발 중</span><span lang="en">In development</span><span lang="ko">비공개</span><span lang="en">Private</span></div></div></article>
+      <article class="row"><div class="row__m"><h3>Frontling</h3><p>EdTech, AI</p></div><div class="row__b">
+        <p lang="ko">검증된 자료를 바탕으로 미국 대학 입시를 돕는 AI 서비스.</p>
+        <p lang="en">An AI service that helps with US college admissions, grounded in verified sources.</p>
+        <div class="meta"><span lang="ko">개발 중</span><span lang="en">In development</span><span lang="ko">비공개</span><span lang="en">Private</span></div></div></article>
+      <article class="row"><div class="row__m"><h3>AirGap-LLM-Kit</h3><p>Local LLM</p></div><div class="row__b">
+        <p lang="ko">인터넷이 끊긴 폐쇄망 환경에 LLM을 배포하기 위한 키트.</p>
+        <p lang="en">A kit for deploying LLMs into air-gapped networks with no internet access.</p>
+        <div class="meta"><span lang="ko">개발 중</span><span lang="en">In development</span><span lang="ko">비공개</span><span lang="en">Private</span></div></div></article>
+      <article class="row"><div class="row__m"><h3>LunarSafe</h3><p>Space, web</p></div><div class="row__b">
+        <p lang="ko">NASA Space Apps Challenge 2026(Lunar Landing Site Navigator) 출품작. 달 착륙지와 날짜를 비교하고, 목표점에서 벗어나 내려도 임무가 성립하는 겨냥점을 지도로 보여주는 정적 웹 앱. 현재 기획 단계입니다.</p>
+        <p lang="en">Entry for NASA Space Apps Challenge 2026 (Lunar Landing Site Navigator): a static web app that compares lunar landing sites and dates and maps aim points where the mission still works if the lander drifts off target. Currently in planning.</p>
+        <div class="meta"><span lang="ko">기획 단계</span><span lang="en">Planning</span></div></div></article>
+
+      <details class="more">
+        <summary><span lang="ko">나머지 프로젝트 10개 보기</span><span lang="en">10 more projects</span></summary>
+        <h3 class="grp"><span lang="ko">로컬 AI, 음성, 개발 도구</span><span lang="en">Local AI, speech and dev tools</span></h3>
+        <article class="row"><div class="row__m"><h3>jamo2hangul</h3><p>Speech, NLP</p></div><div class="row__b">
+        <p lang="ko">한국어 음성인식용으로 직접 학습한 53M 파라미터 Transformer. 자모 나열을 띄어쓰기 있는 한국어로 복원하며, 평가 단어 8,000개에서 정확도 96.7%, 문자 오류율 1.36%.</p>
+        <p lang="en">A 53M-parameter Transformer trained from scratch for Korean speech recognition. Rebuilds spaced Korean text from jamo: 96.7% exact on 8,000 held-out words, 1.36% character error rate.</p>
+        <div class="meta"><a href="https://github.com/aworse/jamo2hangul" target="_blank" rel="noopener">GitHub ↗</a></div></div></article>
+        <article class="row"><div class="row__m"><h3>Q-Bench</h3><p>Benchmark</p></div><div class="row__b">
+        <p lang="ko">Apple M5에서 Qwen2.5-7B-Instruct를 GGUF 양자화 7단계(F16~Q2_K)로 돌려 크기, 메모리, 처리량, 지연을 잰 재현 가능한 벤치마크(llama.cpp 빌드 고정).</p>
+        <p lang="en">A reproducible benchmark of Qwen2.5-7B-Instruct across seven GGUF quantization levels (F16 to Q2_K) on Apple M5: size, memory, throughput and latency, with a pinned llama.cpp build.</p>
+        <div class="meta"><a href="https://github.com/Bugeon151/Q-BENCH" target="_blank" rel="noopener">GitHub ↗</a></div></div></article>
+        <article class="row"><div class="row__m"><h3>IntentGuard</h3><p>Dev tools</p></div><div class="row__b">
         <p lang="ko">PRD의 요구사항(F-001 형식)이 코드에 반영됐는지 근거와 함께 점검하는 PRD-코드 불일치 탐지기의 초기 로컬 프로토타입. 키워드가 일치해도 구현 확인으로 세지 않고, 근거가 부족하면 <code>INSUFFICIENT_EVIDENCE</code>로 보고합니다. 웹훅 HMAC SHA-256 서명 검증, 단위 테스트, CI를 갖췄고 호스팅 서비스는 아직 아닙니다.</p>
         <p lang="en">An early local prototype that checks, with evidence, whether PRD requirements (F-001 style) show up in code. A keyword match never counts as verified; weak evidence is reported as <code>INSUFFICIENT_EVIDENCE</code>. Includes webhook HMAC SHA-256 verification, unit tests and CI. Not a hosted service yet.</p>
         <div class="meta"><span lang="ko">비공개</span><span lang="en">Private</span></div></div></article>
-      <article class="row"><div class="row__m"><h3>ANABADA</h3><p>Mobile web, AI</p></div><div class="row__b">
+        <h3 class="grp"><span lang="ko">데이터, 퀀트</span><span lang="en">Data and quant</span></h3>
+        <article class="row"><div class="row__m"><h3>SPORT-GAP</h3><p>Data, web</p></div><div class="row__b">
+        <p lang="ko">전국 250개 시군구의 체육시설 접근 격차를 공공데이터로 계산하고 what-if 시뮬레이터를 제공하는 공개 웹 서비스.</p>
+        <p lang="en">A public web service that measures sports-facility access gaps across all 250 Korean municipalities from open data, with a what-if simulator.</p>
+        <div class="meta"><a href="https://bugeon151.github.io/SPORT-GAP/" target="_blank" rel="noopener">Live ↗</a></div></div></article>
+        <article class="row"><div class="row__m"><h3>Financial Intelligence Platform</h3><p>Quant, research</p></div><div class="row__b">
+        <p lang="ko">미국·한국 주식, 암호화폐, 금을 다루는 개인용 금융 리서치 백엔드의 설계 명세(4개 도메인, 엔진 25개)와, 명세가 요구하는 통계 검정의 참조 구현(v1.21.1, 테스트 199개). 정보 시점 준수, 기준 모델 대비 표본 외 검증, 모든 시도 기록을 원칙으로 하고 웹에서 주문하지 않습니다.</p>
+        <p lang="en">The backend specification for a personal financial research tool covering US and Korean equities, crypto and gold (4 domains, 25 engines), plus a reference implementation of the statistical tests it requires (v1.21.1, 199 tests). Built on point-in-time data, out-of-sample validation against a baseline, and a record of every attempt. It places no orders.</p>
+        <div class="meta"><span lang="ko">비공개</span><span lang="en">Private</span></div></div></article>
+        <h3 class="grp"><span lang="ko">서비스, 앱</span><span lang="en">Products and apps</span></h3>
+        <article class="row"><div class="row__m"><h3>Fintech Ledger Core</h3><p>Backend</p></div><div class="row__b">
+        <p lang="ko">Java, Spring Boot, PostgreSQL, Kafka 기반 복식부기 원장. 동시 거래, 멱등 API, 트랜잭셔널 아웃박스, 자동 대사를 실제 PostgreSQL·Kafka로 테스트.</p>
+        <p lang="en">Double-entry ledger (Java, Spring Boot, PostgreSQL, Kafka) with concurrent transactions, idempotent APIs, a transactional outbox and automated reconciliation, tested against real PostgreSQL and Kafka.</p>
+        <div class="meta"><a href="https://github.com/Bugeon151/fintech-ledger-core" target="_blank" rel="noopener">GitHub ↗</a></div></div></article>
+        <article class="row"><div class="row__m"><h3>ANABADA</h3><p>Mobile web, AI</p></div><div class="row__b">
         <p lang="ko">사진 몇 장으로 중고 물품의 근거 있는 적정가 범위를 알려주는 모바일 웹 서비스. Next.js와 FastAPI 풀스택, Claude 멀티모달 감정, 선택형 3D 정밀 분석, Docker Compose 전체 스택, CI의 Playwright 모바일 E2E. 데모(mock) 결과는 화면과 API에 표시하고, 측정하지 않은 성능은 보고하지 않습니다.</p>
         <p lang="en">A mobile web service that estimates an evidence-backed price range for a used item from a few photos. Next.js and FastAPI full stack, Claude multimodal appraisal, optional 3D analysis, a full Docker Compose stack and Playwright mobile E2E in CI. Demo (mock) results are labeled on screen and in the API, and unmeasured performance is never reported.</p>
         <div class="meta"><span lang="ko">비공개</span><span lang="en">Private</span></div></div></article>
-
-      <details class="more">
-        <summary><span lang="ko">나머지 프로젝트 8개와 설계 단계 보기</span><span lang="en">8 more projects and early-stage specs</span></summary>
-        <h3 class="grp"><span lang="ko">로컬 AI, 음성, 벤치마크</span><span lang="en">Local AI, speech and benchmarks</span></h3>
-        <article class="row"><div class="row__m"><h3>jamo2hangul</h3><p>Speech, NLP</p></div><div class="row__b">
-          <p lang="ko">한국어 음성인식용으로 직접 학습한 53M 파라미터 Transformer. 자모 나열을 띄어쓰기 있는 한국어로 복원하며, 평가 단어 8,000개에서 정확도 96.7%, 문자 오류율 1.36%.</p>
-          <p lang="en">A 53M-parameter Transformer trained from scratch for Korean speech recognition. Rebuilds spaced Korean text from jamo: 96.7% exact on 8,000 held-out words, 1.36% character error rate.</p>
-          <div class="meta"><a href="https://github.com/aworse/jamo2hangul" target="_blank" rel="noopener">GitHub ↗</a></div></div></article>
-        <article class="row"><div class="row__m"><h3>Q-Bench</h3><p>Benchmark</p></div><div class="row__b">
-          <p lang="ko">Apple M5에서 Qwen2.5-7B-Instruct를 GGUF 양자화 7단계(F16~Q2_K)로 돌려 크기, 메모리, 처리량, 지연을 잰 재현 가능한 벤치마크(llama.cpp 빌드 고정).</p>
-          <p lang="en">A reproducible benchmark of Qwen2.5-7B-Instruct across seven GGUF quantization levels (F16 to Q2_K) on Apple M5: size, memory, throughput and latency, with a pinned llama.cpp build.</p>
-          <div class="meta"><a href="https://github.com/Bugeon151/Q-BENCH" target="_blank" rel="noopener">GitHub ↗</a></div></div></article>
-        <h3 class="grp"><span lang="ko">퀀트, 데이터</span><span lang="en">Quant and data</span></h3>
-        <article class="row"><div class="row__m"><h3>Financial Intelligence Platform</h3><p>Quant, research</p></div><div class="row__b">
-          <p lang="ko">미국·한국 주식, 암호화폐, 금을 다루는 개인용 금융 리서치 백엔드의 설계 명세(4개 도메인, 엔진 25개)와, 명세가 요구하는 통계 검정의 참조 구현(v1.21.1, 테스트 199개). 정보 시점 준수, 기준 모델 대비 표본 외 검증, 모든 시도 기록을 원칙으로 하고 웹에서 주문하지 않습니다.</p>
-          <p lang="en">The backend specification for a personal financial research tool covering US and Korean equities, crypto and gold (4 domains, 25 engines), plus a reference implementation of the statistical tests it requires (v1.21.1, 199 tests). Built on point-in-time data, out-of-sample validation against a baseline, and a record of every attempt. It places no orders.</p>
-          <div class="meta"><span lang="ko">비공개</span><span lang="en">Private</span></div></div></article>
-        <article class="row"><div class="row__m"><h3>SPORT-GAP</h3><p>Data, web</p></div><div class="row__b">
-          <p lang="ko">전국 250개 시군구의 체육시설 접근 격차를 공공데이터로 계산하고 what-if 시뮬레이터를 제공하는 공개 웹 서비스.</p>
-          <p lang="en">A public web service that measures sports-facility access gaps across all 250 Korean municipalities from open data, with a what-if simulator.</p>
-          <div class="meta"><a href="https://bugeon151.github.io/SPORT-GAP/" target="_blank" rel="noopener">Live ↗</a></div></div></article>
-        <h3 class="grp"><span lang="ko">서비스, 앱</span><span lang="en">Products and apps</span></h3>
-        <article class="row"><div class="row__m"><h3>Fintech Ledger Core</h3><p>Backend</p></div><div class="row__b">
-          <p lang="ko">Java, Spring Boot, PostgreSQL, Kafka 기반 복식부기 원장. 동시 거래, 멱등 API, 트랜잭셔널 아웃박스, 자동 대사를 실제 PostgreSQL·Kafka로 테스트.</p>
-          <p lang="en">Double-entry ledger (Java, Spring Boot, PostgreSQL, Kafka) with concurrent transactions, idempotent APIs, a transactional outbox and automated reconciliation, tested against real PostgreSQL and Kafka.</p>
-          <div class="meta"><a href="https://github.com/Bugeon151/fintech-ledger-core" target="_blank" rel="noopener">GitHub ↗</a></div></div></article>
         <article class="row"><div class="row__m"><h3>REUP</h3><p>Product AI</p></div><div class="row__b">
-          <p lang="ko">제품을 식별하고 시장 데이터를 연결해 현재 가치와 근거를 설명하는 Product Intelligence AI. 표준 카탈로그, 수집, 개체 식별, 시세 산출, 근거 기반 대화까지 MVP 경로를 구현했고 Next.js, FastAPI, PostgreSQL, Redis로 구성됩니다. 일치하는 거래 데이터가 부족하면 값을 지어내지 않고 <code>insufficient_data</code>를 반환합니다.</p>
-          <p lang="en">Product Intelligence AI that identifies a product, links market data, and explains its current value with evidence. The MVP path is built end to end: canonical catalog, ingestion, entity resolution, valuation and grounded conversation, on Next.js, FastAPI, PostgreSQL and Redis. With too little matched sales data it returns <code>insufficient_data</code> instead of inventing a value.</p>
-          <div class="meta"><span lang="ko">비공개</span><span lang="en">Private</span></div></div></article>
+        <p lang="ko">제품을 식별하고 시장 데이터를 연결해 현재 가치와 근거를 설명하는 Product Intelligence AI. 표준 카탈로그, 수집, 개체 식별, 시세 산출, 근거 기반 대화까지 MVP 경로를 구현했고 Next.js, FastAPI, PostgreSQL, Redis로 구성됩니다. 일치하는 거래 데이터가 부족하면 값을 지어내지 않고 <code>insufficient_data</code>를 반환합니다.</p>
+        <p lang="en">Product Intelligence AI that identifies a product, links market data, and explains its current value with evidence. The MVP path is built end to end: canonical catalog, ingestion, entity resolution, valuation and grounded conversation, on Next.js, FastAPI, PostgreSQL and Redis. With too little matched sales data it returns <code>insufficient_data</code> instead of inventing a value.</p>
+        <div class="meta"><span lang="ko">비공개</span><span lang="en">Private</span></div></div></article>
         <article class="row"><div class="row__m"><h3>Bium</h3><p>Mobile, Flutter</p></div><div class="row__b">
-          <p lang="ko">사진이 기기 밖으로 나가지 않는 로컬 우선 사진 정리 앱(Flutter). 정확한 중복은 3단계 필터와 원본 SHA-256으로 확정하고, 유사 사진은 pHash·dHash 신뢰 등급으로 나눕니다. 놓치는 쪽이 낫다는 정밀도 우선 원칙으로 모든 임계값을 측정한 벤치마크에서 정했고, 서버·분석 SDK·광고·이미지 업로드가 없습니다.</p>
-          <p lang="en">A local-first photo cleaner (Flutter) whose photos never leave the phone. Exact duplicates are confirmed by a three-stage filter and a SHA-256 of the original; similar shots are tiered by pHash and dHash confidence. Precision comes before recall, every threshold was chosen from a measured benchmark, and there is no server, analytics SDK, ads or image upload.</p>
-          <div class="meta"><span lang="ko">비공개</span><span lang="en">Private</span></div></div></article>
+        <p lang="ko">사진이 기기 밖으로 나가지 않는 로컬 우선 사진 정리 앱(Flutter). 정확한 중복은 3단계 필터와 원본 SHA-256으로 확정하고, 유사 사진은 pHash·dHash 신뢰 등급으로 나눕니다. 놓치는 쪽이 낫다는 정밀도 우선 원칙으로 모든 임계값을 측정한 벤치마크에서 정했고, 서버·분석 SDK·광고·이미지 업로드가 없습니다.</p>
+        <p lang="en">A local-first photo cleaner (Flutter) whose photos never leave the phone. Exact duplicates are confirmed by a three-stage filter and a SHA-256 of the original; similar shots are tiered by pHash and dHash confidence. Precision comes before recall, every threshold was chosen from a measured benchmark, and there is no server, analytics SDK, ads or image upload.</p>
+        <div class="meta"><span lang="ko">비공개</span><span lang="en">Private</span></div></div></article>
         <article class="row"><div class="row__m"><h3>ORVO</h3><p>Mobile, game</p></div><div class="row__b">
-          <p lang="ko">실제 대중교통 이동을 게임 진행도로 바꾸는 현실 탐험 게임. 서버 없이 동작하는 로컬 우선 Flutter MVP로, 역 발견, XP, 퀘스트, 업적, 지도 안개 해제를 지원하며 자동화 테스트 63개를 갖췄습니다.</p>
-          <p lang="en">A real-world exploration game that turns actual public-transit rides into game progress. A server-free, local-first Flutter MVP with station discovery, XP, quests, achievements and fog-of-war map reveal, backed by 63 automated tests.</p>
-          <div class="meta"><span lang="ko">비공개</span><span lang="en">Private</span></div></div></article>
-        <p class="specs" lang="ko">설계·초기 단계(출시된 코드가 없거나 프로토타입): SampleLedger(B2B 샘플 대여·이력 추적 요구사항), PromiseOS(고객 탐색 단계), Synapsis(의사결정 지원 프로토타입), COUNTERCROWD와 JEJU HOURSHIFT(공모전 PRD).</p>
-        <p class="specs" lang="en">Specs and early stage (no shipped code, or prototype): SampleLedger (B2B sample loan and history tracking requirements), PromiseOS (customer discovery), Synapsis (a decision-support prototype), and COUNTERCROWD and JEJU HOURSHIFT (contest PRDs).</p>
+        <p lang="ko">실제 대중교통 이동을 게임 진행도로 바꾸는 현실 탐험 게임. 서버 없이 동작하는 로컬 우선 Flutter MVP로, 역 발견, XP, 퀘스트, 업적, 지도 안개 해제를 지원하며 자동화 테스트 63개를 갖췄습니다.</p>
+        <p lang="en">A real-world exploration game that turns actual public-transit rides into game progress. A server-free, local-first Flutter MVP with station discovery, XP, quests, achievements and fog-of-war map reveal, backed by 63 automated tests.</p>
+        <div class="meta"><span lang="ko">비공개</span><span lang="en">Private</span></div></div></article>
       </details>
     </div>
   </section>
@@ -362,22 +390,27 @@ footer{padding-block:28px 48px;border-top:1px solid var(--rule);font-size:13.5px
     <div class="sec__h"><h2 lang="ko">수상</h2><h2 lang="en">Awards</h2></div>
     <div class="sec__b">
       <article class="row" style="border-top:1px solid var(--rule-2)"><div class="row__m"><h3 lang="ko">전국 3위</h3><h3 lang="en">3rd place</h3><p>2026</p></div><div class="row__b tx">
-        <p lang="ko"><b>제3회 미래융합 인재 발굴 소프트웨어 챌린지 고등부</b>. 경산시장상, 본선 10팀 중 3위. <a href="https://github.com/Bugeon151/The-3rd-Future-Convergence-Talent-Discovery-Software-Challenge" target="_blank" rel="noopener">NEAR-ZERO X ↗</a>(산업 현장 충돌 예측·예방 시스템). 과학기술정보통신부·경산시 공동 주최.</p>
-        <p lang="en"><b>3rd Future Convergence Talent Software Challenge, high school division.</b> Gyeongsan Mayor's Award, 3rd of 10 finalist teams, with <a href="https://github.com/Bugeon151/The-3rd-Future-Convergence-Talent-Discovery-Software-Challenge" target="_blank" rel="noopener">NEAR-ZERO X ↗</a>, a system that predicts and prevents collisions at industrial work sites. Co-hosted by Korea's Ministry of Science and ICT and Gyeongsan City.</p>
-        <div class="shots"><a class="shot" href="img/shots/nearzero.jpg" data-ko="NEAR-ZERO X 시뮬레이션 대시보드(SIM 모드): 위험 점수와 개입안별 결과 위험" data-en="NEAR-ZERO X simulation dashboard (SIM mode): risk score and resulting risk per intervention"><img src="img/shots/nearzero.jpg" alt="NEAR-ZERO X simulation dashboard (SIM mode): risk score and resulting risk per intervention" width="1400" height="758" loading="lazy"></a></div></div></article>
+        <p lang="ko"><b>제3회 미래융합 인재 발굴 소프트웨어 챌린지 고등부</b>. 경산시장상, 본선 10팀 중 3위. <a href="#p-nearzero">NEAR-ZERO X</a>(산업 현장 충돌 예측·예방 시스템). 과학기술정보통신부·경산시 공동 주최.</p>
+        <p lang="en"><b>3rd Future Convergence Talent Software Challenge, high school division.</b> Gyeongsan Mayor's Award, 3rd of 10 finalist teams, with <a href="#p-nearzero">NEAR-ZERO X</a>, a system that predicts and prevents collisions at industrial work sites. Co-hosted by Korea's Ministry of Science and ICT and Gyeongsan City.</p></div></article>
       <article class="row"><div class="row__m"><h3 lang="ko">장려상</h3><h3 lang="en">7th place</h3><p>2026</p></div><div class="row__b tx">
-        <p lang="ko"><b>제2회 성남 × KAIST AI 경진대회 학생부</b>. 장려상(7위). <a href="https://github.com/Bugeon151/seongnamXKAIST" target="_blank" rel="noopener">MobiLens ↗</a></p>
-        <p lang="en"><b>2nd Seongnam × KAIST AI Competition, student division.</b> 7th place and Encouragement Award, with <a href="https://github.com/Bugeon151/seongnamXKAIST" target="_blank" rel="noopener">MobiLens ↗</a></p>
-        <div class="shots"><a class="shot" href="img/shots/mobilens-mvi.jpg" data-ko="성남시 동별 이동취약지수(MVI) 지도, 상위 5개 동 표시" data-en="MobiLens: mobility vulnerability index (MVI) by neighborhood in Seongnam, top 5 labeled"><img src="img/shots/mobilens-mvi.jpg" alt="MobiLens: mobility vulnerability index (MVI) by neighborhood in Seongnam, top 5 labeled" width="1390" height="1296" loading="lazy"></a><a class="shot" href="img/shots/mobilens-routes.jpg" data-ko="정책 A/B/C 거점과 차량 순환노선(OSM 차량망 최단경로)" data-en="Policy A/B/C hubs and vehicle loop routes (shortest paths on the OSM road network)"><img src="img/shots/mobilens-routes.jpg" alt="Policy A/B/C hubs and vehicle loop routes (shortest paths on the OSM road network)" width="1382" height="1345" loading="lazy"></a><a class="shot" href="img/shots/mobilens-before-after.jpg" data-ko="정책 시행 전후 비교" data-en="Before and after each policy"><img src="img/shots/mobilens-before-after.jpg" alt="Before and after each policy" width="1317" height="793" loading="lazy"></a></div></div></article>
+        <p lang="ko"><b>제2회 성남 × KAIST AI 경진대회 학생부</b>. 장려상(7위), 196팀 중 본선 16팀. <a href="#p-mobilens">MobiLens</a>(교통약자 의료·복지 접근성 분석).</p>
+        <p lang="en"><b>2nd Seongnam × KAIST AI Competition, student division.</b> 7th place and Encouragement Award; 16 finalists from 196 teams. With <a href="#p-mobilens">MobiLens</a>, an access analysis for people with limited mobility.</p></div></article>
+      <article class="row"><div class="row__m"><h3>Ruby V</h3><p>solved.ac</p></div><div class="row__b tx">
+        <p lang="ko"><b>알고리즘 문제 해결</b>. solved.ac Ruby V, 전체 67위(상위 0.11%), 1,248문제 해결. 연결된 계정을 잃어 현재 프로필 페이지로는 확인할 수 없습니다.</p>
+        <p lang="en"><b>Competitive programming.</b> solved.ac Ruby V, ranked 67th overall (top 0.11%), 1,248 problems solved. The linked account was lost, so the profile can no longer be checked online.</p></div></article>
     </div>
   </section>
 
   <section class="sec" id="background">
-    <div class="sec__h"><h2 lang="ko">경력</h2><h2 lang="en">Background</h2></div>
+    <div class="sec__h"><h2 lang="ko">이력</h2><h2 lang="en">Background</h2></div>
     <div class="sec__b">
       <ol class="tl">
         <li><time lang="ko">2026–</time><time lang="en">2026–</time><p lang="ko"><b>Team PJ</b> 공동창업자, CTO</p><p lang="en"><b>Team PJ</b>, co-founder and CTO</p></li>
         <li><time lang="ko">2026년 4~7월</time><time lang="en">Apr–Jul 2026</time><p lang="ko"><b>Votavis</b> 파트타임 CTO. 초기 창업가가 1분 이내 피치 영상을 올리고 투자자가 보고 투자하는 앱(법인 설립 전 스타트업). 개발자 10명을 이끌고 MVP를 완성했습니다.</p><p lang="en"><b>Votavis</b>, part-time CTO. A pre-incorporation startup building an app where early-stage founders pitch in videos under a minute for investors; led 10 developers to a finished MVP.</p></li>
+        <li><time lang="ko">고등학교</time><time lang="en">High school</time><p lang="ko"><b>공학 동아리 MAKER</b> 차장(26명). 3D 프린팅 중심 동아리에서 기계 부품 대리 출력 사업을 준비하고 있습니다.</p><p lang="en"><b>MAKER engineering club</b>, vice lead (26 members). A 3D-printing club, now preparing a small business printing machine parts for others.</p></li>
+        <li><time lang="ko">중학교</time><time lang="en">Middle school</time><p lang="ko"><b>공학 동아리 AERO X</b> 리더(23명). 3개월마다 하나씩 3D 프린팅 6날개 드론, 약 1kg 비행기(노트북 실시간 조종으로 약 4분 비행), 고체연료 로켓(직접 단 고도 센서로 약 1.5km 측정)을 만들었고, 비행 제어 프로그램(Arduino Nano, ESP32)은 직접 작성했습니다.</p><p lang="en"><b>AERO X engineering club</b>, lead (23 members). One build every three months: a 3D-printed hexacopter, a 1 kg plane flown live from a laptop for about 4 minutes, and a solid-fuel rocket that reached about 1.5 km on an altimeter we fitted. I wrote the flight control code (Arduino Nano, ESP32).</p></li>
+        <li><time lang="ko">중학교</time><time lang="en">Middle school</time><p lang="ko"><b>해운대구 과학 영재원</b> 수석 수료(중2–3), <b>해운대구 발명 영재원</b> 수석 수료(중1)</p><p lang="en">Top graduate of the <b>Haeundae Science Gifted Program</b> (grades 8–9) and the <b>Haeundae Invention Gifted Program</b> (grade 7), Busan</p></li>
+        <li><time lang="ko">학력</time><time lang="en">Education</time><p lang="ko">부산 부흥중학교 졸업, 부산 부흥초등학교 졸업</p><p lang="en">Buheung Middle School and Buheung Elementary School, Busan</p></li>
       </ol>
       <div class="notes">
         <p lang="ko">AI 시스템, 알고리즘, 정보보안을 공부합니다. 임베디드·로봇 제어부터 모바일 앱, 백엔드까지 다룹니다.</p>
@@ -398,7 +431,8 @@ footer{padding-block:28px 48px;border-top:1px solid var(--rule);font-size:13.5px
         <dt>Frontend &amp; mobile</dt><dd>Next.js, React, Vite, Tailwind CSS, Flutter, sqflite</dd>
         <dt>Data</dt><dd>NumPy, pandas, SciPy, GeoPandas, OSMnx, Matplotlib, Plotly, Folium, Streamlit</dd>
         <dt>Testing</dt><dd>pytest, Vitest, JUnit 5, Testcontainers, Playwright, Fuzz testing, Concurrency testing</dd>
-        <dt>Infra &amp; tools</dt><dd>Linux, Docker, Docker Compose, GitHub Actions, Fly.io, Render, Railway, PyInstaller, Raspberry Pi</dd>
+        <dt>Infra &amp; tools</dt><dd>Linux, Docker, Docker Compose, GitHub Actions, Fly.io, Render, Railway, PyInstaller</dd>
+        <dt>Embedded</dt><dd>Arduino, ESP32, Raspberry Pi, 3D printing</dd>
       </dl>
     </div>
   </section>
